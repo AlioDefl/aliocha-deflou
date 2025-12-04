@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV de Aliocha DEFLOU</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fafafa;
+            --text: #1a1a1a;
+            --text-light: #666;
+            --text-muted: #999;
+            --border: #e5e5e5;
+            --accent: #000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            font-size: 15px;
+            line-height: 1.7;
+            font-weight: 400;
+            overflow-x: hidden;
+        }
+
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 1px solid var(--text);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease, width 0.3s, height 0.3s, border-radius 0.3s;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: difference;
+            background: white;
+        }
+
+        .cursor.hover {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: var(--text);
+            z-index: 1001;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(250, 250, 250, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transform: translateY(0);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        nav.hidden { transform: translateY(-100%); }
+        nav.scrolled { background: rgba(250, 250, 250, 0.95); }
+
+        .nav-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text);
+            letter-spacing: -0.3px;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+            animation-delay: 0.2s;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 13px;
+            position: relative;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:nth-child(1) { animation-delay: 0.3s; }
+        .nav-links a:nth-child(2) { animation-delay: 0.4s; }
+        .nav-links a:nth-child(3) { animation-delay: 0.5s; }
+        .nav-links a:nth-child(4) { animation-delay: 0.6s; }
+        .nav-links a:nth-child(5) { animation-delay: 0.7s; }
+        .nav-links a:nth-child(6) { animation-delay: 0.8s; }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--text);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover { color: var(--text); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a.active { color: var(--text); }
+        .nav-links a.active::after { width: 100%; }
+
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 8rem 0;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+
+        section:last-of-type { border-bottom: none; }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        #accueil {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 600;
+            letter-spacing: -4px;
+            margin-bottom: 1rem;
+            line-height: 1;
+            overflow: hidden;
+        }
+
+        .hero-title .char {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(100%);
+            animation: charReveal 0.6s ease forwards;
+        }
+
+        @keyframes charReveal {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 4rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+            animation-delay: 1s;
+        }
+
+        .hero-text {
+            color: var(--text-light);
+            max-width: 600px;
+            line-height: 1.9;
+            font-size: 1.05rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+            animation-delay: 1.2s;
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+            animation-delay: 1.5s;
+        }
+
+        .hero-scroll span {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 60px;
+            background: linear-gradient(to bottom, var(--text), transparent);
+            animation: scrollPulse 2s ease infinite;
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% { transform: scaleY(1); opacity: 1; }
+            50% { transform: scaleY(0.5); opacity: 0.5; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 4rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .item {
+            margin-bottom: 4rem;
+            padding-left: 2rem;
+            border-left: 1px solid var(--border);
+            position: relative;
+            transition: border-color 0.3s ease;
+        }
+
+        .item:hover { border-left-color: var(--text); }
+
+        .item::before {
+            content: '';
+            position: absolute;
+            left: -4px;
+            top: 0;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .item:hover::before {
+            background: var(--text);
+            border-color: var(--text);
+            transform: scale(1.3);
+        }
+
+        .item:last-child { margin-bottom: 0; }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .item-title {
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .item:hover .item-title { transform: translateX(5px); }
+
+        .item-date {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .item-place {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-bottom: 1rem;
+        }
+
+        .item-desc {
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .item-tags {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            color: var(--text-muted);
+            background: transparent;
+            padding: 0.4rem 0.8rem;
+            border-radius: 50px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            background: var(--text);
+            color: var(--bg);
+            border-color: var(--text);
+        }
+
+        .projects-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .project {
+            padding: 2rem;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .project::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.02) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border-color: var(--text);
+        }
+
+        .project:hover::before { opacity: 1; }
+
+        .project-type {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            display: inline-block;
+            padding: 0.3rem 0.6rem;
+            background: #f0f0f0;
+            border-radius: 4px;
+        }
+
+        .project-title {
+            font-weight: 500;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-year {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .project-desc {
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .project-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+            color: var(--text);
+            font-size: 13px;
+            font-weight: 500;
+            transition: gap 0.3s ease;
+        }
+
+        .project:hover .project-cta { gap: 1rem; }
+
+        .project-cta::after {
+            content: '→';
+            transition: transform 0.3s ease;
+        }
+
+        .project:hover .project-cta::after { transform: translateX(5px); }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            background: var(--bg);
+            border-radius: 16px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: translateY(50px) scale(0.95);
+            transition: transform 0.4s ease;
+            position: relative;
+        }
+
+        .modal-overlay.active .modal {
+            transform: translateY(0) scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            background: var(--bg);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            background: var(--text);
+            color: var(--bg);
+            border-color: var(--text);
+        }
+
+        .modal-content { padding: 3rem; }
+
+        .modal-header {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .modal-type {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            background: #f0f0f0;
+            border-radius: 4px;
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-year {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .modal-section { margin-bottom: 2rem; }
+        .modal-section:last-child { margin-bottom: 0; }
+
+        .modal-section-title {
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .modal-section-content {
+            color: var(--text-light);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .modal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .modal-tag {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            color: var(--text);
+            background: #f0f0f0;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .modal-tag:hover {
+            background: var(--text);
+            color: var(--bg);
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+        }
+
+        .skills-group {
+            padding: 2rem;
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .skills-group:hover { transform: scale(1.02); }
+
+        .skills-label {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .skills-label::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--text);
+            border-radius: 2px;
+        }
+
+        .skills-list {
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 2;
+        }
+
+        .lang-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .lang-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            background: white;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .lang-item:hover { transform: translateX(10px); }
+
+        .lang-level {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            color: var(--text-muted);
+            background: #f0f0f0;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .contact-item {
+            padding: 2rem;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-item::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--text);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+        }
+
+        .contact-item:hover::before { transform: scaleX(1); }
+
+        .contact-label {
+            font-size: 10px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-value {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .contact-value a {
+            color: var(--text);
+            text-decoration: none;
+            position: relative;
+        }
+
+        .contact-value a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--text);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-value a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        footer {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .bg-shape {
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.03;
+            background: var(--text);
+        }
+
+        .bg-shape-1 { width: 600px; height: 600px; top: -200px; right: -200px; }
+        .bg-shape-2 { width: 400px; height: 400px; bottom: 20%; left: -150px; }
+        .bg-shape-3 { width: 300px; height: 300px; bottom: -100px; right: 10%; }
+
+        @media (max-width: 768px) {
+            .cursor { display: none; }
+            .nav-links { gap: 1rem; }
+            .nav-links a { font-size: 11px; }
+            .hero-title { letter-spacing: -2px; }
+            section { padding: 5rem 0; }
+            .skills-container { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .item { padding-left: 1.5rem; }
+            .item-header { flex-direction: column; gap: 0.25rem; }
+            .modal-content { padding: 2rem; }
+            .modal-title { font-size: 1.5rem; }
+        }
+
+        @media (max-width: 500px) {
+            .nav-links { display: none; }
+        }
+
+        body.modal-open { overflow: hidden; }
+    </style>
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="progress-bar"></div>
+
+    <div class="bg-shape bg-shape-1"></div>
+    <div class="bg-shape bg-shape-2"></div>
+    <div class="bg-shape bg-shape-3"></div>
+
+    <div class="modal-overlay" id="modal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-type" id="modal-type"></span>
+                    <h2 class="modal-title" id="modal-title"></h2>
+                    <span class="modal-year" id="modal-year"></span>
+                </div>
+                <div class="modal-section">
+                    <p class="modal-section-title">Description</p>
+                    <p class="modal-section-content" id="modal-desc"></p>
+                </div>
+                <div class="modal-section">
+                    <p class="modal-section-title">Défis</p>
+                    <p class="modal-section-content" id="modal-challenges"></p>
+                </div>
+                <div class="modal-section">
+                    <p class="modal-section-title">Apprentissages</p>
+                    <p class="modal-section-content" id="modal-learnings"></p>
+                </div>
+                <div class="modal-section">
+                    <p class="modal-section-title">Impact</p>
+                    <p class="modal-section-content" id="modal-impact"></p>
+                </div>
+                <div class="modal-section">
+                    <p class="modal-section-title">Technologies</p>
+                    <div class="modal-tags" id="modal-tech"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav>
+        <div class="nav-inner">
+            <span class="nav-logo">Aliocha Deflou</span>
+            <div class="nav-links">
+                <a href="#accueil" class="active">Accueil</a>
+                <a href="#formations">Formations</a>
+                <a href="#experiences">Expériences</a>
+                <a href="#realisations">Réalisations</a>
+                <a href="#competences">Compétences</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="accueil">
+            <h1 class="hero-title">
+                <span class="word" id="title-text"></span>
+            </h1>
+            <p class="hero-subtitle">Étudiant en BUT Informatique · IUT de Lille</p>
+            <p class="hero-text">
+                Étudiant en deuxième année de BUT Informatique à l'IUT de Lille, je me passionne pour le développement logiciel et la création d'applications. Curieux et rigoureux, je recherche un stage de 3 mois en développement informatique pour mettre en pratique mes compétences.
+            </p>
+            <div class="hero-scroll">
+                <span>Scroll</span>
+                <div class="scroll-line"></div>
+            </div>
+        </section>
+
+        <section id="formations">
+            <h2 class="section-title reveal">Formations</h2>
+
+            <div class="item reveal reveal-delay-1">
+                <div class="item-header">
+                    <span class="item-title">BUT Informatique</span>
+                    <span class="item-date">2024 – Présent</span>
+                </div>
+                <p class="item-place">IUT de Lille – Université de Lille</p>
+                <p class="item-desc">Formation en développement logiciel, bases de données, réseaux et gestion de projet. Apprentissage des méthodologies agiles et travail en équipe.</p>
+            </div>
+
+            <div class="item reveal reveal-delay-2">
+                <div class="item-header">
+                    <span class="item-title">Prépa Ingénieur – Cycle Informatique et Réseaux</span>
+                    <span class="item-date">2023 – 2024</span>
+                </div>
+                <p class="item-place">ISEN Lille</p>
+                <p class="item-desc">Année préparatoire avec focus sur les fondamentaux de l'informatique et des réseaux.</p>
+            </div>
+
+            <div class="item reveal reveal-delay-3">
+                <div class="item-header">
+                    <span class="item-title">Baccalauréat Général – Spécialités Maths & NSI</span>
+                    <span class="item-date">2020 – 2023</span>
+                </div>
+                <p class="item-place">Lycée E. Branly, Boulogne-sur-Mer</p>
+                <p class="item-desc">Première approche de la programmation avec la spécialité NSI. Développement de la logique algorithmique.</p>
+            </div>
+
+            <div class="item reveal reveal-delay-4">
+                <div class="item-header">
+                    <span class="item-title">Brevet des Collèges – Option Internationale</span>
+                    <span class="item-date">2016 – 2020</span>
+                </div>
+                <p class="item-place">Collège Daunou, Boulogne-sur-Mer</p>
+            </div>
+        </section>
+
+        <section id="experiences">
+            <h2 class="section-title reveal">Expériences</h2>
+
+            <div class="item reveal reveal-delay-1">
+                <div class="item-header">
+                    <span class="item-title">Caissier / Emballage</span>
+                    <span class="item-date">2024 – Présent</span>
+                </div>
+                <p class="item-place">Super U – CDI</p>
+                <p class="item-desc">Accueil et encaissement des clients. Mise en sac des articles et maintien de la propreté de l'espace de caisse. Gestion des opérations de fidélité et traitement des retours.</p>
+                <div class="item-tags">
+                    <span class="tag">Relation client</span>
+                    <span class="tag">Rapidité</span>
+                    <span class="tag">Rigueur</span>
+                </div>
+            </div>
+
+            <div class="item reveal reveal-delay-2">
+                <div class="item-header">
+                    <span class="item-title">Employé Libre-Service</span>
+                    <span class="item-date">Été 2024</span>
+                </div>
+                <p class="item-place">Super U – Noirmoutier-en-l'Île</p>
+                <p class="item-desc">Approvisionnement et organisation des rayons. Contrôle des dates de péremption et de la signalétique. Orientation des clients et participation aux inventaires.</p>
+                <div class="item-tags">
+                    <span class="tag">Organisation</span>
+                    <span class="tag">Autonomie</span>
+                    <span class="tag">Service client</span>
+                </div>
+            </div>
+
+            <div class="item reveal reveal-delay-3">
+                <div class="item-header">
+                    <span class="item-title">Saunier</span>
+                    <span class="item-date">Étés 2022 & 2023</span>
+                </div>
+                <p class="item-place">Marais salants – Noirmoutier-en-l'Île</p>
+                <p class="item-desc">Entretien du marais salant et réalisation des opérations de production et de récolte du sel.</p>
+                <div class="item-tags">
+                    <span class="tag">Endurance</span>
+                    <span class="tag">Rigueur</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="realisations">
+            <h2 class="section-title reveal">Réalisations</h2>
+
+            <div class="projects-grid">
+                <div class="project reveal reveal-delay-1" onclick="openModal(1)">
+                    <span class="project-type">Développement Web</span>
+                    <h3 class="project-title">Portfolio Architecte</h3>
+                    <p class="project-year">2025</p>
+                    <p class="project-desc">Développement d'un site web portfolio moderne pour un architecte, mettant en valeur ses créations architecturales.</p>
+                    <div class="item-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">Tailwind</span>
+                    </div>
+                    <span class="project-cta">Voir les détails</span>
+                </div>
+
+                <div class="project reveal reveal-delay-2" onclick="openModal(2)">
+                    <span class="project-type">Développement Jeu</span>
+                    <h3 class="project-title">Jeu Risk</h3>
+                    <p class="project-year">2025</p>
+                    <p class="project-desc">Jeu de stratégie complet exécutable sur le terminal.</p>
+                    <div class="item-tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">Terminal</span>
+                        <span class="tag">OOP</span>
+                    </div>
+                    <span class="project-cta">Voir les détails</span>
+                </div>
+
+                <div class="project reveal reveal-delay-1" onclick="openModal(3)">
+                    <span class="project-type">App Bureau</span>
+                    <h3 class="project-title">Séjours Linguistiques</h3>
+                    <p class="project-year">2025</p>
+                    <p class="project-desc">Application d'organisation de séjours avec interface graphique complète.</p>
+                    <div class="item-tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">IHM</span>
+                        <span class="tag">Swing</span>
+                    </div>
+                    <span class="project-cta">Voir les détails</span>
+                </div>
+
+                <div class="project reveal reveal-delay-2" onclick="openModal(4)">
+                    <span class="project-type">Intégration Web</span>
+                    <h3 class="project-title">Site OpenAI</h3>
+                    <p class="project-year">2023</p>
+                    <p class="project-desc">Re-création fidèle du site officiel d'OpenAI.</p>
+                    <div class="item-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">Responsive</span>
+                    </div>
+                    <span class="project-cta">Voir les détails</span>
+                </div>
+
+                <div class="project reveal reveal-delay-1" onclick="openModal(5)">
+                    <span class="project-type">Développement Jeu</span>
+                    <h3 class="project-title">Mauscape</h3>
+                    <p class="project-year">2023</p>
+                    <p class="project-desc">Jeu d'aventure textuel jouable dans le terminal.</p>
+                    <div class="item-tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">Terminal</span>
+                    </div>
+                    <span class="project-cta">Voir les détails</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="competences">
+            <h2 class="section-title reveal">Compétences</h2>
+
+            <div class="skills-container">
+                <div class="skills-group reveal reveal-delay-1">
+                    <p class="skills-label">Langages de programmation</p>
+                    <p class="skills-list">Java, Python, C, HTML/CSS, SQL, TypeScript</p>
+                </div>
+
+                <div class="skills-group reveal reveal-delay-2">
+                    <p class="skills-label">Frameworks & Outils</p>
+                    <p class="skills-list">React, Next.js, Node.js, Tailwind CSS, Git, Vite, Figma</p>
+                </div>
+
+                <div class="skills-group reveal reveal-delay-3">
+                    <p class="skills-label">Savoir-être</p>
+                    <p class="skills-list">Rigueur, organisation, autonomie, travail en équipe, adaptation, ponctualité</p>
+                </div>
+
+                <div class="skills-group reveal reveal-delay-4">
+                    <p class="skills-label">Langues</p>
+                    <div class="lang-grid">
+                        <div class="lang-item">
+                            <span>Anglais</span>
+                            <span class="lang-level">B2 (TOEIC)</span>
+                        </div>
+                        <div class="lang-item">
+                            <span>Espagnol</span>
+                            <span class="lang-level">B1</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-group reveal reveal-delay-1" style="grid-column: span 2;">
+                    <p class="skills-label">Certifications</p>
+                    <p class="skills-list">Certification PIX · PSC1 (secourisme)</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title reveal">Contact</h2>
+
+            <div class="contact-grid">
+                <div class="contact-item reveal reveal-delay-1">
+                    <p class="contact-label">Email</p>
+                    <p class="contact-value"><a href="mailto:aliocha.deflou@gmail.com">aliocha.deflou@gmail.com</a></p>
+                </div>
+
+                <div class="contact-item reveal reveal-delay-2">
+                    <p class="contact-label">Portfolio</p>
+                    <p class="contact-value"><a href="https://portfolio-aliocha.vercel.app/" target="_blank">portfolio-aliocha.vercel.app</a></p>
+                </div>
+
+                <div class="contact-item reveal reveal-delay-3">
+                    <p class="contact-label">CV</p>
+                    <p class="contact-value"><a href="CV_Aliocha_DEFLOU.pdf" download>Télécharger mon CV</a></p>
+                </div>
+
+                <div class="contact-item reveal reveal-delay-4">
+                    <p class="contact-label">LinkedIn</p>
+                    <p class="contact-value"><a href="https://www.linkedin.com/in/aliocha-deflou-59606a265/" target="_blank">LinkedIn</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p class="reveal">© 2024 Aliocha Deflou · CV Numérique · BUT Informatique</p>
+    </footer>
+
+    <script>
+        const projects = {
+            1: {
+                title: "Portfolio Architecte",
+                type: "Développement Web",
+                year: "2025",
+                description: "Développement d'un site web portfolio moderne pour un architecte, mettant en valeur ses créations architecturales.",
+                challenges: "Design responsive pour mettre en valeur les images architecturales, optimisation des performances pour les images haute résolution, interface intuitive pour la navigation des projets.",
+                learnings: "Développement front-end moderne, optimisation d'images web, design responsive avancé, intégration de galeries photo.",
+                impact: "Projet qui m'a permis d'explorer le domaine de l'architecture et de développer mes compétences en design web pour des portfolios professionnels.",
+                tech: ["React", "TypeScript", "Tailwind", "Vite"]
+            },
+            2: {
+                title: "Jeu Risk",
+                type: "Développement Jeu",
+                year: "2025",
+                description: "Jeu de stratégie complet exécutable sur le terminal.",
+                challenges: "Gestion de la logique de jeu complexe, implémentation de l'IA pour les adversaires, gestion de l'état du jeu en temps réel.",
+                learnings: "Programmation orientée objet avancée, algorithmes de stratégie, gestion de la mémoire en Java.",
+                impact: "Amélioration significative de la compréhension des structures de données et de la logique algorithmique.",
+                tech: ["Java", "Terminal", "OOP"]
+            },
+            3: {
+                title: "Séjours Linguistiques",
+                type: "App Bureau",
+                year: "2025",
+                description: "Application d'organisation de séjours avec interface graphique complète.",
+                challenges: "Conception d'une interface utilisateur intuitive avec Swing, gestion de base de données locale, synchronisation des données.",
+                learnings: "Développement d'interfaces graphiques (GUI), gestion d'événements, persistance des données.",
+                impact: "Création d'un outil fonctionnel facilitant la gestion administrative des séjours.",
+                tech: ["Java", "IHM", "Swing"]
+            },
+            4: {
+                title: "Site OpenAI",
+                type: "Intégration Web",
+                year: "2023",
+                description: "Re-création fidèle du site officiel d'OpenAI.",
+                challenges: "Reproduction fidèle du design pixel-perfect, gestion des animations CSS complexes, compatibilité cross-browser.",
+                learnings: "Maîtrise avancée de CSS3, Flexbox et Grid, bonnes pratiques d'intégration web.",
+                impact: "Démonstration de la capacité à reproduire des designs professionnels complexes.",
+                tech: ["HTML", "CSS", "Responsive"]
+            },
+            5: {
+                title: "Mauscape",
+                type: "Développement Jeu",
+                year: "2023",
+                description: "Jeu d'aventure textuel jouable dans le terminal.",
+                challenges: "Création d'un moteur de jeu textuel, gestion des scénarios à embranchements, parsing des commandes utilisateur.",
+                learnings: "Logique de programmation fondamentale, gestion des entrées/sorties, structuration de code.",
+                impact: "Premier projet complet de jeu, renforçant la passion pour le développement logiciel.",
+                tech: ["Java", "Terminal"]
+            }
+        };
+
+        function openModal(projectId) {
+            const project = projects[projectId];
+            if (!project) return;
+
+            document.getElementById('modal-type').textContent = project.type;
+            document.getElementById('modal-title').textContent = project.title;
+            document.getElementById('modal-year').textContent = project.year;
+            document.getElementById('modal-desc').textContent = project.description;
+            document.getElementById('modal-challenges').textContent = project.challenges;
+            document.getElementById('modal-learnings').textContent = project.learnings;
+            document.getElementById('modal-impact').textContent = project.impact;
+
+            const techContainer = document.getElementById('modal-tech');
+            techContainer.innerHTML = project.tech.map(t => '<span class="modal-tag">' + t + '</span>').join('');
+
+            document.getElementById('modal').classList.add('active');
+            document.body.classList.add('modal-open');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+            document.body.classList.remove('modal-open');
+        }
+
+        document.getElementById('modal').addEventListener('click', function(e) {
+            if (e.target.id === 'modal') {
+                closeModal();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        var titleText = "Aliocha Deflou";
+        var titleContainer = document.getElementById('title-text');
+        
+        titleText.split('').forEach(function(char, i) {
+            var span = document.createElement('span');
+            span.className = 'char';
+            span.textContent = char === ' ' ? '\u00A0' : char;
+            span.style.animationDelay = (0.3 + i * 0.05) + 's';
+            titleContainer.appendChild(span);
+        });
+
+        var cursor = document.querySelector('.cursor');
+        var mouseX = 0, mouseY = 0;
+        var cursorX = 0, cursorY = 0;
+
+        document.addEventListener('mousemove', function(e) {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animateCursor() {
+            cursorX += (mouseX - cursorX) * 0.15;
+            cursorY += (mouseY - cursorY) * 0.15;
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top = cursorY + 'px';
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        document.querySelectorAll('a, button, .project, .contact-item, .tag, .modal-close').forEach(function(el) {
+            el.addEventListener('mouseenter', function() { cursor.classList.add('hover'); });
+            el.addEventListener('mouseleave', function() { cursor.classList.remove('hover'); });
+        });
+
+        var progressBar = document.querySelector('.progress-bar');
+        
+        window.addEventListener('scroll', function() {
+            var scrollTop = window.scrollY;
+            var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            var scrollPercent = (scrollTop / docHeight) * 100;
+            progressBar.style.width = scrollPercent + '%';
+        });
+
+        var lastScroll = 0;
+        var nav = document.querySelector('nav');
+
+        window.addEventListener('scroll', function() {
+            var currentScroll = window.scrollY;
+            
+            if (currentScroll > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+
+            if (currentScroll > lastScroll && currentScroll > 300) {
+                nav.classList.add('hidden');
+            } else {
+                nav.classList.remove('hidden');
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        var sections = document.querySelectorAll('section');
+        var navLinks = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', function() {
+            var current = '';
+            
+            sections.forEach(function(section) {
+                var sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(function(link) {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        var reveals = document.querySelectorAll('.reveal');
+
+        function revealOnScroll() {
+            reveals.forEach(function(el) {
+                var windowHeight = window.innerHeight;
+                var revealTop = el.getBoundingClientRect().top;
+                var revealPoint = 150;
+
+                if (revealTop < windowHeight - revealPoint) {
+                    el.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+
+        var shapes = document.querySelectorAll('.bg-shape');
+        
+        window.addEventListener('scroll', function() {
+            var scrollY = window.scrollY;
+            shapes.forEach(function(shape, i) {
+                var speed = (i + 1) * 0.05;
+                shape.style.transform = 'translateY(' + (scrollY * speed) + 'px)';
+            });
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                var target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
