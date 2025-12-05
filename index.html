@@ -30,6 +30,8 @@
             overflow-x: hidden;
         }
 
+        body.modal-open { overflow: hidden; }
+
         .cursor {
             width: 20px; height: 20px;
             border: 1px solid var(--text);
@@ -274,6 +276,7 @@
         .project-cta::after { content: '→'; transition: transform 0.3s ease; }
         .project:hover .project-cta::after { transform: translateX(5px); }
 
+        /* Modal projets */
         .modal-overlay {
             position: fixed; top: 0; left: 0; right: 0; bottom: 0;
             background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(8px);
@@ -326,6 +329,121 @@
             padding: 0.5rem 1rem; border-radius: 50px; transition: all 0.3s ease;
         }
         .modal-tag:hover { background: var(--text); color: var(--bg); }
+
+        /* Modal mentions légales */
+        .legal-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .legal-modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .legal-modal-content {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 2rem;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .legal-modal-overlay.active .legal-modal-content {
+            transform: scale(1);
+        }
+
+        .legal-modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .legal-modal-close:hover {
+            background: var(--text);
+            color: var(--bg);
+            border-color: var(--text);
+        }
+
+        .legal-modal-content h2 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+
+        .legal-modal-content h3 {
+            font-size: 1rem;
+            margin: 1.5rem 0 0.5rem;
+            color: var(--text);
+        }
+
+        .legal-modal-content p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .legal-modal-content a {
+            color: var(--text);
+            text-decoration: underline;
+        }
+
+        .legal-modal-content hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 2rem 0;
+        }
+
+        /* Footer */
+        .footer-legal {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-legal button {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: color 0.2s;
+            font-family: 'IBM Plex Sans', sans-serif;
+        }
+
+        .footer-legal button:hover {
+            color: var(--text);
+        }
 
         .skills-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem; }
         .skills-group {
@@ -407,116 +525,53 @@
             .modal-title { font-size: 1.5rem; }
         }
         @media (max-width: 500px) { .nav-links { display: none; } }
-        body.modal-open { overflow: hidden; }
-        /* Modal mentions légales */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
-            z-index: 2000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .modal-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0.9);
-            background: var(--bg-card, #18181b);
-            border: 1px solid var(--border, #27272a);
-            border-radius: 12px;
-            max-width: 600px;
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-            padding: 2rem;
-            transition: transform 0.3s ease;
-        }
-        
-        .modal-overlay.active .modal-content {
-            transform: translate(-50%, -50%) scale(1);
-        }
-        
-        .modal-close {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: none;
-            border: none;
-            color: var(--text-secondary, #a1a1aa);
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-        
-        .modal-close:hover {
-            color: var(--text-primary, #fafafa);
-        }
-        
-        .modal-content h2 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-primary, #fafafa);
-        }
-        
-        .modal-content h3 {
-            font-size: 1rem;
-            margin: 1.5rem 0 0.5rem;
-            color: var(--text-primary, #fafafa);
-        }
-        
-        .modal-content p {
-            color: var(--text-secondary, #a1a1aa);
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-        
-        .modal-content a {
-            color: var(--accent, #22c55e);
-        }
-        
-        .modal-content hr {
-            border: none;
-            border-top: 1px solid var(--border, #27272a);
-            margin: 2rem 0;
-        }
-        
-        /* Footer link */
-        .footer-legal {
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--border, #27272a);
-        }
-        
-        .footer-legal button {
-            background: none;
-            border: none;
-            color: var(--text-muted, #71717a);
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-        
-        .footer-legal button:hover {
-            color: var(--text-secondary, #a1a1aa);
-        }
     </style>
 </head>
+<body>
+    <div class="cursor"></div>
+    <div class="progress-bar"></div>
+    <div class="bg-shape bg-shape-1"></div>
+    <div class="bg-shape bg-shape-2"></div>
+    <div class="bg-shape bg-shape-3"></div>
+
+    <!-- Modal Projets -->
+    <div class="modal-overlay" id="projectModal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeProjectModal()">✕</button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-type" id="modal-type"></span>
+                    <h2 class="modal-title" id="modal-title"></h2>
+                    <span class="modal-year" id="modal-year"></span>
+                </div>
+                <div class="modal-section">
+                    <p class="modal-section-title">Description</p>
+                    <p class="modal-section-content" id="modal-desc"></p>
+                </div>
+                <div class="modal-section">
+                    <p class="modal-section-title">Défis</p>
+                    <p class="modal-section-content" id="modal-challenges"></p>
+                </div>
+                <div class="modal-section">
+                    <p class="modal-section-title">Apprentissages</p>
+                    <p class="modal-section-content" id="modal-learnings"></p>
+                </div>
+                <div class="modal-section">
+                    <p class="modal-section-title">Impact</p>
+                    <p class="modal-section-content" id="modal-impact"></p>
+                </div>
+                <div class="modal-section">
+                    <p class="modal-section-title">Technologies</p>
+                    <div class="modal-tags" id="modal-tech"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Modal Mentions Légales -->
-    <div class="modal-overlay" id="legalModal" onclick="closeModal(event)">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <button class="modal-close" onclick="closeModal()">&times;</button>
+    <div class="legal-modal-overlay" id="legalModal" onclick="closeLegalModal(event)">
+        <div class="legal-modal-content" onclick="event.stopPropagation()">
+            <button class="legal-modal-close" onclick="closeLegalModal()">✕</button>
             
             <h2>Mentions Légales</h2>
             
@@ -564,45 +619,6 @@
                 Vous disposez d'un droit d'accès, de rectification et de suppression de vos données.<br>
                 Contact : aliocha.deflou@gmail.com
             </p>
-        </div>
-    </div>
-<body>
-    <div class="cursor"></div>
-    <div class="progress-bar"></div>
-    <div class="bg-shape bg-shape-1"></div>
-    <div class="bg-shape bg-shape-2"></div>
-    <div class="bg-shape bg-shape-3"></div>
-
-    <div class="modal-overlay" id="modal">
-        <div class="modal">
-            <button class="modal-close" onclick="closeModal()">✕</button>
-            <div class="modal-content">
-                <div class="modal-header">
-                    <span class="modal-type" id="modal-type"></span>
-                    <h2 class="modal-title" id="modal-title"></h2>
-                    <span class="modal-year" id="modal-year"></span>
-                </div>
-                <div class="modal-section">
-                    <p class="modal-section-title">Description</p>
-                    <p class="modal-section-content" id="modal-desc"></p>
-                </div>
-                <div class="modal-section">
-                    <p class="modal-section-title">Défis</p>
-                    <p class="modal-section-content" id="modal-challenges"></p>
-                </div>
-                <div class="modal-section">
-                    <p class="modal-section-title">Apprentissages</p>
-                    <p class="modal-section-content" id="modal-learnings"></p>
-                </div>
-                <div class="modal-section">
-                    <p class="modal-section-title">Impact</p>
-                    <p class="modal-section-content" id="modal-impact"></p>
-                </div>
-                <div class="modal-section">
-                    <p class="modal-section-title">Technologies</p>
-                    <div class="modal-tags" id="modal-tech"></div>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -711,8 +727,7 @@
         <section id="realisations">
             <h2 class="section-title reveal">Réalisations</h2>
             <div class="projects-grid">
-                <!-- 3 premiers projets visibles -->
-                <div class="project reveal reveal-delay-1" onclick="openModal(1)">
+                <div class="project reveal reveal-delay-1" onclick="openProjectModal(1)">
                     <span class="project-type">Développement Web</span>
                     <h3 class="project-title">Portfolio Architecte</h3>
                     <p class="project-year">2025</p>
@@ -725,7 +740,7 @@
                     <span class="project-cta">Voir les détails</span>
                 </div>
 
-                <div class="project reveal reveal-delay-2" onclick="openModal(2)">
+                <div class="project reveal reveal-delay-2" onclick="openProjectModal(2)">
                     <span class="project-type">Développement Jeu</span>
                     <h3 class="project-title">Jeu Risk</h3>
                     <p class="project-year">2025</p>
@@ -738,7 +753,7 @@
                     <span class="project-cta">Voir les détails</span>
                 </div>
 
-                <div class="project reveal reveal-delay-1" onclick="openModal(3)">
+                <div class="project reveal reveal-delay-1" onclick="openProjectModal(3)">
                     <span class="project-type">App Bureau</span>
                     <h3 class="project-title">Séjours Linguistiques</h3>
                     <p class="project-year">2025</p>
@@ -751,8 +766,7 @@
                     <span class="project-cta">Voir les détails</span>
                 </div>
 
-                <!-- Projets cachés -->
-                <div class="project hidden-project" onclick="openModal(4)">
+                <div class="project hidden-project" onclick="openProjectModal(4)">
                     <span class="project-type">Intégration Web</span>
                     <h3 class="project-title">Site OpenAI</h3>
                     <p class="project-year">2023</p>
@@ -765,7 +779,7 @@
                     <span class="project-cta">Voir les détails</span>
                 </div>
 
-                <div class="project hidden-project" onclick="openModal(5)">
+                <div class="project hidden-project" onclick="openProjectModal(5)">
                     <span class="project-type">Développement Jeu</span>
                     <h3 class="project-title">Mauscape</h3>
                     <p class="project-year">2023</p>
@@ -845,11 +859,12 @@
     <footer>
         <p class="reveal">© 2024 Aliocha Deflou · CV Numérique · BUT Informatique</p>
         <div class="footer-legal">
-            <button onclick="openModal()">Mentions légales & Confidentialité</button>
+            <button onclick="openLegalModal()">Mentions légales & Confidentialité</button>
         </div>
     </footer>
 
     <script>
+        // Données des projets
         var projects = {
             1: { title: "Portfolio Architecte", type: "Développement Web", year: "2025",
                 description: "Développement d'un site web portfolio moderne pour un architecte, mettant en valeur ses créations architecturales.",
@@ -883,8 +898,10 @@
                 tech: ["Java", "Terminal"] }
         };
 
-        function openModal(id) {
-            var p = projects[id]; if (!p) return;
+        // Modal Projets
+        function openProjectModal(id) {
+            var p = projects[id]; 
+            if (!p) return;
             document.getElementById('modal-type').textContent = p.type;
             document.getElementById('modal-title').textContent = p.title;
             document.getElementById('modal-year').textContent = p.year;
@@ -892,18 +909,42 @@
             document.getElementById('modal-challenges').textContent = p.challenges;
             document.getElementById('modal-learnings').textContent = p.learnings;
             document.getElementById('modal-impact').textContent = p.impact;
-            document.getElementById('modal-tech').innerHTML = p.tech.map(function(t) { return '<span class="modal-tag">' + t + '</span>'; }).join('');
-            document.getElementById('modal').classList.add('active');
+            document.getElementById('modal-tech').innerHTML = p.tech.map(function(t) { 
+                return '<span class="modal-tag">' + t + '</span>'; 
+            }).join('');
+            document.getElementById('projectModal').classList.add('active');
             document.body.classList.add('modal-open');
         }
 
-        function closeModal() {
-            document.getElementById('modal').classList.remove('active');
+        function closeProjectModal() {
+            document.getElementById('projectModal').classList.remove('active');
             document.body.classList.remove('modal-open');
         }
 
-        document.getElementById('modal').onclick = function(e) { if (e.target.id === 'modal') closeModal(); };
-        document.onkeydown = function(e) { if (e.key === 'Escape') closeModal(); };
+        document.getElementById('projectModal').onclick = function(e) { 
+            if (e.target.id === 'projectModal') closeProjectModal(); 
+        };
+
+        // Modal Mentions Légales
+        function openLegalModal() {
+            document.getElementById('legalModal').classList.add('active');
+            document.body.classList.add('modal-open');
+        }
+
+        function closeLegalModal(event) {
+            if (!event || event.target === event.currentTarget) {
+                document.getElementById('legalModal').classList.remove('active');
+                document.body.classList.remove('modal-open');
+            }
+        }
+
+        // Fermeture avec Escape
+        document.onkeydown = function(e) { 
+            if (e.key === 'Escape') {
+                closeProjectModal();
+                closeLegalModal();
+            }
+        };
 
         // Toggle projets cachés
         var projectsExpanded = false;
@@ -936,7 +977,7 @@
             container.appendChild(s);
         });
 
-        // Curseur
+        // Curseur personnalisé
         var cursor = document.querySelector('.cursor');
         var mx = 0, my = 0, cx = 0, cy = 0;
         document.onmousemove = function(e) { mx = e.clientX; my = e.clientY; };
@@ -945,13 +986,16 @@
             cursor.style.left = cx + 'px'; cursor.style.top = cy + 'px';
             requestAnimationFrame(anim);
         })();
-        document.querySelectorAll('a, button, .project, .contact-item, .tag, .modal-close, .show-more-btn').forEach(function(el) {
+        document.querySelectorAll('a, button, .project, .contact-item, .tag, .modal-close, .legal-modal-close, .show-more-btn').forEach(function(el) {
             el.onmouseenter = function() { cursor.classList.add('hover'); };
             el.onmouseleave = function() { cursor.classList.remove('hover'); };
         });
 
-        // Progress bar
+        // Progress bar et navigation
         var progressBar = document.querySelector('.progress-bar');
+        var lastScroll = 0;
+        var nav = document.querySelector('nav');
+
         window.onscroll = function() {
             var st = window.scrollY;
             var dh = document.documentElement.scrollHeight - window.innerHeight;
@@ -982,7 +1026,6 @@
                 s.style.transform = 'translateY(' + (scrollY * (i + 1) * 0.05) + 'px)';
             });
         };
-        var lastScroll = 0, nav = document.querySelector('nav');
 
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(function(a) {
@@ -995,22 +1038,6 @@
         // Initial reveal
         document.querySelectorAll('.reveal').forEach(function(el) {
             if (el.getBoundingClientRect().top < window.innerHeight - 150) el.classList.add('active');
-        });
-        // Modal mentions légales
-        function openModal() {
-            document.getElementById('legalModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function closeModal(event) {
-            if (!event || event.target === event.currentTarget) {
-                document.getElementById('legalModal').classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        }
-        
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') closeModal();
         });
     </script>
 </body>
