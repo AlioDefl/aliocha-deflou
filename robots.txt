@@ -1,11 +1,11 @@
 # Robots.txt pour le CV d'Aliocha Deflou
-# https://aliocha-deflou.github.io/
+# https://aliodefl.github.io/aliocha-deflou
 
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://aliocha-deflou.github.io/sitemap.xml
+Sitemap: https://aliodefl.github.io/aliocha-deflou/sitemap.xml
 
 # Autoriser tous les robots de recherche
 User-agent: Googlebot
