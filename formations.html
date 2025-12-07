@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Formation BUT Informatique Lille | Aliocha Deflou</title>
+    <meta name="description" content="Découvrez le parcours de formation d'Aliocha Deflou : BUT Informatique à l'IUT de Lille, spécialisation en développement d'applications, React, Java et TypeScript.">
+    <meta name="keywords" content="BUT informatique Lille, formation développeur web, IUT Lille, étudiant informatique, parcours développeur, alternance informatique Lille">
+    <meta name="author" content="Aliocha Deflou">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://aliodefl.github.io/aliocha-deflou/formations.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aliodefl.github.io/aliocha-deflou/formations.html">
+    <meta property="og:title" content="Formation BUT Informatique Lille | Aliocha Deflou">
+    <meta property="og:description" content="Parcours de formation en BUT Informatique à l'IUT de Lille - Développement d'applications">
+    <meta property="og:image" content="https://aliodefl.github.io/aliocha-deflou/og-image.png">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="Aliocha Deflou">
+    
+    <!-- Theme -->
+    <meta name="theme-color" content="#fafafa">
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #fafafa;
+            --text: #1a1a1a;
+            --text-light: #666;
+            --text-muted: #999;
+            --border: #e5e5e5;
+            --accent: #000;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            font-size: 15px;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        a { color: var(--text); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* Navigation */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(250, 250, 250, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            max-width: 900px; margin: 0 auto; padding: 0 2rem;
+            height: 60px; display: flex; align-items: center; justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 13px; font-weight: 500;
+        }
+
+        .nav-links { display: flex; gap: 2.5rem; }
+        .nav-links a {
+            color: var(--text-light); text-decoration: none; font-size: 13px;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover { color: var(--text); text-decoration: none; }
+        .nav-links a.active { color: var(--text); }
+
+        /* Main */
+        main { max-width: 900px; margin: 0 auto; padding: 8rem 2rem 4rem; }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            font-size: 12px; color: var(--text-muted); margin-bottom: 3rem;
+            font-family: 'IBM Plex Mono', monospace;
+        }
+        .breadcrumb a { color: var(--text-muted); }
+        .breadcrumb a:hover { color: var(--text); }
+
+        /* Page Header */
+        .page-header { margin-bottom: 4rem; }
+        .page-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 600; letter-spacing: -2px;
+            margin-bottom: 1.5rem; line-height: 1.1;
+        }
+        .page-intro {
+            color: var(--text-light); font-size: 1.05rem;
+            line-height: 1.9; max-width: 600px;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 11px; font-weight: 500; text-transform: uppercase;
+            letter-spacing: 2px; color: var(--text-muted);
+            margin-bottom: 3rem; display: flex; align-items: center; gap: 1.5rem;
+        }
+        .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+        /* Formation Item */
+        .item {
+            margin-bottom: 4rem; padding-left: 2rem;
+            border-left: 1px solid var(--border);
+            position: relative; transition: border-color 0.3s ease;
+        }
+        .item:hover { border-left-color: var(--text); }
+        .item::before {
+            content: ''; position: absolute; left: -4px; top: 0;
+            width: 7px; height: 7px; border-radius: 50%;
+            background: var(--bg); border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+        .item:hover::before {
+            background: var(--text); border-color: var(--text); transform: scale(1.3);
+        }
+        .item:last-child { margin-bottom: 0; }
+        .item.current::before { background: var(--text); border-color: var(--text); }
+        .item.current { border-left-color: var(--text); }
+
+        .item-header {
+            display: flex; justify-content: space-between; align-items: baseline;
+            margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;
+        }
+        .item-title { font-weight: 500; font-size: 1.1rem; }
+        .item-date { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--text-muted); }
+        .item-place { color: var(--text-light); font-size: 14px; margin-bottom: 1rem; }
+        .item-desc { color: var(--text-light); font-size: 14px; line-height: 1.8; margin-bottom: 1rem; }
+
+        .current-badge {
+            display: inline-block;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10px; text-transform: uppercase; letter-spacing: 1px;
+            background: var(--text); color: var(--bg);
+            padding: 0.3rem 0.6rem; border-radius: 4px;
+            margin-left: 1rem;
+        }
+
+        /* Tags */
+        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+        .tag {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px; color: var(--text-muted);
+            padding: 0.4rem 0.8rem; border-radius: 50px;
+            border: 1px solid var(--border); transition: all 0.3s ease;
+        }
+        .tag:hover { background: var(--text); color: var(--bg); border-color: var(--text); }
+
+        /* Content Section */
+        .content-section { margin-top: 5rem; padding-top: 4rem; border-top: 1px solid var(--border); }
+        .content-section h2 { font-size: 1.3rem; font-weight: 600; margin-bottom: 1.5rem; }
+        .content-section p { color: var(--text-light); line-height: 1.9; margin-bottom: 1rem; }
+
+        /* CTA */
+        .cta-section {
+            margin-top: 5rem; padding: 3rem;
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+            border-radius: 12px; text-align: center;
+        }
+        .cta-section h2 { font-size: 1.3rem; margin-bottom: 1rem; }
+        .cta-section p { color: var(--text-light); margin-bottom: 1.5rem; }
+        .btn {
+            display: inline-block; background: var(--text); color: var(--bg);
+            padding: 0.85rem 2rem; border-radius: 50px; font-size: 14px;
+            font-weight: 500; transition: all 0.3s ease;
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-decoration: none; }
+
+        /* Footer */
+        footer {
+            max-width: 900px; margin: 0 auto; padding: 4rem 2rem;
+            text-align: center; font-size: 12px; color: var(--text-muted);
+            border-top: 1px solid var(--border); margin-top: 4rem;
+        }
+        footer a { color: var(--text-muted); }
+        footer a:hover { color: var(--text); }
+
+        @media (max-width: 768px) {
+            .page-title { letter-spacing: -1px; }
+            .nav-links { gap: 1rem; }
+            .nav-links a { font-size: 11px; }
+            .item { padding-left: 1.5rem; }
+            .item-header { flex-direction: column; gap: 0.25rem; }
+            .current-badge { margin-left: 0; margin-top: 0.5rem; }
+        }
+        @media (max-width: 500px) { .nav-links { display: none; } }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-inner">
+                <a href="index.html" class="nav-logo">Aliocha Deflou</a>
+                <div class="nav-links">
+                    <a href="index.html">Accueil</a>
+                    <a href="formations.html" class="active">Formations</a>
+                    <a href="index.html#experiences">Expériences</a>
+                    <a href="projets.html">Projets</a>
+                    <a href="index.html#competences">Compétences</a>
+                    <a href="index.html#contact">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <nav class="breadcrumb" aria-label="Fil d'Ariane">
+            <a href="index.html">Accueil</a> → Formations
+        </nav>
+
+        <header class="page-header">
+            <h1 class="page-title">Mon parcours de formation</h1>
+            <p class="page-intro">
+                De la découverte de la programmation au lycée jusqu'au BUT Informatique à l'IUT de Lille, 
+                découvrez mon parcours académique et les compétences acquises à chaque étape.
+            </p>
+        </header>
+
+        <section>
+            <h2 class="section-title">Formations</h2>
+
+            <article class="item current">
+                <div class="item-header">
+                    <h3 class="item-title">BUT Informatique – Parcours Réalisation d'Applications<span class="current-badge">En cours</span></h3>
+                    <time class="item-date">2024 – 2027</time>
+                </div>
+                <p class="item-place">IUT de Lille – Université de Lille</p>
+                <p class="item-desc">
+                    Le Bachelor Universitaire de Technologie (BUT) Informatique est une formation en 3 ans qui forme 
+                    des développeurs polyvalents. En deuxième année, je me spécialise dans le <strong>parcours A : 
+                    Réalisation d'applications</strong>, axé sur la conception, le développement et la validation 
+                    de solutions logicielles.
+                </p>
+                <p class="item-desc">
+                    Cette formation m'a permis d'acquérir des compétences solides en programmation orientée objet avec Java, 
+                    en développement web avec React et TypeScript, en gestion de bases de données SQL, ainsi qu'en méthodologies 
+                    de gestion de projet Agile. Je recherche actuellement une <strong>alternance pour ma troisième année</strong>.
+                </p>
+                <div class="tags">
+                    <span class="tag">Java</span>
+                    <span class="tag">React</span>
+                    <span class="tag">TypeScript</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">Git</span>
+                    <span class="tag">Méthodes Agiles</span>
+                </div>
+            </article>
+
+            <article class="item">
+                <div class="item-header">
+                    <h3 class="item-title">Prépa Ingénieur – Cycle Informatique et Réseaux</h3>
+                    <time class="item-date">2023 – 2024</time>
+                </div>
+                <p class="item-place">ISEN Lille</p>
+                <p class="item-desc">
+                    Année préparatoire au sein de l'ISEN Lille, école d'ingénieurs spécialisée dans le numérique. 
+                    Cette année m'a permis de consolider mes bases en mathématiques, physique et informatique, 
+                    tout en découvrant les fondamentaux des réseaux et des systèmes d'information.
+                </p>
+                <div class="tags">
+                    <span class="tag">Algorithmique</span>
+                    <span class="tag">Réseaux</span>
+                    <span class="tag">Mathématiques</span>
+                </div>
+            </article>
+
+            <article class="item">
+                <div class="item-header">
+                    <h3 class="item-title">Baccalauréat Général – Spécialités Maths & NSI</h3>
+                    <time class="item-date">2020 – 2023</time>
+                </div>
+                <p class="item-place">Lycée E. Branly, Boulogne-sur-Mer</p>
+                <p class="item-desc">
+                    C'est au lycée que j'ai découvert la programmation grâce à la spécialité NSI (Numérique et Sciences Informatiques). 
+                    Apprentissage de Python, algorithmique, structures de données et principes fondamentaux de l'informatique.
+                </p>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Algorithmique</span>
+                    <span class="tag">HTML/CSS</span>
+                </div>
+            </article>
+
+            <article class="item">
+                <div class="item-header">
+                    <h3 class="item-title">Brevet des Collèges – Option Internationale</h3>
+                    <time class="item-date">2016 – 2020</time>
+                </div>
+                <p class="item-place">Collège Daunou, Boulogne-sur-Mer</p>
+                <p class="item-desc">
+                    Section internationale britannique qui m'a permis de développer un bon niveau d'anglais, 
+                    aujourd'hui certifié B2 au TOEIC.
+                </p>
+                <div class="tags">
+                    <span class="tag">Anglais B2</span>
+                </div>
+            </article>
+        </section>
+
+        <section class="content-section">
+            <h2>Pourquoi le BUT Informatique ?</h2>
+            <p>
+                Le BUT Informatique est une formation reconnue qui allie théorie et pratique. Le parcours 
+                "Réalisation d'applications" correspond parfaitement à mes aspirations : concevoir, 
+                développer et déployer des applications qui répondent à de vrais besoins utilisateurs.
+            </p>
+        </section>
+
+        <section class="content-section">
+            <h2>Certifications</h2>
+            <p><strong>Certification PIX</strong> – Compétences numériques</p>
+            <p><strong>PSC1</strong> – Prévention et Secours Civiques</p>
+            <p><strong>TOEIC B2</strong> – Anglais niveau intermédiaire-avancé</p>
+        </section>
+
+        <div class="cta-section">
+            <h2>Intéressé par mon profil ?</h2>
+            <p>Je recherche une alternance en développement d'applications pour septembre 2025.</p>
+            <a href="index.html#contact" class="btn">Me contacter</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Aliocha Deflou · Étudiant en BUT Informatique à l'IUT de Lille</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="index.html">Accueil</a> · <a href="projets.html">Projets</a> · <a href="index.html#contact">Contact</a>
+        </p>
+    </footer>
+</body>
+</html>

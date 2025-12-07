@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Projets Développement Web & Java | Aliocha Deflou</title>
+    <meta name="description" content="Portfolio des projets d'Aliocha Deflou : développement web React, applications Java, jeux en terminal. Découvrez mes réalisations en BUT Informatique.">
+    <meta name="keywords" content="projets développeur, portfolio React, projet Java, développement web Lille, étudiant BUT informatique projets">
+    <meta name="author" content="Aliocha Deflou">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://aliodefl.github.io/aliocha-deflou/projets.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aliodefl.github.io/aliocha-deflou/projets.html">
+    <meta property="og:title" content="Projets Développement Web & Java | Aliocha Deflou">
+    <meta property="og:description" content="Portfolio des projets : développement web React, applications Java">
+    <meta property="og:image" content="https://aliodefl.github.io/aliocha-deflou/og-image.png">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="Aliocha Deflou">
+    
+    <!-- Theme -->
+    <meta name="theme-color" content="#fafafa">
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #fafafa;
+            --text: #1a1a1a;
+            --text-light: #666;
+            --text-muted: #999;
+            --border: #e5e5e5;
+            --accent: #000;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            font-size: 15px;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        a { color: var(--text); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* Navigation */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(250, 250, 250, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            max-width: 900px; margin: 0 auto; padding: 0 2rem;
+            height: 60px; display: flex; align-items: center; justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 13px; font-weight: 500;
+        }
+
+        .nav-links { display: flex; gap: 2.5rem; }
+        .nav-links a {
+            color: var(--text-light); text-decoration: none; font-size: 13px;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover { color: var(--text); text-decoration: none; }
+        .nav-links a.active { color: var(--text); }
+
+        /* Main */
+        main { max-width: 900px; margin: 0 auto; padding: 8rem 2rem 4rem; }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            font-size: 12px; color: var(--text-muted); margin-bottom: 3rem;
+            font-family: 'IBM Plex Mono', monospace;
+        }
+        .breadcrumb a { color: var(--text-muted); }
+        .breadcrumb a:hover { color: var(--text); }
+
+        /* Page Header */
+        .page-header { margin-bottom: 4rem; }
+        .page-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 600; letter-spacing: -2px;
+            margin-bottom: 1.5rem; line-height: 1.1;
+        }
+        .page-intro {
+            color: var(--text-light); font-size: 1.05rem;
+            line-height: 1.9; max-width: 600px;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 11px; font-weight: 500; text-transform: uppercase;
+            letter-spacing: 2px; color: var(--text-muted);
+            margin-bottom: 3rem; display: flex; align-items: center; gap: 1.5rem;
+        }
+        .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+        /* Projects Grid */
+        .projects-grid { display: grid; gap: 2rem; }
+
+        .project {
+            padding: 2rem; border: 1px solid var(--border);
+            border-radius: 12px; transition: all 0.4s ease;
+            position: relative; overflow: hidden;
+        }
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border-color: var(--text);
+        }
+
+        .project-type {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
+            color: var(--text-muted); margin-bottom: 1rem;
+            display: inline-block; padding: 0.4rem 0.8rem;
+            background: #f0f0f0; border-radius: 4px;
+        }
+        .project-title { font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .project-year {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px; color: var(--text-muted); margin-bottom: 1rem;
+        }
+        .project-desc { color: var(--text-light); font-size: 14px; line-height: 1.8; margin-bottom: 1.5rem; }
+
+        /* Tags */
+        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .tag {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px; color: var(--text-muted);
+            padding: 0.4rem 0.8rem; border-radius: 50px;
+            border: 1px solid var(--border); transition: all 0.3s ease;
+        }
+        .tag:hover { background: var(--text); color: var(--bg); border-color: var(--text); }
+
+        /* Stats */
+        .stats-section {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+            margin-bottom: 4rem; padding: 2rem;
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+            border-radius: 12px;
+        }
+        .stat { text-align: center; }
+        .stat-number { font-size: 2.5rem; font-weight: 600; margin-bottom: 0.25rem; }
+        .stat-label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+
+        /* CTA */
+        .cta-section {
+            margin-top: 5rem; padding: 3rem;
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+            border-radius: 12px; text-align: center;
+        }
+        .cta-section h2 { font-size: 1.3rem; margin-bottom: 1rem; }
+        .cta-section p { color: var(--text-light); margin-bottom: 1.5rem; }
+        .btn {
+            display: inline-block; background: var(--text); color: var(--bg);
+            padding: 0.85rem 2rem; border-radius: 50px; font-size: 14px;
+            font-weight: 500; transition: all 0.3s ease;
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-decoration: none; }
+
+        /* Footer */
+        footer {
+            max-width: 900px; margin: 0 auto; padding: 4rem 2rem;
+            text-align: center; font-size: 12px; color: var(--text-muted);
+            border-top: 1px solid var(--border); margin-top: 4rem;
+        }
+        footer a { color: var(--text-muted); }
+        footer a:hover { color: var(--text); }
+
+        @media (max-width: 768px) {
+            .page-title { letter-spacing: -1px; }
+            .nav-links { gap: 1rem; }
+            .nav-links a { font-size: 11px; }
+            .stats-section { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 500px) { .nav-links { display: none; } }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-inner">
+                <a href="index.html" class="nav-logo">Aliocha Deflou</a>
+                <div class="nav-links">
+                    <a href="index.html">Accueil</a>
+                    <a href="formations.html">Formations</a>
+                    <a href="index.html#experiences">Expériences</a>
+                    <a href="projets.html" class="active">Projets</a>
+                    <a href="index.html#competences">Compétences</a>
+                    <a href="index.html#contact">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <nav class="breadcrumb" aria-label="Fil d'Ariane">
+            <a href="index.html">Accueil</a> → Projets
+        </nav>
+
+        <header class="page-header">
+            <h1 class="page-title">Mes projets</h1>
+            <p class="page-intro">
+                Découvrez les projets que j'ai réalisés durant ma formation en BUT Informatique : 
+                applications web, jeux, logiciels desktop et plus encore.
+            </p>
+        </header>
+
+        <div class="stats-section">
+            <div class="stat">
+                <div class="stat-number">5+</div>
+                <div class="stat-label">Projets</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">6</div>
+                <div class="stat-label">Technologies</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">2</div>
+                <div class="stat-label">Ans d'expérience</div>
+            </div>
+        </div>
+
+        <section>
+            <h2 class="section-title">Tous les projets</h2>
+
+            <div class="projects-grid">
+                <article class="project">
+                    <span class="project-type">Développement Web</span>
+                    <h3 class="project-title">Portfolio Architecte</h3>
+                    <p class="project-year">2025</p>
+                    <p class="project-desc">
+                        Développement d'un site web portfolio moderne et responsive pour un architecte. 
+                        Interface élégante avec animations fluides, galerie de projets interactive et 
+                        formulaire de contact. Développé avec les dernières technologies front-end.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">React</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">Tailwind CSS</span>
+                        <span class="tag">Vite</span>
+                    </div>
+                </article>
+
+                <article class="project">
+                    <span class="project-type">Développement Jeu</span>
+                    <h3 class="project-title">Jeu Risk</h3>
+                    <p class="project-year">2025</p>
+                    <p class="project-desc">
+                        Implémentation complète du célèbre jeu de stratégie Risk en Java. Mode solo contre IA 
+                        et multijoueur local. Gestion des territoires, des armées, des combats et des cartes bonus. 
+                        Architecture orientée objet robuste avec design patterns.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">POO</span>
+                        <span class="tag">Terminal</span>
+                        <span class="tag">Algorithmique</span>
+                    </div>
+                </article>
+
+                <article class="project">
+                    <span class="project-type">Application Desktop</span>
+                    <h3 class="project-title">Séjours Linguistiques</h3>
+                    <p class="project-year">2025</p>
+                    <p class="project-desc">
+                        Application de gestion de séjours linguistiques avec interface graphique complète. 
+                        Gestion des participants, des destinations, des hébergements et génération de documents. 
+                        Interface utilisateur intuitive développée avec Java Swing.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">Swing</span>
+                        <span class="tag">IHM</span>
+                        <span class="tag">JDBC</span>
+                    </div>
+                </article>
+
+                <article class="project">
+                    <span class="project-type">Intégration Web</span>
+                    <h3 class="project-title">Site OpenAI</h3>
+                    <p class="project-year">2023</p>
+                    <p class="project-desc">
+                        Reproduction fidèle du site officiel d'OpenAI en HTML/CSS pur. 
+                        Exercice d'intégration web avancé avec attention particulière au responsive design, 
+                        aux animations CSS et à la fidélité pixel-perfect du rendu.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">HTML5</span>
+                        <span class="tag">CSS3</span>
+                        <span class="tag">Responsive</span>
+                        <span class="tag">Flexbox</span>
+                    </div>
+                </article>
+
+                <article class="project">
+                    <span class="project-type">Développement Jeu</span>
+                    <h3 class="project-title">Mauscape</h3>
+                    <p class="project-year">2023</p>
+                    <p class="project-desc">
+                        Jeu d'aventure textuel de type "escape game" jouable dans le terminal. 
+                        Le joueur explore un château mystérieux, résout des énigmes et collecte des objets 
+                        pour s'échapper. Système de sauvegarde et plusieurs fins possibles.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">Terminal</span>
+                        <span class="tag">Game Design</span>
+                    </div>
+                </article>
+
+                <article class="project">
+                    <span class="project-type">Développement Web</span>
+                    <h3 class="project-title">CV Numérique</h3>
+                    <p class="project-year">2025</p>
+                    <p class="project-desc">
+                        Ce site que vous consultez ! CV numérique moderne avec design responsive, 
+                        animations au scroll, optimisation SEO et accessibilité. Hébergé sur GitHub Pages.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">HTML5</span>
+                        <span class="tag">CSS3</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">SEO</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <div class="cta-section">
+            <h2>Un projet en tête ?</h2>
+            <p>N'hésitez pas à me contacter pour discuter de vos projets ou opportunités d'alternance.</p>
+            <a href="index.html#contact" class="btn">Me contacter</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Aliocha Deflou · Étudiant en BUT Informatique à l'IUT de Lille</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="index.html">Accueil</a> · <a href="formations.html">Formations</a> · <a href="index.html#contact">Contact</a>
+        </p>
+    </footer>
+</body>
+</html>
