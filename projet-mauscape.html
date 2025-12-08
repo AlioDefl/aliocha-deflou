@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Projet Mauscape - Jeu Aventure Textuel Java | Aliocha Deflou</title>
+    <meta name="description" content="Mauscape, jeu d'aventure textuel type escape game en Java. Premier projet de développement de jeu avec scénarios à embranchements et système de sauvegarde.">
+    <meta name="keywords" content="jeu textuel Java, escape game, aventure terminal, projet Java débutant, jeu console">
+    <meta name="author" content="Aliocha Deflou">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://aliodefl.github.io/aliocha-deflou/projet-mauscape.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://aliodefl.github.io/aliocha-deflou/projet-mauscape.html">
+    <meta property="og:title" content="Projet Mauscape - Jeu Aventure Java | Aliocha Deflou">
+    <meta property="og:description" content="Jeu d'aventure textuel type escape game développé en Java">
+    <meta property="og:image" content="https://aliodefl.github.io/aliocha-deflou/og-image.png">
+    <meta property="og:locale" content="fr_FR">
+    
+    <!-- Theme -->
+    <meta name="theme-color" content="#fafafa">
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareSourceCode",
+        "name": "Mauscape",
+        "author": {"@type": "Person", "name": "Aliocha Deflou"},
+        "programmingLanguage": "Java",
+        "description": "Jeu d'aventure textuel type escape game jouable dans le terminal"
+    }
+    </script>
+    
+    <style>
+        :root {
+            --bg: #fafafa;
+            --text: #1a1a1a;
+            --text-light: #666;
+            --text-muted: #999;
+            --border: #e5e5e5;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        a { color: var(--text); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(250, 250, 250, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            max-width: 900px; margin: 0 auto; padding: 0 2rem;
+            height: 60px; display: flex; align-items: center; justify-content: space-between;
+        }
+
+        .nav-logo { font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 500; }
+
+        .nav-links { display: flex; gap: 2.5rem; }
+        .nav-links a { color: var(--text-light); font-size: 13px; transition: color 0.3s ease; }
+        .nav-links a:hover { color: var(--text); text-decoration: none; }
+        .nav-links a.active { color: var(--text); }
+
+        main { max-width: 900px; margin: 0 auto; padding: 8rem 2rem 4rem; }
+
+        .breadcrumb {
+            font-size: 12px; color: var(--text-muted); margin-bottom: 3rem;
+            font-family: 'IBM Plex Mono', monospace;
+        }
+        .breadcrumb a { color: var(--text-muted); }
+        .breadcrumb a:hover { color: var(--text); }
+
+        .project-header { margin-bottom: 4rem; }
+        .project-type {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
+            color: var(--text-muted); margin-bottom: 1rem;
+            display: inline-block; padding: 0.4rem 0.8rem;
+            background: #f0f0f0; border-radius: 4px;
+        }
+        .project-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 600; letter-spacing: -2px;
+            margin-bottom: 1rem; line-height: 1.1;
+        }
+        .project-meta {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 13px; color: var(--text-muted); margin-bottom: 2rem;
+        }
+        .project-intro {
+            color: var(--text-light); font-size: 1.1rem;
+            line-height: 1.9; max-width: 600px;
+        }
+
+        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem; }
+        .tag {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px; color: var(--text-muted);
+            padding: 0.4rem 0.8rem; border-radius: 50px;
+            border: 1px solid var(--border); transition: all 0.3s ease;
+        }
+        .tag:hover { background: var(--text); color: var(--bg); border-color: var(--text); }
+
+        .section { margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--border); }
+        .section-title {
+            font-size: 11px; font-weight: 500; text-transform: uppercase;
+            letter-spacing: 2px; color: var(--text-muted);
+            margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1.5rem;
+        }
+        .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+        .section p { color: var(--text-light); line-height: 1.9; margin-bottom: 1rem; }
+        .section h3 { font-size: 1.1rem; font-weight: 600; margin: 2rem 0 1rem; }
+
+        .features-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .feature {
+            padding: 1.5rem; background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+            border-radius: 12px;
+        }
+        .feature-title { font-weight: 600; margin-bottom: 0.5rem; font-size: 14px; }
+        .feature-desc { color: var(--text-light); font-size: 13px; line-height: 1.6; }
+
+        .code-block {
+            background: #1a1a1a; color: #f0f0f0; padding: 1.5rem;
+            border-radius: 8px; overflow-x: auto; margin: 1.5rem 0;
+            font-family: 'IBM Plex Mono', monospace; font-size: 13px; line-height: 1.6;
+        }
+
+        .game-demo {
+            background: #1a1a1a; color: #00ff00; padding: 2rem;
+            border-radius: 8px; margin: 1.5rem 0;
+            font-family: 'IBM Plex Mono', monospace; font-size: 14px; line-height: 1.8;
+        }
+        .game-demo .prompt { color: #ffff00; }
+        .game-demo .system { color: #888; }
+
+        .cta-section {
+            margin-top: 5rem; padding: 3rem;
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+            border-radius: 12px; text-align: center;
+        }
+        .cta-section h2 { font-size: 1.3rem; margin-bottom: 1rem; }
+        .cta-section p { color: var(--text-light); margin-bottom: 1.5rem; }
+        .btn {
+            display: inline-block; background: var(--text); color: var(--bg);
+            padding: 0.85rem 2rem; border-radius: 50px; font-size: 14px;
+            font-weight: 500; transition: all 0.3s ease;
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-decoration: none; }
+
+        footer {
+            max-width: 900px; margin: 0 auto; padding: 4rem 2rem;
+            text-align: center; font-size: 12px; color: var(--text-muted);
+            border-top: 1px solid var(--border); margin-top: 4rem;
+        }
+        footer a { color: var(--text-muted); }
+        footer a:hover { color: var(--text); }
+
+        @media (max-width: 768px) {
+            .nav-links { gap: 1rem; }
+            .nav-links a { font-size: 11px; }
+            .features-grid { grid-template-columns: 1fr; }
+            .project-title { letter-spacing: -1px; }
+        }
+        @media (max-width: 500px) { .nav-links { display: none; } }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-inner">
+                <a href="index.html" class="nav-logo">Aliocha Deflou</a>
+                <div class="nav-links">
+                    <a href="index.html">Accueil</a>
+                    <a href="formations.html">Formations</a>
+                    <a href="index.html#experiences">Expériences</a>
+                    <a href="projets.html" class="active">Projets</a>
+                    <a href="index.html#competences">Compétences</a>
+                    <a href="index.html#contact">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <nav class="breadcrumb" aria-label="Fil d'Ariane">
+            <a href="index.html">Accueil</a> → <a href="projets.html">Projets</a> → Mauscape
+        </nav>
+
+        <header class="project-header">
+            <span class="project-type">Développement Jeu</span>
+            <h1 class="project-title">Mauscape</h1>
+            <p class="project-meta">2023 · Premier projet Java</p>
+            <p class="project-intro">
+                Jeu d'aventure textuel de type "escape game" jouable dans le terminal. 
+                Le joueur explore un château mystérieux, résout des énigmes et collecte des objets 
+                pour s'échapper. Mon premier projet complet de jeu qui a renforcé ma passion 
+                pour le développement logiciel.
+            </p>
+            <div class="tags">
+                <span class="tag">Java</span>
+                <span class="tag">Terminal</span>
+                <span class="tag">Game Design</span>
+                <span class="tag">Narration</span>
+            </div>
+        </header>
+
+        <section class="section">
+            <h2 class="section-title">Aperçu du Jeu</h2>
+            <div class="game-demo">
+                <p class="system">═══════════════════════════════════════</p>
+                <p class="system">         M A U S C A P E</p>
+                <p class="system">═══════════════════════════════════════</p>
+                <br>
+                <p>Vous vous réveillez dans une pièce sombre...</p>
+                <p>Une faible lumière filtre à travers une fenêtre barricadée.</p>
+                <p>Vous apercevez une PORTE au nord et une TABLE au centre.</p>
+                <br>
+                <p class="prompt">&gt; examiner table</p>
+                <br>
+                <p>Sur la table, vous trouvez une CLÉ ROUILLÉE et un JOURNAL.</p>
+                <p>Le journal semble contenir des indices...</p>
+                <br>
+                <p class="prompt">&gt; prendre clé</p>
+                <br>
+                <p>Vous prenez la clé rouillée. [Inventaire: clé rouillée]</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Fonctionnalités</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <p class="feature-title">Exploration Interactive</p>
+                    <p class="feature-desc">Navigation entre les différentes pièces du château avec commandes textuelles</p>
+                </div>
+                <div class="feature">
+                    <p class="feature-title">Système d'Inventaire</p>
+                    <p class="feature-desc">Collecte et utilisation d'objets pour résoudre les énigmes</p>
+                </div>
+                <div class="feature">
+                    <p class="feature-title">Énigmes Variées</p>
+                    <p class="feature-desc">Puzzles logiques, codes à découvrir et objets à combiner</p>
+                </div>
+                <div class="feature">
+                    <p class="feature-title">Plusieurs Fins</p>
+                    <p class="feature-desc">Différentes fins selon les choix du joueur et les objets trouvés</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Architecture du Code</h2>
+            <p>
+                Le jeu est structuré autour de classes représentant les différents éléments : 
+                les pièces, les objets, le joueur et le moteur de jeu principal qui gère 
+                les commandes et l'état de la partie.
+            </p>
+            
+            <h3>Structure des classes</h3>
+            <div class="code-block">
+src/
+├── Main.java
+├── Jeu.java           // Moteur principal
+├── Joueur.java        // État du joueur et inventaire
+├── Piece.java         // Représentation d'une salle
+├── Objet.java         // Items collectables
+├── Commande.java      // Parsing des commandes
+└── Sauvegarde.java    // Système de save/load
+            </div>
+
+            <h3>Exemple de gestion des commandes</h3>
+            <div class="code-block">
+public void traiterCommande(String input) {
+    String[] parts = input.toLowerCase().split(" ", 2);
+    String action = parts[0];
+    String cible = parts.length > 1 ? parts[1] : "";
+    
+    switch (action) {
+        case "aller":
+            deplacer(cible);
+            break;
+        case "prendre":
+            prendreObjet(cible);
+            break;
+        case "examiner":
+            examiner(cible);
+            break;
+        case "utiliser":
+            utiliserObjet(cible);
+            break;
+        default:
+            System.out.println("Commande non reconnue.");
+    }
+}
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Défis et Solutions</h2>
+            <p>
+                <strong>Scénarios à embranchements :</strong> Gérer les différents chemins possibles 
+                dans l'histoire a nécessité une structure de données adaptée. J'ai utilisé un graphe 
+                de pièces connectées avec des conditions de passage.
+            </p>
+            <p>
+                <strong>Parsing des commandes :</strong> Interpréter les commandes du joueur de manière 
+                flexible (synonymes, différentes formulations) a été un défi intéressant résolu avec 
+                un système de reconnaissance de mots-clés.
+            </p>
+            <p>
+                <strong>Système de sauvegarde :</strong> Implémenter la sérialisation de l'état du jeu 
+                pour permettre au joueur de reprendre sa partie m'a appris les bases de la persistance 
+                des données en Java.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Apprentissages</h2>
+            <p>
+                Ce premier projet de jeu m'a enseigné les fondamentaux de la programmation Java : 
+                structures de contrôle, collections, classes et objets. C'est ce projet qui a 
+                vraiment déclenché ma passion pour le développement.
+            </p>
+            <p>
+                J'ai également découvert l'importance du game design : équilibrer la difficulté, 
+                créer une atmosphère immersive et guider le joueur subtilement sont des compétences 
+                transférables à tout projet d'interface utilisateur.
+            </p>
+        </section>
+
+        <div class="cta-section">
+            <h2>Voir mes autres projets</h2>
+            <p>Découvrez l'ensemble de mes réalisations en développement web et logiciel.</p>
+            <a href="projets.html" class="btn">Tous les projets</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Aliocha Deflou · Étudiant en BUT Informatique à l'IUT de Lille</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="index.html">Accueil</a> · <a href="formations.html">Formations</a> · <a href="projets.html">Projets</a>
+        </p>
+    </footer>
+</body>
+</html>

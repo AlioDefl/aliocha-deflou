@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Projet Portfolio Architecte React | Aliocha Deflou</title>
+    <meta name="description" content="Développement d'un site portfolio moderne pour architecte avec React, TypeScript et Tailwind CSS. Projet de développement web front-end.">
+    <meta name="keywords" content="projet React, portfolio architecte, développement web, TypeScript, Tailwind CSS, site vitrine">
+    <meta name="author" content="Aliocha Deflou">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://aliodefl.github.io/aliocha-deflou/projet-portfolio-architecte.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://aliodefl.github.io/aliocha-deflou/projet-portfolio-architecte.html">
+    <meta property="og:title" content="Projet Portfolio Architecte React | Aliocha Deflou">
+    <meta property="og:description" content="Site portfolio moderne pour architecte avec React et TypeScript">
+    <meta property="og:image" content="https://aliodefl.github.io/aliocha-deflou/og-image.png">
+    <meta property="og:locale" content="fr_FR">
+    
+    <!-- Theme -->
+    <meta name="theme-color" content="#fafafa">
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareSourceCode",
+        "name": "Portfolio Architecte",
+        "author": {"@type": "Person", "name": "Aliocha Deflou"},
+        "programmingLanguage": ["TypeScript", "React"],
+        "description": "Site portfolio moderne pour architecte développé avec React et TypeScript"
+    }
+    </script>
+    
+    <style>
+        :root {
+            --bg: #fafafa;
+            --text: #1a1a1a;
+            --text-light: #666;
+            --text-muted: #999;
+            --border: #e5e5e5;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        a { color: var(--text); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(250, 250, 250, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            max-width: 900px; margin: 0 auto; padding: 0 2rem;
+            height: 60px; display: flex; align-items: center; justify-content: space-between;
+        }
+
+        .nav-logo { font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 500; }
+
+        .nav-links { display: flex; gap: 2.5rem; }
+        .nav-links a { color: var(--text-light); font-size: 13px; transition: color 0.3s ease; }
+        .nav-links a:hover { color: var(--text); text-decoration: none; }
+        .nav-links a.active { color: var(--text); }
+
+        main { max-width: 900px; margin: 0 auto; padding: 8rem 2rem 4rem; }
+
+        .breadcrumb {
+            font-size: 12px; color: var(--text-muted); margin-bottom: 3rem;
+            font-family: 'IBM Plex Mono', monospace;
+        }
+        .breadcrumb a { color: var(--text-muted); }
+        .breadcrumb a:hover { color: var(--text); }
+
+        .project-header { margin-bottom: 4rem; }
+        .project-type {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
+            color: var(--text-muted); margin-bottom: 1rem;
+            display: inline-block; padding: 0.4rem 0.8rem;
+            background: #f0f0f0; border-radius: 4px;
+        }
+        .project-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 600; letter-spacing: -2px;
+            margin-bottom: 1rem; line-height: 1.1;
+        }
+        .project-meta {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 13px; color: var(--text-muted); margin-bottom: 2rem;
+        }
+        .project-intro {
+            color: var(--text-light); font-size: 1.1rem;
+            line-height: 1.9; max-width: 600px;
+        }
+
+        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem; }
+        .tag {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px; color: var(--text-muted);
+            padding: 0.4rem 0.8rem; border-radius: 50px;
+            border: 1px solid var(--border); transition: all 0.3s ease;
+        }
+        .tag:hover { background: var(--text); color: var(--bg); border-color: var(--text); }
+
+        .section { margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--border); }
+        .section-title {
+            font-size: 11px; font-weight: 500; text-transform: uppercase;
+            letter-spacing: 2px; color: var(--text-muted);
+            margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1.5rem;
+        }
+        .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+        .section p { color: var(--text-light); line-height: 1.9; margin-bottom: 1rem; }
+        .section h3 { font-size: 1.1rem; font-weight: 600; margin: 2rem 0 1rem; }
+
+        .features-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .feature {
+            padding: 1.5rem; background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+            border-radius: 12px;
+        }
+        .feature-title { font-weight: 600; margin-bottom: 0.5rem; font-size: 14px; }
+        .feature-desc { color: var(--text-light); font-size: 13px; line-height: 1.6; }
+
+        .code-block {
+            background: #1a1a1a; color: #f0f0f0; padding: 1.5rem;
+            border-radius: 8px; overflow-x: auto; margin: 1.5rem 0;
+            font-family: 'IBM Plex Mono', monospace; font-size: 13px; line-height: 1.6;
+        }
+
+        .cta-section {
+            margin-top: 5rem; padding: 3rem;
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+            border-radius: 12px; text-align: center;
+        }
+        .cta-section h2 { font-size: 1.3rem; margin-bottom: 1rem; }
+        .cta-section p { color: var(--text-light); margin-bottom: 1.5rem; }
+        .btn {
+            display: inline-block; background: var(--text); color: var(--bg);
+            padding: 0.85rem 2rem; border-radius: 50px; font-size: 14px;
+            font-weight: 500; transition: all 0.3s ease;
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-decoration: none; }
+
+        footer {
+            max-width: 900px; margin: 0 auto; padding: 4rem 2rem;
+            text-align: center; font-size: 12px; color: var(--text-muted);
+            border-top: 1px solid var(--border); margin-top: 4rem;
+        }
+        footer a { color: var(--text-muted); }
+        footer a:hover { color: var(--text); }
+
+        @media (max-width: 768px) {
+            .nav-links { gap: 1rem; }
+            .nav-links a { font-size: 11px; }
+            .features-grid { grid-template-columns: 1fr; }
+            .project-title { letter-spacing: -1px; }
+        }
+        @media (max-width: 500px) { .nav-links { display: none; } }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-inner">
+                <a href="index.html" class="nav-logo">Aliocha Deflou</a>
+                <div class="nav-links">
+                    <a href="index.html">Accueil</a>
+                    <a href="formations.html">Formations</a>
+                    <a href="index.html#experiences">Expériences</a>
+                    <a href="projets.html" class="active">Projets</a>
+                    <a href="index.html#competences">Compétences</a>
+                    <a href="index.html#contact">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <nav class="breadcrumb" aria-label="Fil d'Ariane">
+            <a href="index.html">Accueil</a> → <a href="projets.html">Projets</a> → Portfolio Architecte
+        </nav>
+
+        <header class="project-header">
+            <span class="project-type">Développement Web</span>
+            <h1 class="project-title">Portfolio Architecte</h1>
+            <p class="project-meta">2025 · Projet personnel</p>
+            <p class="project-intro">
+                Développement d'un site web portfolio moderne et élégant pour un architecte. 
+                Ce projet met en valeur les créations architecturales à travers une interface 
+                épurée avec des animations fluides et un design responsive.
+            </p>
+            <div class="tags">
+                <span class="tag">React</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Tailwind CSS</span>
+                <span class="tag">Vite</span>
+                <span class="tag">Responsive</span>
+            </div>
+        </header>
+
+        <section class="section">
+            <h2 class="section-title">Fonctionnalités</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <p class="feature-title">Galerie Interactive</p>
+                    <p class="feature-desc">Présentation des projets architecturaux avec effets de survol et lightbox</p>
+                </div>
+                <div class="feature">
+                    <p class="feature-title">Design Responsive</p>
+                    <p class="feature-desc">Adaptation parfaite sur mobile, tablette et desktop</p>
+                </div>
+                <div class="feature">
+                    <p class="feature-title">Animations Fluides</p>
+                    <p class="feature-desc">Transitions et animations au scroll pour une expérience immersive</p>
+                </div>
+                <div class="feature">
+                    <p class="feature-title">Performance Optimisée</p>
+                    <p class="feature-desc">Lazy loading des images et optimisation du bundle</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Stack Technique</h2>
+            <p>
+                Le projet utilise les technologies modernes du développement front-end pour garantir 
+                performance, maintenabilité et une excellente expérience développeur.
+            </p>
+            
+            <h3>Technologies utilisées</h3>
+            <div class="code-block">
+# Framework & Langage
+React 18 + TypeScript
+
+# Styling
+Tailwind CSS + CSS Modules
+
+# Build Tool
+Vite (bundler ultra-rapide)
+
+# Animations
+Framer Motion
+
+# Déploiement
+Vercel
+            </div>
+
+            <h3>Exemple de composant</h3>
+            <div class="code-block">
+interface ProjectCardProps {
+  title: string;
+  image: string;
+  category: string;
+}
+
+const ProjectCard: React.FC&lt;ProjectCardProps&gt; = ({ 
+  title, image, category 
+}) =&gt; {
+  return (
+    &lt;motion.div
+      whileHover={{ y: -10 }}
+      className="project-card"
+    &gt;
+      &lt;img src={image} alt={title} loading="lazy" /&gt;
+      &lt;h3&gt;{title}&lt;/h3&gt;
+      &lt;span&gt;{category}&lt;/span&gt;
+    &lt;/motion.div&gt;
+  );
+};
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Défis et Solutions</h2>
+            <p>
+                <strong>Optimisation des images :</strong> Les images haute résolution d'architecture étant lourdes, 
+                j'ai mis en place un système de lazy loading et de formats optimisés (WebP) pour garantir 
+                des temps de chargement rapides.
+            </p>
+            <p>
+                <strong>Animations performantes :</strong> Pour les animations au scroll, j'ai utilisé Framer Motion 
+                avec l'Intersection Observer API pour déclencher les animations uniquement quand les éléments 
+                sont visibles.
+            </p>
+            <p>
+                <strong>Responsive design :</strong> L'affichage des projets en grille nécessitait une adaptation 
+                soignée selon les tailles d'écran, résolue avec CSS Grid et des breakpoints Tailwind personnalisés.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Apprentissages</h2>
+            <p>
+                Ce projet m'a permis d'approfondir mes compétences en React et TypeScript, notamment 
+                sur le typage strict des props et la création de composants réutilisables.
+            </p>
+            <p>
+                J'ai également découvert les bonnes pratiques d'optimisation web : Core Web Vitals, 
+                lazy loading, et l'importance du choix des formats d'image pour la performance.
+            </p>
+        </section>
+
+        <div class="cta-section">
+            <h2>Voir mes autres projets</h2>
+            <p>Découvrez l'ensemble de mes réalisations en développement web et logiciel.</p>
+            <a href="projets.html" class="btn">Tous les projets</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Aliocha Deflou · Étudiant en BUT Informatique à l'IUT de Lille</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="index.html">Accueil</a> · <a href="formations.html">Formations</a> · <a href="projets.html">Projets</a>
+        </p>
+    </footer>
+</body>
+</html>
