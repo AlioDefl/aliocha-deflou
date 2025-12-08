@@ -612,25 +612,6 @@
         }
         @media (max-width: 500px) { .nav-links { display: none; } }
     </style>
-    <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "Person",
-          "name": "Aliocha Deflou",
-          "jobTitle": "Étudiant en BUT Informatique",
-          "url": "https://aliodefl.github.io/aliocha-deflou/",
-          "sameAs": [
-            "https://www.linkedin.com/in/aliocha-deflou-59606a265/",
-            "https://portfolio-aliocha.vercel.app/"
-          ],
-          "knowsAbout": ["React", "TypeScript", "Java", "Développement Web"],
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Lille",
-            "addressCountry": "FR"
-          }
-        }
-    </script>
 </head>
 <body>
     <!-- Skip link for accessibility -->
@@ -686,7 +667,7 @@
             <h3>Éditeur du site</h3>
             <p>
                 <strong>Aliocha DEFLOU</strong><br>
-                Contact : <a href="/cdn-cgi/l/email-protection#9dfcf1f4f2fef5fcb3f9f8fbf1f2e8ddfaf0fcf4f1b3fef2f0"><span class="__cf_email__" data-cfemail="b9d8d5d0d6dad1d897dddcdfd5d6ccf9ded4d8d0d597dad6d4">[email&#160;protected]</span></a>
+                Contact : <a href="mailto:aliocha.deflou@gmail.com">aliocha.deflou@gmail.com</a>
             </p>
             
             <h3>Hébergement</h3>
@@ -725,7 +706,7 @@
             <h3>Vos droits (RGPD)</h3>
             <p>
                 Vous disposez d'un droit d'accès, de rectification et de suppression de vos données.<br>
-                Contact : <a href="/cdn-cgi/l/email-protection#dbbab7b2b4b8b3baf5bfbebdb7b4ae9bbcb6bab2b7f5b8b4b6"><span class="__cf_email__" data-cfemail="dbbab7b2b4b8b3baf5bfbebdb7b4ae9bbcb6bab2b7f5b8b4b6">[email&#160;protected]</span></a>
+                Contact : <a href="mailto:aliocha.deflou@gmail.com">aliocha.deflou@gmail.com</a>
             </p>
         </div>
     </div>
@@ -736,9 +717,9 @@
                 <span class="nav-logo">Aliocha Deflou</span>
                 <div class="nav-links">
                     <a href="#accueil" class="active">Accueil</a>
-                    <a href="#formations">Formations</a>
+                    <a href="formations.html">Formations</a>
                     <a href="#experiences">Expériences</a>
-                    <a href="#realisations">Réalisations</a>
+                    <a href="projets.html">Réalisations</a>
                     <a href="#competences">Compétences</a>
                     <a href="#contact">Contact</a>
                 </div>
@@ -953,7 +934,7 @@
             <div class="contact-grid">
                 <div class="contact-item reveal reveal-delay-1">
                     <p class="contact-label">Email</p>
-                    <p class="contact-value"><a href="/cdn-cgi/l/email-protection#e2838e8b8d818a83cc8687848e8d97a2858f838b8ecc818d8f"><span class="__cf_email__" data-cfemail="90f1fcf9fff3f8f1bef4f5f6fcffe5d0f7fdf1f9fcbef3fffd">[email&#160;protected]</span></a></p>
+                    <p class="contact-value"><a href="mailto:aliocha.deflou@gmail.com">aliocha.deflou@gmail.com</a></p>
                 </div>
                 <div class="contact-item reveal reveal-delay-2">
                     <p class="contact-label">Portfolio</p>
@@ -978,7 +959,7 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Données des projets
         var projects = {
             1: { title: "Portfolio Architecte", type: "Développement Web", year: "2025",
@@ -1142,4 +1123,8 @@
             });
         };
 
- 
+        // Initial reveal
+        window.dispatchEvent(new Event('scroll'));
+    </script>
+</body>
+</html>
