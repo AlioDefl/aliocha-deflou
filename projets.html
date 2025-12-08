@@ -116,14 +116,17 @@
         .projects-grid { display: grid; gap: 2rem; }
 
         .project {
+            display: block;
             padding: 2rem; border: 1px solid var(--border);
             border-radius: 12px; transition: all 0.4s ease;
             position: relative; overflow: hidden;
+            text-decoration: none;
         }
         .project:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.08);
             border-color: var(--text);
+            text-decoration: none;
         }
 
         .project-type {
@@ -133,22 +136,31 @@
             display: inline-block; padding: 0.4rem 0.8rem;
             background: #f0f0f0; border-radius: 4px;
         }
-        .project-title { font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .project-title { font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text); }
         .project-year {
             font-family: 'IBM Plex Mono', monospace;
             font-size: 12px; color: var(--text-muted); margin-bottom: 1rem;
         }
         .project-desc { color: var(--text-light); font-size: 14px; line-height: 1.8; margin-bottom: 1.5rem; }
 
+        .project-cta {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            margin-top: 0.5rem; color: var(--text);
+            font-size: 13px; font-weight: 500; transition: gap 0.3s ease;
+        }
+        .project:hover .project-cta { gap: 1rem; }
+        .project-cta::after { content: '→'; transition: transform 0.3s ease; }
+        .project:hover .project-cta::after { transform: translateX(5px); }
+
         /* Tags */
-        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
         .tag {
             font-family: 'IBM Plex Mono', monospace;
             font-size: 11px; color: var(--text-muted);
             padding: 0.4rem 0.8rem; border-radius: 50px;
             border: 1px solid var(--border); transition: all 0.3s ease;
         }
-        .tag:hover { background: var(--text); color: var(--bg); border-color: var(--text); }
+        .project:hover .tag { border-color: var(--text-muted); }
 
         /* Stats */
         .stats-section {
@@ -243,14 +255,13 @@
             <h2 class="section-title">Tous les projets</h2>
 
             <div class="projects-grid">
-                <article class="project">
+                <a href="projet-portfolio-architecte.html" class="project">
                     <span class="project-type">Développement Web</span>
                     <h3 class="project-title">Portfolio Architecte</h3>
                     <p class="project-year">2025</p>
                     <p class="project-desc">
                         Développement d'un site web portfolio moderne et responsive pour un architecte. 
-                        Interface élégante avec animations fluides, galerie de projets interactive et 
-                        formulaire de contact. Développé avec les dernières technologies front-end.
+                        Interface élégante avec animations fluides, galerie de projets interactive.
                     </p>
                     <div class="tags">
                         <span class="tag">React</span>
@@ -258,16 +269,16 @@
                         <span class="tag">Tailwind CSS</span>
                         <span class="tag">Vite</span>
                     </div>
-                </article>
+                    <span class="project-cta">Voir le projet</span>
+                </a>
 
-                <article class="project">
+                <a href="projet-risk.html" class="project">
                     <span class="project-type">Développement Jeu</span>
                     <h3 class="project-title">Jeu Risk</h3>
                     <p class="project-year">2025</p>
                     <p class="project-desc">
                         Implémentation complète du célèbre jeu de stratégie Risk en Java. Mode solo contre IA 
-                        et multijoueur local. Gestion des territoires, des armées, des combats et des cartes bonus. 
-                        Architecture orientée objet robuste avec design patterns.
+                        et multijoueur local. Architecture orientée objet avec design patterns.
                     </p>
                     <div class="tags">
                         <span class="tag">Java</span>
@@ -275,16 +286,16 @@
                         <span class="tag">Terminal</span>
                         <span class="tag">Algorithmique</span>
                     </div>
-                </article>
+                    <span class="project-cta">Voir le projet</span>
+                </a>
 
-                <article class="project">
+                <a href="projet-sejours.html" class="project">
                     <span class="project-type">Application Desktop</span>
                     <h3 class="project-title">Séjours Linguistiques</h3>
                     <p class="project-year">2025</p>
                     <p class="project-desc">
                         Application de gestion de séjours linguistiques avec interface graphique complète. 
-                        Gestion des participants, des destinations, des hébergements et génération de documents. 
-                        Interface utilisateur intuitive développée avec Java Swing.
+                        Gestion des participants, destinations et génération de documents.
                     </p>
                     <div class="tags">
                         <span class="tag">Java</span>
@@ -292,16 +303,16 @@
                         <span class="tag">IHM</span>
                         <span class="tag">JDBC</span>
                     </div>
-                </article>
+                    <span class="project-cta">Voir le projet</span>
+                </a>
 
-                <article class="project">
+                <a href="projet-openai.html" class="project">
                     <span class="project-type">Intégration Web</span>
                     <h3 class="project-title">Site OpenAI</h3>
                     <p class="project-year">2023</p>
                     <p class="project-desc">
                         Reproduction fidèle du site officiel d'OpenAI en HTML/CSS pur. 
-                        Exercice d'intégration web avancé avec attention particulière au responsive design, 
-                        aux animations CSS et à la fidélité pixel-perfect du rendu.
+                        Exercice d'intégration avec responsive design et animations CSS.
                     </p>
                     <div class="tags">
                         <span class="tag">HTML5</span>
@@ -309,31 +320,32 @@
                         <span class="tag">Responsive</span>
                         <span class="tag">Flexbox</span>
                     </div>
-                </article>
+                    <span class="project-cta">Voir le projet</span>
+                </a>
 
-                <article class="project">
+                <a href="projet-mauscape.html" class="project">
                     <span class="project-type">Développement Jeu</span>
                     <h3 class="project-title">Mauscape</h3>
                     <p class="project-year">2023</p>
                     <p class="project-desc">
                         Jeu d'aventure textuel de type "escape game" jouable dans le terminal. 
-                        Le joueur explore un château mystérieux, résout des énigmes et collecte des objets 
-                        pour s'échapper. Système de sauvegarde et plusieurs fins possibles.
+                        Exploration, énigmes et plusieurs fins possibles.
                     </p>
                     <div class="tags">
                         <span class="tag">Java</span>
                         <span class="tag">Terminal</span>
                         <span class="tag">Game Design</span>
                     </div>
-                </article>
+                    <span class="project-cta">Voir le projet</span>
+                </a>
 
-                <article class="project">
+                <div class="project" style="cursor: default;">
                     <span class="project-type">Développement Web</span>
                     <h3 class="project-title">CV Numérique</h3>
                     <p class="project-year">2025</p>
                     <p class="project-desc">
                         Ce site que vous consultez ! CV numérique moderne avec design responsive, 
-                        animations au scroll, optimisation SEO et accessibilité. Hébergé sur GitHub Pages.
+                        animations au scroll, optimisation SEO et accessibilité.
                     </p>
                     <div class="tags">
                         <span class="tag">HTML5</span>
@@ -341,7 +353,7 @@
                         <span class="tag">JavaScript</span>
                         <span class="tag">SEO</span>
                     </div>
-                </article>
+                </div>
             </div>
         </section>
 
