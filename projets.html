@@ -3,210 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO Meta Tags -->
     <title>Projets Développement Web & Java | Aliocha Deflou</title>
     <meta name="description" content="Portfolio des projets d'Aliocha Deflou : développement web React, applications Java, jeux en terminal. Découvrez mes réalisations en BUT Informatique.">
     <meta name="keywords" content="projets développeur, portfolio React, projet Java, développement web Lille, étudiant BUT informatique projets">
     <meta name="author" content="Aliocha Deflou">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://aliodefl.github.io/aliocha-deflou/projets.html">
-    
-    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://aliodefl.github.io/aliocha-deflou/projets.html">
     <meta property="og:title" content="Projets Développement Web & Java | Aliocha Deflou">
     <meta property="og:description" content="Portfolio des projets : développement web React, applications Java">
     <meta property="og:image" content="https://aliodefl.github.io/aliocha-deflou/og-image.png">
     <meta property="og:locale" content="fr_FR">
-    <meta property="og:site_name" content="Aliocha Deflou">
-    
-    <!-- Theme -->
     <meta name="theme-color" content="#fafafa">
     <link rel="icon" type="image/png" href="favicon.png">
-    
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-    
     <style>
-        :root {
-            --bg: #fafafa;
-            --text: #1a1a1a;
-            --text-light: #666;
-            --text-muted: #999;
-            --border: #e5e5e5;
-            --accent: #000;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'IBM Plex Sans', -apple-system, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            font-size: 15px;
-            line-height: 1.7;
-            font-weight: 400;
-        }
-
-        a { color: var(--text); text-decoration: none; }
-        a:hover { text-decoration: underline; }
-
-        /* Navigation */
-        nav {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-            background: rgba(250, 250, 250, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .nav-inner {
-            max-width: 900px; margin: 0 auto; padding: 0 2rem;
-            height: 60px; display: flex; align-items: center; justify-content: space-between;
-        }
-
-        .nav-logo {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 13px; font-weight: 500;
-        }
-
-        .nav-links { display: flex; gap: 2.5rem; }
-        .nav-links a {
-            color: var(--text-light); text-decoration: none; font-size: 13px;
-            transition: color 0.3s ease;
-        }
-        .nav-links a:hover { color: var(--text); text-decoration: none; }
-        .nav-links a.active { color: var(--text); }
-
-        /* Main */
-        main { max-width: 900px; margin: 0 auto; padding: 8rem 2rem 4rem; }
-
-        /* Breadcrumb */
-        .breadcrumb {
-            font-size: 12px; color: var(--text-muted); margin-bottom: 3rem;
-            font-family: 'IBM Plex Mono', monospace;
-        }
-        .breadcrumb a { color: var(--text-muted); }
-        .breadcrumb a:hover { color: var(--text); }
-
-        /* Page Header */
-        .page-header { margin-bottom: 4rem; }
-        .page-title {
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 600; letter-spacing: -2px;
-            margin-bottom: 1.5rem; line-height: 1.1;
-        }
-        .page-intro {
-            color: var(--text-light); font-size: 1.05rem;
-            line-height: 1.9; max-width: 600px;
-        }
-
-        /* Section Title */
-        .section-title {
-            font-size: 11px; font-weight: 500; text-transform: uppercase;
-            letter-spacing: 2px; color: var(--text-muted);
-            margin-bottom: 3rem; display: flex; align-items: center; gap: 1.5rem;
-        }
-        .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-
-        /* Projects Grid */
-        .projects-grid { display: grid; gap: 2rem; }
-
-        .project {
-            display: block;
-            padding: 2rem; border: 1px solid var(--border);
-            border-radius: 12px; transition: all 0.4s ease;
-            position: relative; overflow: hidden;
-            text-decoration: none;
-        }
-        .project:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-            border-color: var(--text);
-            text-decoration: none;
-        }
-
-        .project-type {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
-            color: var(--text-muted); margin-bottom: 1rem;
-            display: inline-block; padding: 0.4rem 0.8rem;
-            background: #f0f0f0; border-radius: 4px;
-        }
-        .project-title { font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text); }
-        .project-year {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 12px; color: var(--text-muted); margin-bottom: 1rem;
-        }
-        .project-desc { color: var(--text-light); font-size: 14px; line-height: 1.8; margin-bottom: 1.5rem; }
-
-        .project-cta {
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            margin-top: 0.5rem; color: var(--text);
-            font-size: 13px; font-weight: 500; transition: gap 0.3s ease;
-        }
-        .project:hover .project-cta { gap: 1rem; }
-        .project-cta::after { content: '→'; transition: transform 0.3s ease; }
-        .project:hover .project-cta::after { transform: translateX(5px); }
-
-        /* Tags */
-        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
-        .tag {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 11px; color: var(--text-muted);
-            padding: 0.4rem 0.8rem; border-radius: 50px;
-            border: 1px solid var(--border); transition: all 0.3s ease;
-        }
-        .project:hover .tag { border-color: var(--text-muted); }
-
-        /* Stats */
-        .stats-section {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
-            margin-bottom: 4rem; padding: 2rem;
-            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
-            border-radius: 12px;
-        }
-        .stat { text-align: center; }
-        .stat-number { font-size: 2.5rem; font-weight: 600; margin-bottom: 0.25rem; }
-        .stat-label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
-
-        /* CTA */
-        .cta-section {
-            margin-top: 5rem; padding: 3rem;
-            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
-            border-radius: 12px; text-align: center;
-        }
-        .cta-section h2 { font-size: 1.3rem; margin-bottom: 1rem; }
-        .cta-section p { color: var(--text-light); margin-bottom: 1.5rem; }
-        .btn {
-            display: inline-block; background: var(--text); color: var(--bg);
-            padding: 0.85rem 2rem; border-radius: 50px; font-size: 14px;
-            font-weight: 500; transition: all 0.3s ease;
-        }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-decoration: none; }
-
-        /* Footer */
-        footer {
-            max-width: 900px; margin: 0 auto; padding: 4rem 2rem;
-            text-align: center; font-size: 12px; color: var(--text-muted);
-            border-top: 1px solid var(--border); margin-top: 4rem;
-        }
-        footer a { color: var(--text-muted); }
-        footer a:hover { color: var(--text); }
-
-        @media (max-width: 768px) {
-            .page-title { letter-spacing: -1px; }
-            .nav-links { gap: 1rem; }
-            .nav-links a { font-size: 11px; }
-            .stats-section { grid-template-columns: 1fr; }
-        }
-        @media (max-width: 500px) { .nav-links { display: none; } }
+        :root{--bg:#fafafa;--text:#1a1a1a;--text-light:#666;--text-muted:#999;--border:#e5e5e5;--accent:#000}
+        *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+        body{font-family:'IBM Plex Sans',-apple-system,sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.7;font-weight:400}
+        body.modal-open{overflow:hidden}
+        a{color:var(--text);text-decoration:none}a:hover{text-decoration:underline}
+        nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,250,250,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+        .nav-inner{max-width:900px;margin:0 auto;padding:0 2rem;height:60px;display:flex;align-items:center;justify-content:space-between}
+        .nav-logo{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500}
+        .nav-links{display:flex;gap:2.5rem}
+        .nav-links a{color:var(--text-light);text-decoration:none;font-size:13px;transition:color .3s ease}
+        .nav-links a:hover{color:var(--text);text-decoration:none}.nav-links a.active{color:var(--text)}
+        main{max-width:900px;margin:0 auto;padding:8rem 2rem 4rem}
+        .page-header{margin-bottom:4rem}
+        .page-title{font-size:clamp(2rem,5vw,3rem);font-weight:600;letter-spacing:-2px;margin-bottom:1.5rem;line-height:1.1}
+        .page-intro{color:var(--text-light);font-size:1.05rem;line-height:1.9;max-width:600px}
+        .section-title{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:2px;color:var(--text-muted);margin-bottom:3rem;display:flex;align-items:center;gap:1.5rem}
+        .section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+        .projects-grid{display:grid;gap:2rem}
+        .project{display:block;padding:2rem;border:1px solid var(--border);border-radius:12px;transition:all .4s ease;position:relative;overflow:hidden;cursor:pointer}
+        .project:hover{transform:translateY(-5px);box-shadow:0 20px 40px rgba(0,0,0,.08);border-color:var(--text)}
+        .project-type{font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:1rem;display:inline-block;padding:.4rem .8rem;background:#f0f0f0;border-radius:4px}
+        .project-title{font-size:1.3rem;font-weight:600;margin-bottom:.5rem;color:var(--text)}
+        .project-year{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-muted);margin-bottom:1rem}
+        .project-desc{color:var(--text-light);font-size:14px;line-height:1.8;margin-bottom:1.5rem}
+        .project-cta{display:inline-flex;align-items:center;gap:.5rem;margin-top:.5rem;color:var(--text);font-size:13px;font-weight:500;transition:gap .3s ease}
+        .project:hover .project-cta{gap:1rem}.project-cta::after{content:'→';transition:transform .3s ease}.project:hover .project-cta::after{transform:translateX(5px)}
+        .tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem}
+        .tag{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-muted);padding:.4rem .8rem;border-radius:50px;border:1px solid var(--border);transition:all .3s ease}
+        .project:hover .tag{border-color:var(--text-muted)}
+        .stats-section{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:4rem;padding:2rem;background:linear-gradient(135deg,#fafafa 0%,#f5f5f5 100%);border-radius:12px}
+        .stat{text-align:center}
+        .stat-number{font-size:2.5rem;font-weight:600;margin-bottom:.25rem}
+        .stat-label{font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px}
+        .cta-section{margin-top:5rem;padding:3rem;background:linear-gradient(135deg,#fafafa 0%,#f5f5f5 100%);border-radius:12px;text-align:center}
+        .cta-section h2{font-size:1.3rem;margin-bottom:1rem}
+        .cta-section p{color:var(--text-light);margin-bottom:1.5rem}
+        .btn{display:inline-block;background:var(--text);color:var(--bg);padding:.85rem 2rem;border-radius:50px;font-size:14px;font-weight:500;transition:all .3s ease}
+        .btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,.1);text-decoration:none}
+        .modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.6);backdrop-filter:blur(8px);z-index:1000;opacity:0;visibility:hidden;transition:all .4s ease;display:flex;align-items:center;justify-content:center;padding:2rem}
+        .modal-overlay.active{opacity:1;visibility:visible}
+        .modal{background:var(--bg);border-radius:16px;max-width:700px;width:100%;max-height:90vh;overflow-y:auto;transform:translateY(50px) scale(.95);transition:transform .4s ease;position:relative}
+        .modal-overlay.active .modal{transform:translateY(0) scale(1)}
+        .modal-close{position:absolute;top:1.5rem;right:1.5rem;width:40px;height:40px;border:1px solid var(--border);border-radius:50%;background:var(--bg);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--text-muted);transition:all .3s ease;z-index:10}
+        .modal-close:hover{background:var(--text);color:var(--bg);border-color:var(--text)}
+        .modal-content{padding:3rem}
+        .modal-header{margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+        .modal-type{font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:.75rem;display:inline-block;padding:.4rem .8rem;background:#f0f0f0;border-radius:4px}
+        .modal-title{font-size:2rem;font-weight:600;letter-spacing:-1px;margin-bottom:.5rem}
+        .modal-year{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--text-muted)}
+        .modal-section{margin-bottom:2rem}.modal-section:last-child{margin-bottom:0}
+        .modal-section-title{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-muted);margin-bottom:.75rem}
+        .modal-section-content{color:var(--text-light);font-size:15px;line-height:1.8}
+        .modal-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
+        .modal-tag{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text);background:#f0f0f0;padding:.5rem 1rem;border-radius:50px;transition:all .3s ease}
+        .modal-tag:hover{background:var(--text);color:var(--bg)}
+        footer{max-width:900px;margin:0 auto;padding:4rem 2rem;text-align:center;font-size:12px;color:var(--text-muted);border-top:1px solid var(--border);margin-top:4rem}
+        footer a{color:var(--text-muted)}footer a:hover{color:var(--text)}
+        @media(max-width:768px){.page-title{letter-spacing:-1px}.nav-links{gap:1rem}.nav-links a{font-size:11px}.stats-section{grid-template-columns:1fr}.modal-content{padding:2rem}.modal-title{font-size:1.5rem}}
+        @media(max-width:500px){.nav-links{display:none}}
     </style>
 </head>
 <body>
+    <div class="modal-overlay" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal">
+            <button class="modal-close" onclick="closeProjectModal()" aria-label="Fermer">✕</button>
+            <div class="modal-content">
+                <header class="modal-header">
+                    <span class="modal-type" id="modal-type"></span>
+                    <h2 class="modal-title" id="modal-title"></h2>
+                    <span class="modal-year" id="modal-year"></span>
+                </header>
+                <div class="modal-section"><p class="modal-section-title">Description</p><p class="modal-section-content" id="modal-desc"></p></div>
+                <div class="modal-section"><p class="modal-section-title">Défis</p><p class="modal-section-content" id="modal-challenges"></p></div>
+                <div class="modal-section"><p class="modal-section-title">Apprentissages</p><p class="modal-section-content" id="modal-learnings"></p></div>
+                <div class="modal-section"><p class="modal-section-title">Impact</p><p class="modal-section-content" id="modal-impact"></p></div>
+                <div class="modal-section"><p class="modal-section-title">Technologies</p><div class="modal-tags" id="modal-tech"></div></div>
+            </div>
+        </div>
+    </div>
+
     <header>
         <nav>
             <div class="nav-inner">
@@ -224,133 +118,72 @@
     </header>
 
     <main>
-
         <header class="page-header">
             <h1 class="page-title">Mes projets</h1>
-            <p class="page-intro">
-                Découvrez les projets que j'ai réalisés durant ma formation en BUT Informatique : 
-                applications web, jeux, logiciels desktop et plus encore.
-            </p>
+            <p class="page-intro">Découvrez les projets que j'ai réalisés durant ma formation en BUT Informatique : applications web, jeux, logiciels desktop et plus encore.</p>
         </header>
 
         <div class="stats-section">
-            <div class="stat">
-                <div class="stat-number">5+</div>
-                <div class="stat-label">Projets</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">6</div>
-                <div class="stat-label">Technologies</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">2</div>
-                <div class="stat-label">Ans d'expérience</div>
-            </div>
+            <div class="stat"><div class="stat-number">5+</div><div class="stat-label">Projets</div></div>
+            <div class="stat"><div class="stat-number">6</div><div class="stat-label">Technologies</div></div>
+            <div class="stat"><div class="stat-number">2</div><div class="stat-label">Ans d'expérience</div></div>
         </div>
 
         <section>
             <h2 class="section-title">Tous les projets</h2>
-
             <div class="projects-grid">
-                <a href="projet-portfolio-architecte.html" class="project">
+                <article class="project" onclick="openProjectModal(1)" tabindex="0" role="button">
                     <span class="project-type">Développement Web</span>
                     <h3 class="project-title">Portfolio Architecte</h3>
                     <p class="project-year">2025</p>
-                    <p class="project-desc">
-                        Développement d'un site web portfolio moderne et responsive pour un architecte. 
-                        Interface élégante avec animations fluides, galerie de projets interactive.
-                    </p>
-                    <div class="tags">
-                        <span class="tag">React</span>
-                        <span class="tag">TypeScript</span>
-                        <span class="tag">Tailwind CSS</span>
-                        <span class="tag">Vite</span>
-                    </div>
-                    <span class="project-cta">Voir le projet</span>
-                </a>
+                    <p class="project-desc">Développement d'un site web portfolio moderne et responsive pour un architecte. Interface élégante avec animations fluides, galerie de projets interactive.</p>
+                    <div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Tailwind CSS</span><span class="tag">Vite</span></div>
+                    <span class="project-cta">Voir les détails</span>
+                </article>
 
-                <a href="projet-risk.html" class="project">
+                <article class="project" onclick="openProjectModal(2)" tabindex="0" role="button">
                     <span class="project-type">Développement Jeu</span>
                     <h3 class="project-title">Jeu Risk</h3>
                     <p class="project-year">2025</p>
-                    <p class="project-desc">
-                        Implémentation complète du célèbre jeu de stratégie Risk en Java. Mode solo contre IA 
-                        et multijoueur local. Architecture orientée objet avec design patterns.
-                    </p>
-                    <div class="tags">
-                        <span class="tag">Java</span>
-                        <span class="tag">POO</span>
-                        <span class="tag">Terminal</span>
-                        <span class="tag">Algorithmique</span>
-                    </div>
-                    <span class="project-cta">Voir le projet</span>
-                </a>
+                    <p class="project-desc">Implémentation complète du célèbre jeu de stratégie Risk en Java. Mode solo contre IA et multijoueur local. Architecture orientée objet avec design patterns.</p>
+                    <div class="tags"><span class="tag">Java</span><span class="tag">POO</span><span class="tag">Terminal</span><span class="tag">Algorithmique</span></div>
+                    <span class="project-cta">Voir les détails</span>
+                </article>
 
-                <a href="projet-sejours.html" class="project">
+                <article class="project" onclick="openProjectModal(3)" tabindex="0" role="button">
                     <span class="project-type">Application Desktop</span>
                     <h3 class="project-title">Séjours Linguistiques</h3>
                     <p class="project-year">2025</p>
-                    <p class="project-desc">
-                        Application de gestion de séjours linguistiques avec interface graphique complète. 
-                        Gestion des participants, destinations et génération de documents.
-                    </p>
-                    <div class="tags">
-                        <span class="tag">Java</span>
-                        <span class="tag">Swing</span>
-                        <span class="tag">IHM</span>
-                        <span class="tag">JDBC</span>
-                    </div>
-                    <span class="project-cta">Voir le projet</span>
-                </a>
+                    <p class="project-desc">Application de gestion de séjours linguistiques avec interface graphique complète. Gestion des participants, destinations et génération de documents.</p>
+                    <div class="tags"><span class="tag">Java</span><span class="tag">Swing</span><span class="tag">IHM</span><span class="tag">JDBC</span></div>
+                    <span class="project-cta">Voir les détails</span>
+                </article>
 
-                <a href="projet-openai.html" class="project">
+                <article class="project" onclick="openProjectModal(4)" tabindex="0" role="button">
                     <span class="project-type">Intégration Web</span>
                     <h3 class="project-title">Site OpenAI</h3>
                     <p class="project-year">2023</p>
-                    <p class="project-desc">
-                        Reproduction fidèle du site officiel d'OpenAI en HTML/CSS pur. 
-                        Exercice d'intégration avec responsive design et animations CSS.
-                    </p>
-                    <div class="tags">
-                        <span class="tag">HTML5</span>
-                        <span class="tag">CSS3</span>
-                        <span class="tag">Responsive</span>
-                        <span class="tag">Flexbox</span>
-                    </div>
-                    <span class="project-cta">Voir le projet</span>
-                </a>
+                    <p class="project-desc">Reproduction fidèle du site officiel d'OpenAI en HTML/CSS pur. Exercice d'intégration avec responsive design et animations CSS.</p>
+                    <div class="tags"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">Responsive</span><span class="tag">Flexbox</span></div>
+                    <span class="project-cta">Voir les détails</span>
+                </article>
 
-                <a href="projet-mauscape.html" class="project">
+                <article class="project" onclick="openProjectModal(5)" tabindex="0" role="button">
                     <span class="project-type">Développement Jeu</span>
                     <h3 class="project-title">Mauscape</h3>
                     <p class="project-year">2023</p>
-                    <p class="project-desc">
-                        Jeu d'aventure textuel de type "escape game" jouable dans le terminal. 
-                        Exploration, énigmes et plusieurs fins possibles.
-                    </p>
-                    <div class="tags">
-                        <span class="tag">Java</span>
-                        <span class="tag">Terminal</span>
-                        <span class="tag">Game Design</span>
-                    </div>
-                    <span class="project-cta">Voir le projet</span>
-                </a>
+                    <p class="project-desc">Jeu d'aventure textuel de type "escape game" jouable dans le terminal. Exploration, énigmes et plusieurs fins possibles.</p>
+                    <div class="tags"><span class="tag">Java</span><span class="tag">Terminal</span><span class="tag">Game Design</span></div>
+                    <span class="project-cta">Voir les détails</span>
+                </article>
 
-                <div class="project" style="cursor: default;">
+                <article class="project" style="cursor:default">
                     <span class="project-type">Développement Web</span>
                     <h3 class="project-title">CV Numérique</h3>
                     <p class="project-year">2025</p>
-                    <p class="project-desc">
-                        Ce site que vous consultez ! CV numérique moderne avec design responsive, 
-                        animations au scroll, optimisation SEO et accessibilité.
-                    </p>
-                    <div class="tags">
-                        <span class="tag">HTML5</span>
-                        <span class="tag">CSS3</span>
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">SEO</span>
-                    </div>
-                </div>
+                    <p class="project-desc">Ce site que vous consultez ! CV numérique moderne avec design responsive, animations au scroll, optimisation SEO et accessibilité.</p>
+                    <div class="tags"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">SEO</span></div>
+                </article>
             </div>
         </section>
 
@@ -363,9 +196,15 @@
 
     <footer>
         <p>© 2025 Aliocha Deflou · Étudiant en BUT Informatique à l'IUT de Lille</p>
-        <p style="margin-top: 0.5rem;">
-            <a href="index.html">Accueil</a> · <a href="formations.html">Formations</a> · <a href="index.html#contact">Contact</a>
-        </p>
+        <p style="margin-top:.5rem"><a href="index.html">Accueil</a> · <a href="formations.html">Formations</a> · <a href="index.html#contact">Contact</a></p>
     </footer>
+
+    <script>
+        var projects={1:{title:"Portfolio Architecte",type:"Développement Web",year:"2025",description:"Développement d'un site web portfolio moderne pour un architecte, mettant en valeur ses créations architecturales.",challenges:"Design responsive pour mettre en valeur les images architecturales, optimisation des performances pour les images haute résolution.",learnings:"Développement front-end moderne, optimisation d'images web, design responsive avancé.",impact:"Projet qui m'a permis d'explorer le domaine de l'architecture et de développer mes compétences en design web.",tech:["React","TypeScript","Tailwind","Vite"]},2:{title:"Jeu Risk",type:"Développement Jeu",year:"2025",description:"Jeu de stratégie complet exécutable sur le terminal.",challenges:"Gestion de la logique de jeu complexe, implémentation de l'IA pour les adversaires.",learnings:"Programmation orientée objet avancée, algorithmes de stratégie, gestion de la mémoire en Java.",impact:"Amélioration significative de la compréhension des structures de données.",tech:["Java","Terminal","OOP"]},3:{title:"Séjours Linguistiques",type:"App Bureau",year:"2025",description:"Application d'organisation de séjours avec interface graphique complète.",challenges:"Conception d'une interface utilisateur intuitive avec Swing, gestion de base de données locale.",learnings:"Développement d'interfaces graphiques (GUI), gestion d'événements, persistance des données.",impact:"Création d'un outil fonctionnel facilitant la gestion administrative des séjours.",tech:["Java","IHM","Swing"]},4:{title:"Site OpenAI",type:"Intégration Web",year:"2023",description:"Re-création fidèle du site officiel d'OpenAI.",challenges:"Reproduction fidèle du design pixel-perfect, gestion des animations CSS complexes.",learnings:"Maîtrise avancée de CSS3, Flexbox et Grid, bonnes pratiques d'intégration web.",impact:"Démonstration de la capacité à reproduire des designs professionnels complexes.",tech:["HTML","CSS","Responsive"]},5:{title:"Mauscape",type:"Développement Jeu",year:"2023",description:"Jeu d'aventure textuel jouable dans le terminal.",challenges:"Création d'un moteur de jeu textuel, gestion des scénarios à embranchements.",learnings:"Logique de programmation fondamentale, gestion des entrées/sorties, structuration de code.",impact:"Premier projet complet de jeu, renforçant la passion pour le développement logiciel.",tech:["Java","Terminal"]}};
+        function openProjectModal(id){var p=projects[id];if(!p)return;document.getElementById('modal-type').textContent=p.type;document.getElementById('modal-title').textContent=p.title;document.getElementById('modal-year').textContent=p.year;document.getElementById('modal-desc').textContent=p.description;document.getElementById('modal-challenges').textContent=p.challenges;document.getElementById('modal-learnings').textContent=p.learnings;document.getElementById('modal-impact').textContent=p.impact;document.getElementById('modal-tech').innerHTML=p.tech.map(function(t){return'<span class="modal-tag">'+t+'</span>'}).join('');document.getElementById('projectModal').classList.add('active');document.body.classList.add('modal-open')}
+        function closeProjectModal(){document.getElementById('projectModal').classList.remove('active');document.body.classList.remove('modal-open')}
+        document.getElementById('projectModal').onclick=function(e){if(e.target.id==='projectModal')closeProjectModal()};
+        document.onkeydown=function(e){if(e.key==='Escape')closeProjectModal();if(e.key==='Enter'&&e.target.classList.contains('project'))e.target.click()};
+    </script>
 </body>
 </html>
