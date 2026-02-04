@@ -18,7 +18,7 @@
     <meta property="og:locale" content="fr_FR">
     <meta property="og:site_name" content="Aliocha Deflou">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="theme-color" content="#1a1a1a">
+    <meta name="theme-color" content="#fafafa">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,7 +28,7 @@
     {"@context":"https://schema.org","@type":"Person","name":"Aliocha Deflou","url":"https://aliodefl.github.io/aliocha-deflou/","jobTitle":"Étudiant en BUT Informatique","email":"aliocha.deflou@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Lille","addressRegion":"Hauts-de-France","addressCountry":"FR"},"knowsAbout":["Développement Web","React","TypeScript","Java","Python","SQL","Git"],"sameAs":["https://www.linkedin.com/in/aliocha-deflou-59606a265/"]}
     </script>
     <style>
-        :root{--bg:#fafafa;--text:#1a1a1a;--text-light:#666;--text-muted:#999;--border:#e5e5e5;--accent:#000}
+        :root{--bg:#fafafa;--text:#1a1a1a;--text-light:#666;--text-muted:#767676;--border:#e5e5e5;--accent:#000}
         *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
         body{font-family:'IBM Plex Sans',-apple-system,sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.7;font-weight:400;overflow-x:hidden}
         body.modal-open{overflow:hidden}
@@ -143,12 +143,17 @@
         .bg-shape-3{width:300px;height:300px;bottom:-100px;right:10%}
         .skip-link{position:absolute;top:-100px;left:0;background:var(--text);color:var(--bg);padding:1rem 2rem;z-index:10000;transition:top .3s ease}
         .skip-link:focus{top:0}
-        @media(max-width:768px){.cursor{display:none}.nav-links{gap:1rem}.nav-links a{font-size:11px}.hero-title{letter-spacing:-2px}section{padding:5rem 0}.skills-container{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}.item{padding-left:1.5rem}.item-header{flex-direction:column;gap:.25rem}.modal-content{padding:2rem}.modal-title{font-size:1.5rem}}
-        @media(max-width:500px){.nav-links{display:none}}
+        @media(max-width:768px){.cursor{display:none}.nav-links{gap:1rem}.nav-links a{font-size:11px}.hero-title{letter-spacing:-2px}section{padding:5rem 0}.skills-container{grid-template-columns:1fr}.skills-group[style*="grid-column"]{grid-column:span 1!important}.contact-grid{grid-template-columns:1fr}.item{padding-left:1.5rem}.item-header{flex-direction:column;gap:.25rem}.modal-content{padding:2rem}.modal-title{font-size:1.5rem}}
+        .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:5px;z-index:1001}
+        .hamburger span{display:block;width:24px;height:2px;background:var(--text);transition:all .3s ease}
+        .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+        .hamburger.active span:nth-child(2){opacity:0}
+        .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+        @media(max-width:500px){.hamburger{display:flex}.nav-links{display:none;position:fixed;top:60px;left:0;right:0;background:rgba(250,250,250,.98);backdrop-filter:blur(20px);flex-direction:column;padding:2rem;gap:1.5rem;border-bottom:1px solid var(--border);box-shadow:0 10px 30px rgba(0,0,0,.1)}.nav-links.active{display:flex}.nav-links a{font-size:16px}}
     </style>
 </head>
 <body>
-    <a href="#accueil" class="skip-link">Aller au contenu principal</a>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
     <div class="cursor" aria-hidden="true"></div>
     <div class="progress-bar" aria-hidden="true"></div>
     <div class="bg-shape bg-shape-1" aria-hidden="true"></div>
@@ -198,6 +203,9 @@
         <nav role="navigation" aria-label="Navigation principale">
             <div class="nav-inner">
                 <span class="nav-logo">Aliocha Deflou</span>
+                <button class="hamburger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu()">
+                    <span></span><span></span><span></span>
+                </button>
                 <div class="nav-links">
                     <a href="#accueil" class="active">Accueil</a>
                     <a href="formations.html">Formations</a>
@@ -322,17 +330,18 @@
     </main>
 
     <footer>
-        <p class="reveal">© 2025 Aliocha Deflou · Étudiant en BUT Informatique à l'IUT de Lille · <a href="formations.html" style="color:var(--text-light)">Formations</a> · <a href="projets.html" style="color:var(--text-light)">Projets</a></p>
+        <p class="reveal">© 2026 Aliocha Deflou · Étudiant en BUT Informatique à l'IUT de Lille · <a href="formations.html" style="color:var(--text-light)">Formations</a> · <a href="projets.html" style="color:var(--text-light)">Projets</a></p>
         <div class="footer-legal"><button onclick="openLegalModal()">Mentions légales & Confidentialité</button></div>
     </footer>
 
     <script>
-        var projects={1:{title:"Portfolio Architecte",type:"Développement Web",year:"2025",description:"Développement d'un site web portfolio moderne pour un architecte, mettant en valeur ses créations architecturales.",challenges:"Design responsive pour mettre en valeur les images architecturales, optimisation des performances.",learnings:"Développement front-end moderne, optimisation d'images web, design responsive avancé.",impact:"Projet qui m'a permis d'explorer le domaine de l'architecture et de développer mes compétences en design web.",tech:["React","TypeScript","Tailwind","Vite"]},2:{title:"Jeu Risk",type:"Développement Jeu",year:"2025",description:"Jeu de stratégie complet exécutable sur le terminal.",challenges:"Gestion de la logique de jeu complexe, implémentation de l'IA pour les adversaires.",learnings:"Programmation orientée objet avancée, algorithmes de stratégie, gestion de la mémoire en Java.",impact:"Amélioration significative de la compréhension des structures de données.",tech:["Java","Terminal","OOP"]},3:{title:"Séjours Linguistiques",type:"App Bureau",year:"2025",description:"Application d'organisation de séjours avec interface graphique complète.",challenges:"Conception d'une interface utilisateur intuitive avec Swing, gestion de base de données locale.",learnings:"Développement d'interfaces graphiques (GUI), gestion d'événements, persistance des données.",impact:"Création d'un outil fonctionnel facilitant la gestion administrative des séjours.",tech:["Java","IHM","Swing"]}};
+        var projects={1:{title:"Portfolio Architecte",type:"Développement Web",year:"2025",description:"Développement d'un site web portfolio moderne pour un architecte, mettant en valeur ses créations architecturales.",challenges:"Design responsive pour mettre en valeur les images architecturales, optimisation des performances pour les images haute résolution.",learnings:"Développement front-end moderne, optimisation d'images web, design responsive avancé.",impact:"Projet qui m'a permis d'explorer le domaine de l'architecture et de développer mes compétences en design web.",tech:["React","TypeScript","Tailwind","Vite"]},2:{title:"Jeu Risk",type:"Développement Jeu",year:"2025",description:"Jeu de stratégie complet exécutable sur le terminal.",challenges:"Gestion de la logique de jeu complexe, implémentation de l'IA pour les adversaires.",learnings:"Programmation orientée objet avancée, algorithmes de stratégie, gestion de la mémoire en Java.",impact:"Amélioration significative de la compréhension des structures de données.",tech:["Java","Terminal","OOP"]},3:{title:"Séjours Linguistiques",type:"Application Desktop",year:"2025",description:"Application d'organisation de séjours avec interface graphique complète.",challenges:"Conception d'une interface utilisateur intuitive avec Swing, gestion de base de données locale.",learnings:"Développement d'interfaces graphiques (GUI), gestion d'événements, persistance des données.",impact:"Création d'un outil fonctionnel facilitant la gestion administrative des séjours.",tech:["Java","Swing","IHM","JDBC"]}};
         function openProjectModal(id){var p=projects[id];if(!p)return;document.getElementById('modal-type').textContent=p.type;document.getElementById('modal-title').textContent=p.title;document.getElementById('modal-year').textContent=p.year;document.getElementById('modal-desc').textContent=p.description;document.getElementById('modal-challenges').textContent=p.challenges;document.getElementById('modal-learnings').textContent=p.learnings;document.getElementById('modal-impact').textContent=p.impact;document.getElementById('modal-tech').innerHTML=p.tech.map(function(t){return'<span class="modal-tag">'+t+'</span>'}).join('');document.getElementById('projectModal').classList.add('active');document.body.classList.add('modal-open')}
         function closeProjectModal(){document.getElementById('projectModal').classList.remove('active');document.body.classList.remove('modal-open')}
         document.getElementById('projectModal').onclick=function(e){if(e.target.id==='projectModal')closeProjectModal()};
         function openLegalModal(){document.getElementById('legalModal').classList.add('active');document.body.classList.add('modal-open')}
         function closeLegalModal(e){if(!e||e.target===e.currentTarget){document.getElementById('legalModal').classList.remove('active');document.body.classList.remove('modal-open')}}
+        function toggleMenu(){var h=document.querySelector('.hamburger');var n=document.querySelector('.nav-links');h.classList.toggle('active');n.classList.toggle('active');h.setAttribute('aria-expanded',h.classList.contains('active'))}
         document.onkeydown=function(e){if(e.key==='Escape'){closeProjectModal();closeLegalModal()}if(e.key==='Enter'&&e.target.classList.contains('project'))e.target.click()};
         var title="Aliocha Deflou";var container=document.getElementById('title-text');title.split('').forEach(function(c,i){var s=document.createElement('span');s.className='char';s.textContent=c===' '?'\u00A0':c;s.style.animationDelay=(0.3+i*0.05)+'s';container.appendChild(s)});
         var cursor=document.querySelector('.cursor');var mx=0,my=0,cx=0,cy=0;document.onmousemove=function(e){mx=e.clientX;my=e.clientY};(function anim(){cx+=(mx-cx)*0.15;cy+=(my-cy)*0.15;cursor.style.left=cx+'px';cursor.style.top=cy+'px';requestAnimationFrame(anim)})();
