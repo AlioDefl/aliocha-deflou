@@ -18,7 +18,7 @@
     <meta property="og:locale" content="fr_FR">
     <meta property="og:site_name" content="Aliocha Deflou">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="theme-color" content="#1a1a1a">
+    <meta name="theme-color" content="#fafafa">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,7 +28,7 @@
     {"@context":"https://schema.org","@type":"Person","name":"Aliocha Deflou","url":"https://aliodefl.github.io/aliocha-deflou/","jobTitle":"Étudiant en BUT Informatique","email":"aliocha.deflou@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Lille","addressRegion":"Hauts-de-France","addressCountry":"FR"},"knowsAbout":["Développement Web","React","TypeScript","Java","Python","SQL","Git"],"sameAs":["https://www.linkedin.com/in/aliocha-deflou-59606a265/"]}
     </script>
     <style>
-        :root{--bg:#fafafa;--text:#1a1a1a;--text-light:#666;--text-muted:#999;--border:#e5e5e5;--accent:#000}
+        :root{--bg:#fafafa;--text:#1a1a1a;--text-light:#666;--text-muted:#767676;--border:#e5e5e5;--accent:#000}
         *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
         body{font-family:'IBM Plex Sans',-apple-system,sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.7;font-weight:400;overflow-x:hidden}
         body.modal-open{overflow:hidden}
@@ -46,7 +46,7 @@
         .nav-links a:hover{color:var(--text)}.nav-links a:hover::after,.nav-links a.active::after{width:100%}.nav-links a.active{color:var(--text)}
         main{max-width:900px;margin:0 auto;padding:0 2rem}
         section{padding:8rem 0;border-bottom:1px solid var(--border);position:relative}section:last-of-type{border-bottom:none}
-        .reveal{opacity:0;transform:translateY(60px);transition:opacity .8s ease,transform .8s ease}.reveal.active{opacity:1;transform:translateY(0)}
+        .reveal{opacity:0;transform:translateY(40px);transition:opacity .8s cubic-bezier(.4,0,.2,1),transform .8s cubic-bezier(.4,0,.2,1)}.reveal.active{opacity:1;transform:translateY(0)}
         .reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}.reveal-delay-4{transition-delay:.4s}
         #accueil{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:0;padding-bottom:0;border-bottom:none}
         .hero-title{font-size:clamp(3rem,10vw,6rem);font-weight:600;letter-spacing:-4px;margin-bottom:1rem;line-height:1;overflow:hidden}
@@ -71,12 +71,19 @@
         .item-place{color:var(--text-light);font-size:14px;margin-bottom:1rem}
         .item-desc{color:var(--text-light);font-size:14px;line-height:1.8}
         .item-tags{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.5rem}
-        .tag{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-muted);padding:.4rem .8rem;border-radius:50px;border:1px solid var(--border);transition:all .3s ease}
-        .tag:hover{background:var(--text);color:var(--bg);border-color:var(--text)}
+        .tag{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-muted);padding:.4rem .8rem;border-radius:50px;border:1px solid var(--border);transition:all .3s cubic-bezier(.4,0,.2,1)}
+        .tag:hover{background:var(--text);color:var(--bg);border-color:var(--text);transform:translateY(-2px)}
+        .item-tags .tag:nth-child(1),.modal-tags .modal-tag:nth-child(1){animation:tagPop .4s ease forwards .1s;opacity:0}
+        .item-tags .tag:nth-child(2),.modal-tags .modal-tag:nth-child(2){animation:tagPop .4s ease forwards .15s;opacity:0}
+        .item-tags .tag:nth-child(3),.modal-tags .modal-tag:nth-child(3){animation:tagPop .4s ease forwards .2s;opacity:0}
+        .item-tags .tag:nth-child(4),.modal-tags .modal-tag:nth-child(4){animation:tagPop .4s ease forwards .25s;opacity:0}
+        .item-tags .tag:nth-child(5),.modal-tags .modal-tag:nth-child(5){animation:tagPop .4s ease forwards .3s;opacity:0}
+        @keyframes tagPop{from{opacity:0;transform:scale(.8) translateY(10px)}to{opacity:1;transform:scale(1) translateY(0)}}
         .projects-grid{display:grid;gap:2rem}
-        .project{padding:2rem;border:1px solid var(--border);border-radius:12px;transition:all .4s ease;position:relative;overflow:hidden;cursor:pointer}
+        .project{padding:2rem;border:1px solid var(--border);border-radius:12px;transition:all .4s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden;cursor:pointer}
         .project::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,rgba(0,0,0,.02) 0%,transparent 100%);opacity:0;transition:opacity .4s ease}
-        .project:hover{transform:translateY(-5px);box-shadow:0 20px 40px rgba(0,0,0,.08);border-color:var(--text)}.project:hover::before{opacity:1}
+        .project::after{content:'';position:absolute;top:0;left:-100%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);transition:none}
+        .project:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 25px 50px rgba(0,0,0,.12);border-color:var(--text)}.project:hover::before{opacity:1}.project:hover::after{left:150%;transition:left .6s ease}
         .show-more-btn{display:flex;align-items:center;justify-content:center;gap:.75rem;margin:2rem auto 0;padding:1rem 2rem;background:transparent;border:1px solid var(--border);border-radius:50px;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;color:var(--text);transition:all .3s ease;width:fit-content;text-decoration:none}
         .show-more-btn:hover{background:var(--text);color:var(--bg);border-color:var(--text);text-decoration:none}
         .show-more-btn .arrow{transition:transform .3s ease}.show-more-btn:hover .arrow{transform:translateX(5px)}
@@ -88,7 +95,7 @@
         .project:hover .project-cta{gap:1rem}.project-cta::after{content:'→';transition:transform .3s ease}.project:hover .project-cta::after{transform:translateX(5px)}
         .modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.6);backdrop-filter:blur(8px);z-index:1000;opacity:0;visibility:hidden;transition:all .4s ease;display:flex;align-items:center;justify-content:center;padding:2rem}
         .modal-overlay.active{opacity:1;visibility:visible}
-        .modal{background:var(--bg);border-radius:16px;max-width:700px;width:100%;max-height:90vh;overflow-y:auto;transform:translateY(50px) scale(.95);transition:transform .4s ease;position:relative}
+        .modal{background:var(--bg);border-radius:16px;max-width:700px;width:100%;max-height:90vh;overflow-y:auto;transform:translateY(50px) scale(.9);transition:transform .5s cubic-bezier(.34,1.56,.64,1);position:relative}
         .modal-overlay.active .modal{transform:translateY(0) scale(1)}
         .modal-close{position:absolute;top:1.5rem;right:1.5rem;width:40px;height:40px;border:1px solid var(--border);border-radius:50%;background:var(--bg);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--text-muted);transition:all .3s ease;z-index:10}
         .modal-close:hover{background:var(--text);color:var(--bg);border-color:var(--text)}
@@ -118,8 +125,8 @@
         .footer-legal button{background:none;border:none;color:var(--text-muted);font-size:.8rem;cursor:pointer;transition:color .2s;font-family:'IBM Plex Sans',sans-serif}
         .footer-legal button:hover{color:var(--text)}
         .skills-container{display:grid;grid-template-columns:repeat(2,1fr);gap:3rem}
-        .skills-group{padding:2rem;background:linear-gradient(135deg,#fafafa 0%,#f5f5f5 100%);border-radius:12px;transition:transform .3s ease}
-        .skills-group:hover{transform:scale(1.02)}
+        .skills-group{padding:2rem;background:linear-gradient(135deg,#fafafa 0%,#f5f5f5 100%);border-radius:12px;transition:all .4s cubic-bezier(.4,0,.2,1)}
+        .skills-group:hover{transform:translateY(-5px) scale(1.02);box-shadow:0 20px 40px rgba(0,0,0,.06)}
         .skills-label{font-size:13px;font-weight:600;margin-bottom:1.25rem;display:flex;align-items:center;gap:.75rem}
         .skills-label::before{content:'';width:8px;height:8px;background:var(--text);border-radius:2px}
         .skills-list{color:var(--text-light);font-size:14px;line-height:2}
@@ -128,27 +135,33 @@
         .lang-item:hover{transform:translateX(10px)}
         .lang-level{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-muted);background:#f0f0f0;padding:.25rem .5rem;border-radius:4px}
         .contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem}
-        .contact-item{padding:2rem;border:1px solid var(--border);border-radius:12px;transition:all .3s ease;position:relative;overflow:hidden}
-        .contact-item::before{content:'';position:absolute;bottom:0;left:0;width:100%;height:3px;background:var(--text);transform:scaleX(0);transform-origin:left;transition:transform .4s ease}
-        .contact-item:hover{transform:translateY(-5px);box-shadow:0 15px 30px rgba(0,0,0,.05)}.contact-item:hover::before{transform:scaleX(1)}
+        .contact-item{padding:2rem;border:1px solid var(--border);border-radius:12px;transition:all .4s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden}
+        .contact-item::before{content:'';position:absolute;bottom:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--text),#666);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.4,0,.2,1)}
+        .contact-item:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,.08)}.contact-item:hover::before{transform:scaleX(1)}
         .contact-label{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-muted);margin-bottom:.75rem}
         .contact-value{font-size:1rem;font-weight:500}
         .contact-value a{color:var(--text);text-decoration:none;position:relative}
         .contact-value a::after{content:'';position:absolute;bottom:-2px;left:0;width:100%;height:1px;background:var(--text);transform:scaleX(0);transform-origin:right;transition:transform .3s ease}
         .contact-value a:hover::after{transform:scaleX(1);transform-origin:left}
         footer{max-width:900px;margin:0 auto;padding:4rem 2rem;text-align:center;font-size:12px;color:var(--text-muted)}
-        .bg-shape{position:fixed;border-radius:50%;pointer-events:none;z-index:-1;opacity:.03;background:var(--text)}
-        .bg-shape-1{width:600px;height:600px;top:-200px;right:-200px}
-        .bg-shape-2{width:400px;height:400px;bottom:20%;left:-150px}
-        .bg-shape-3{width:300px;height:300px;bottom:-100px;right:10%}
+        .bg-shape{position:fixed;border-radius:50%;pointer-events:none;z-index:-1;opacity:.03;background:var(--text);animation:float 20s ease-in-out infinite}
+        .bg-shape-1{width:600px;height:600px;top:-200px;right:-200px;animation-delay:0s}
+        .bg-shape-2{width:400px;height:400px;bottom:20%;left:-150px;animation-delay:-7s}
+        .bg-shape-3{width:300px;height:300px;bottom:-100px;right:10%;animation-delay:-14s}
+        @keyframes float{0%,100%{transform:translate(0,0) rotate(0deg)}25%{transform:translate(10px,-10px) rotate(1deg)}50%{transform:translate(-5px,15px) rotate(-1deg)}75%{transform:translate(-10px,-5px) rotate(.5deg)}}
         .skip-link{position:absolute;top:-100px;left:0;background:var(--text);color:var(--bg);padding:1rem 2rem;z-index:10000;transition:top .3s ease}
         .skip-link:focus{top:0}
-        @media(max-width:768px){.cursor{display:none}.nav-links{gap:1rem}.nav-links a{font-size:11px}.hero-title{letter-spacing:-2px}section{padding:5rem 0}.skills-container{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}.item{padding-left:1.5rem}.item-header{flex-direction:column;gap:.25rem}.modal-content{padding:2rem}.modal-title{font-size:1.5rem}}
-        @media(max-width:500px){.nav-links{display:none}}
+        @media(max-width:768px){.cursor{display:none}.nav-links{gap:1rem}.nav-links a{font-size:11px}.hero-title{letter-spacing:-2px}section{padding:5rem 0}.skills-container{grid-template-columns:1fr}.skills-group[style*="grid-column"]{grid-column:span 1!important}.contact-grid{grid-template-columns:1fr}.item{padding-left:1.5rem}.item-header{flex-direction:column;gap:.25rem}.modal-content{padding:2rem}.modal-title{font-size:1.5rem}}
+        .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:5px;z-index:1001}
+        .hamburger span{display:block;width:24px;height:2px;background:var(--text);transition:all .3s ease}
+        .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+        .hamburger.active span:nth-child(2){opacity:0}
+        .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+        @media(max-width:500px){.hamburger{display:flex}.nav-links{display:none;position:fixed;top:60px;left:0;right:0;background:rgba(250,250,250,.98);backdrop-filter:blur(20px);flex-direction:column;padding:2rem;gap:1.5rem;border-bottom:1px solid var(--border);box-shadow:0 10px 30px rgba(0,0,0,.1)}.nav-links.active{display:flex}.nav-links a{font-size:16px}}
     </style>
 </head>
 <body>
-    <a href="#accueil" class="skip-link">Aller au contenu principal</a>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
     <div class="cursor" aria-hidden="true"></div>
     <div class="progress-bar" aria-hidden="true"></div>
     <div class="bg-shape bg-shape-1" aria-hidden="true"></div>
@@ -198,6 +211,9 @@
         <nav role="navigation" aria-label="Navigation principale">
             <div class="nav-inner">
                 <span class="nav-logo">Aliocha Deflou</span>
+                <button class="hamburger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu()">
+                    <span></span><span></span><span></span>
+                </button>
                 <div class="nav-links">
                     <a href="#accueil" class="active">Accueil</a>
                     <a href="formations.html">Formations</a>
@@ -322,17 +338,18 @@
     </main>
 
     <footer>
-        <p class="reveal">© 2025 Aliocha Deflou · Étudiant en BUT Informatique à l'IUT de Lille · <a href="formations.html" style="color:var(--text-light)">Formations</a> · <a href="projets.html" style="color:var(--text-light)">Projets</a></p>
+        <p class="reveal">© 2026 Aliocha Deflou · Étudiant en BUT Informatique à l'IUT de Lille · <a href="formations.html" style="color:var(--text-light)">Formations</a> · <a href="projets.html" style="color:var(--text-light)">Projets</a></p>
         <div class="footer-legal"><button onclick="openLegalModal()">Mentions légales & Confidentialité</button></div>
     </footer>
 
     <script>
-        var projects={1:{title:"Portfolio Architecte",type:"Développement Web",year:"2025",description:"Développement d'un site web portfolio moderne pour un architecte, mettant en valeur ses créations architecturales.",challenges:"Design responsive pour mettre en valeur les images architecturales, optimisation des performances.",learnings:"Développement front-end moderne, optimisation d'images web, design responsive avancé.",impact:"Projet qui m'a permis d'explorer le domaine de l'architecture et de développer mes compétences en design web.",tech:["React","TypeScript","Tailwind","Vite"]},2:{title:"Jeu Risk",type:"Développement Jeu",year:"2025",description:"Jeu de stratégie complet exécutable sur le terminal.",challenges:"Gestion de la logique de jeu complexe, implémentation de l'IA pour les adversaires.",learnings:"Programmation orientée objet avancée, algorithmes de stratégie, gestion de la mémoire en Java.",impact:"Amélioration significative de la compréhension des structures de données.",tech:["Java","Terminal","OOP"]},3:{title:"Séjours Linguistiques",type:"App Bureau",year:"2025",description:"Application d'organisation de séjours avec interface graphique complète.",challenges:"Conception d'une interface utilisateur intuitive avec Swing, gestion de base de données locale.",learnings:"Développement d'interfaces graphiques (GUI), gestion d'événements, persistance des données.",impact:"Création d'un outil fonctionnel facilitant la gestion administrative des séjours.",tech:["Java","IHM","Swing"]}};
+        var projects={1:{title:"Portfolio Architecte",type:"Développement Web",year:"2025",description:"Développement d'un site web portfolio moderne pour un architecte, mettant en valeur ses créations architecturales.",challenges:"Design responsive pour mettre en valeur les images architecturales, optimisation des performances pour les images haute résolution.",learnings:"Développement front-end moderne, optimisation d'images web, design responsive avancé.",impact:"Projet qui m'a permis d'explorer le domaine de l'architecture et de développer mes compétences en design web.",tech:["React","TypeScript","Tailwind","Vite"]},2:{title:"Jeu Risk",type:"Développement Jeu",year:"2025",description:"Jeu de stratégie complet exécutable sur le terminal.",challenges:"Gestion de la logique de jeu complexe, implémentation de l'IA pour les adversaires.",learnings:"Programmation orientée objet avancée, algorithmes de stratégie, gestion de la mémoire en Java.",impact:"Amélioration significative de la compréhension des structures de données.",tech:["Java","Terminal","OOP"]},3:{title:"Séjours Linguistiques",type:"Application Desktop",year:"2025",description:"Application d'organisation de séjours avec interface graphique complète.",challenges:"Conception d'une interface utilisateur intuitive avec Swing, gestion de base de données locale.",learnings:"Développement d'interfaces graphiques (GUI), gestion d'événements, persistance des données.",impact:"Création d'un outil fonctionnel facilitant la gestion administrative des séjours.",tech:["Java","Swing","IHM","JDBC"]}};
         function openProjectModal(id){var p=projects[id];if(!p)return;document.getElementById('modal-type').textContent=p.type;document.getElementById('modal-title').textContent=p.title;document.getElementById('modal-year').textContent=p.year;document.getElementById('modal-desc').textContent=p.description;document.getElementById('modal-challenges').textContent=p.challenges;document.getElementById('modal-learnings').textContent=p.learnings;document.getElementById('modal-impact').textContent=p.impact;document.getElementById('modal-tech').innerHTML=p.tech.map(function(t){return'<span class="modal-tag">'+t+'</span>'}).join('');document.getElementById('projectModal').classList.add('active');document.body.classList.add('modal-open')}
         function closeProjectModal(){document.getElementById('projectModal').classList.remove('active');document.body.classList.remove('modal-open')}
         document.getElementById('projectModal').onclick=function(e){if(e.target.id==='projectModal')closeProjectModal()};
         function openLegalModal(){document.getElementById('legalModal').classList.add('active');document.body.classList.add('modal-open')}
         function closeLegalModal(e){if(!e||e.target===e.currentTarget){document.getElementById('legalModal').classList.remove('active');document.body.classList.remove('modal-open')}}
+        function toggleMenu(){var h=document.querySelector('.hamburger');var n=document.querySelector('.nav-links');h.classList.toggle('active');n.classList.toggle('active');h.setAttribute('aria-expanded',h.classList.contains('active'))}
         document.onkeydown=function(e){if(e.key==='Escape'){closeProjectModal();closeLegalModal()}if(e.key==='Enter'&&e.target.classList.contains('project'))e.target.click()};
         var title="Aliocha Deflou";var container=document.getElementById('title-text');title.split('').forEach(function(c,i){var s=document.createElement('span');s.className='char';s.textContent=c===' '?'\u00A0':c;s.style.animationDelay=(0.3+i*0.05)+'s';container.appendChild(s)});
         var cursor=document.querySelector('.cursor');var mx=0,my=0,cx=0,cy=0;document.onmousemove=function(e){mx=e.clientX;my=e.clientY};(function anim(){cx+=(mx-cx)*0.15;cy+=(my-cy)*0.15;cursor.style.left=cx+'px';cursor.style.top=cy+'px';requestAnimationFrame(anim)})();
