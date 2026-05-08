@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projets Développement Web & Java | Aliocha Deflou</title>
-    <meta name="description" content="Portfolio des projets d'Aliocha Deflou : développement web React, applications Java, jeux en terminal. Découvrez mes réalisations en BUT Informatique.">
-    <meta name="keywords" content="projets développeur, portfolio React, projet Java, développement web Lille, étudiant BUT informatique projets">
+    <meta name="description" content="Portfolio des projets d'Aliocha Deflou : trading bot crypto fullstack (React/FastAPI), shoot'em up multijoueur TypeScript/Socket.IO, API REST Java, JavaFX en équipe et site vitrine client. Réalisations en BUT Informatique.">
+    <meta name="keywords" content="projets développeur, portfolio fullstack, trading bot crypto, FastAPI, Socket.IO, API REST Java, JavaFX, projet Java, développement web Lille, étudiant BUT informatique projets">
     <meta name="author" content="Aliocha Deflou">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://aliodefl.github.io/aliocha-deflou/projets.html">
@@ -43,7 +43,11 @@
         .section-title::after{content:'';flex:1;height:1px;background:var(--border)}
         .projects-grid{display:grid;gap:2rem}
         .project{display:block;padding:2rem;border:1px solid var(--border);border-radius:12px;transition:all .4s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden;cursor:pointer;opacity:0;animation:cardReveal .6s cubic-bezier(.4,0,.2,1) forwards}
-        .project:nth-child(1){animation-delay:.1s}.project:nth-child(2){animation-delay:.2s}.project:nth-child(3){animation-delay:.3s}.project:nth-child(4){animation-delay:.4s}.project:nth-child(5){animation-delay:.5s}.project:nth-child(6){animation-delay:.6s}
+        .project:nth-child(1){animation-delay:.1s}.project:nth-child(2){animation-delay:.15s}.project:nth-child(3){animation-delay:.2s}.project:nth-child(4){animation-delay:.25s}.project:nth-child(5){animation-delay:.3s}.project:nth-child(6){animation-delay:.35s}.project:nth-child(7){animation-delay:.4s}.project:nth-child(8){animation-delay:.45s}.project:nth-child(9){animation-delay:.5s}.project:nth-child(10){animation-delay:.55s}.project:nth-child(11){animation-delay:.6s}
+        .project-status{display:inline-block;margin-left:.5rem;padding:.25rem .65rem;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.5px;text-transform:uppercase;color:#7a5500;background:#fff4d6;border:1px solid #f0d77a;border-radius:50px}
+        .project-status.live{color:#0a5d3a;background:#d8f5e6;border-color:#7ad6a4}
+        .project-status.live::before{content:'';display:inline-block;width:6px;height:6px;margin-right:.4rem;background:#0a5d3a;border-radius:50%;vertical-align:middle;animation:statusPulse 1.8s ease-in-out infinite}
+        @keyframes statusPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.85)}}
         @keyframes cardReveal{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
         .project::after{content:'';position:absolute;top:0;left:-100%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);transition:none}
         .project:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 25px 50px rgba(0,0,0,.12);border-color:var(--text)}.project:hover::after{left:150%;transition:left .6s ease}
@@ -144,15 +148,60 @@
         </header>
 
         <div class="stats-section">
-            <div class="stat"><div class="stat-number">5+</div><div class="stat-label">Projets</div></div>
-            <div class="stat"><div class="stat-number">6</div><div class="stat-label">Technologies</div></div>
-            <div class="stat"><div class="stat-number">2</div><div class="stat-label">Ans d'expérience</div></div>
+            <div class="stat"><div class="stat-number">10+</div><div class="stat-label">Projets</div></div>
+            <div class="stat"><div class="stat-number">12+</div><div class="stat-label">Technologies</div></div>
+            <div class="stat"><div class="stat-number">3</div><div class="stat-label">Ans d'expérience</div></div>
         </div>
 
         <section>
             <h2 class="section-title">Tous les projets</h2>
             <div class="projects-grid">
                 <article class="project" onclick="openProjectModal(1)" tabindex="0" role="button">
+                    <span class="project-type">Webapp Fullstack</span>
+                    <h3 class="project-title">Trading Bot Crypto<span class="project-status live">En cours</span></h3>
+                    <p class="project-year">2026</p>
+                    <p class="project-desc">Webapp de paper trading crypto algorithmique : choix d'une paire, paramétrage de stratégies (SMA, RSI, Bollinger), backtest sur historique et simulation live via WebSocket. Projet de fin de BUT2 documenté en ADR.</p>
+                    <div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span></div>
+                    <span class="project-cta">Voir les détails</span>
+                </article>
+
+                <article class="project" onclick="openProjectModal(2)" tabindex="0" role="button">
+                    <span class="project-type">Jeu Multijoueur Temps Réel</span>
+                    <h3 class="project-title">Bug of Thrones</h3>
+                    <p class="project-year">2025</p>
+                    <p class="project-desc">Shoot'em up multijoueur temps réel à 2 joueurs. Architecture client/serveur avec serveur autoritaire à 60 FPS via Socket.IO, leaderboard SQLite et 30 tests automatisés.</p>
+                    <div class="tags"><span class="tag">TypeScript</span><span class="tag">Socket.IO</span><span class="tag">Node.js</span><span class="tag">SQLite</span><span class="tag">Canvas</span><span class="tag">Docker</span></div>
+                    <span class="project-cta">Voir les détails</span>
+                </article>
+
+                <article class="project" onclick="openProjectModal(3)" tabindex="0" role="button">
+                    <span class="project-type">Projet d'équipe Java</span>
+                    <h3 class="project-title">Labyrinthe SAÉ 3.3</h3>
+                    <p class="project-year">2025</p>
+                    <p class="project-desc">Application JavaFX de génération et résolution de labyrinthes développée en équipe de 5 sur GitLab. Mode libre, mode progression avec étapes, boutique d'articles, sauvegarde et thèmes visuels.</p>
+                    <div class="tags"><span class="tag">Java</span><span class="tag">JavaFX</span><span class="tag">Maven</span><span class="tag">MVC</span><span class="tag">Git</span></div>
+                    <span class="project-cta">Voir les détails</span>
+                </article>
+
+                <article class="project" onclick="openProjectModal(4)" tabindex="0" role="button">
+                    <span class="project-type">API REST Backend</span>
+                    <h3 class="project-title">API REST EcoDrop</h3>
+                    <p class="project-year">2025</p>
+                    <p class="project-desc">API REST complète pour la gestion de collecte de déchets (batteries, textiles, électronique). 4 ressources avec pattern DAO/DTO, vues SQL pour leaderboard et taux de remplissage, négociation JSON/XML.</p>
+                    <div class="tags"><span class="tag">Java</span><span class="tag">Servlets</span><span class="tag">PostgreSQL</span><span class="tag">JSON</span><span class="tag">XML</span><span class="tag">Jackson</span></div>
+                    <span class="project-cta">Voir les détails</span>
+                </article>
+
+                <article class="project" onclick="openProjectModal(5)" tabindex="0" role="button">
+                    <span class="project-type">Site Vitrine Client</span>
+                    <h3 class="project-title">Cabinet de Réflexologie</h3>
+                    <p class="project-year">2025</p>
+                    <p class="project-desc">Site vitrine pour Caroline Saintenoy, réflexologue à Nort-Leulinghem. Direction artistique organique (palette sauge / lin / argile), SEO local optimisé et données structurées Schema.org.</p>
+                    <div class="tags"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">SEO</span><span class="tag">Schema.org</span></div>
+                    <span class="project-cta">Voir les détails</span>
+                </article>
+
+                <article class="project" onclick="openProjectModal(6)" tabindex="0" role="button">
                     <span class="project-type">Développement Web</span>
                     <h3 class="project-title">Portfolio Architecte</h3>
                     <p class="project-year">2025</p>
@@ -161,7 +210,7 @@
                     <span class="project-cta">Voir les détails</span>
                 </article>
 
-                <article class="project" onclick="openProjectModal(2)" tabindex="0" role="button">
+                <article class="project" onclick="openProjectModal(7)" tabindex="0" role="button">
                     <span class="project-type">Développement Jeu</span>
                     <h3 class="project-title">Jeu Risk</h3>
                     <p class="project-year">2025</p>
@@ -170,7 +219,7 @@
                     <span class="project-cta">Voir les détails</span>
                 </article>
 
-                <article class="project" onclick="openProjectModal(3)" tabindex="0" role="button">
+                <article class="project" onclick="openProjectModal(8)" tabindex="0" role="button">
                     <span class="project-type">Application Desktop</span>
                     <h3 class="project-title">Séjours Linguistiques</h3>
                     <p class="project-year">2025</p>
@@ -179,7 +228,7 @@
                     <span class="project-cta">Voir les détails</span>
                 </article>
 
-                <article class="project" onclick="openProjectModal(4)" tabindex="0" role="button">
+                <article class="project" onclick="openProjectModal(9)" tabindex="0" role="button">
                     <span class="project-type">Intégration Web</span>
                     <h3 class="project-title">Site OpenAI</h3>
                     <p class="project-year">2023</p>
@@ -188,7 +237,7 @@
                     <span class="project-cta">Voir les détails</span>
                 </article>
 
-                <article class="project" onclick="openProjectModal(5)" tabindex="0" role="button">
+                <article class="project" onclick="openProjectModal(10)" tabindex="0" role="button">
                     <span class="project-type">Développement Jeu</span>
                     <h3 class="project-title">Mauscape</h3>
                     <p class="project-year">2023</p>
@@ -220,7 +269,7 @@
     </footer>
 
     <script>
-        var projects={1:{title:"Portfolio Architecte",type:"Développement Web",year:"2025",description:"Développement d'un site web portfolio moderne pour un architecte, mettant en valeur ses créations architecturales.",challenges:"Design responsive pour mettre en valeur les images architecturales, optimisation des performances pour les images haute résolution.",learnings:"Développement front-end moderne, optimisation d'images web, design responsive avancé.",impact:"Projet qui m'a permis d'explorer le domaine de l'architecture et de développer mes compétences en design web.",tech:["React","TypeScript","Tailwind","Vite"]},2:{title:"Jeu Risk",type:"Développement Jeu",year:"2025",description:"Jeu de stratégie complet exécutable sur le terminal.",challenges:"Gestion de la logique de jeu complexe, implémentation de l'IA pour les adversaires.",learnings:"Programmation orientée objet avancée, algorithmes de stratégie, gestion de la mémoire en Java.",impact:"Amélioration significative de la compréhension des structures de données.",tech:["Java","Terminal","OOP"]},3:{title:"Séjours Linguistiques",type:"App Bureau",year:"2025",description:"Application d'organisation de séjours avec interface graphique complète.",challenges:"Conception d'une interface utilisateur intuitive avec Swing, gestion de base de données locale.",learnings:"Développement d'interfaces graphiques (GUI), gestion d'événements, persistance des données.",impact:"Création d'un outil fonctionnel facilitant la gestion administrative des séjours.",tech:["Java","IHM","Swing"]},4:{title:"Site OpenAI",type:"Intégration Web",year:"2023",description:"Re-création fidèle du site officiel d'OpenAI.",challenges:"Reproduction fidèle du design pixel-perfect, gestion des animations CSS complexes.",learnings:"Maîtrise avancée de CSS3, Flexbox et Grid, bonnes pratiques d'intégration web.",impact:"Démonstration de la capacité à reproduire des designs professionnels complexes.",tech:["HTML","CSS","Responsive"]},5:{title:"Mauscape",type:"Développement Jeu",year:"2023",description:"Jeu d'aventure textuel jouable dans le terminal.",challenges:"Création d'un moteur de jeu textuel, gestion des scénarios à embranchements.",learnings:"Logique de programmation fondamentale, gestion des entrées/sorties, structuration de code.",impact:"Premier projet complet de jeu, renforçant la passion pour le développement logiciel.",tech:["Java","Terminal"]}};
+        var projects={1:{title:"Trading Bot Crypto",type:"Webapp Fullstack — En cours",year:"2026",description:"Webapp de paper trading crypto algorithmique (jamais d'argent réel). L'utilisateur choisit une paire, sélectionne et paramètre une stratégie (SMA, RSI, Bollinger), lance un backtest sur historique puis bascule en simulation live via WebSocket. Projet de fin de BUT2 parcours Réalisation d'Applications.",challenges:"Concevoir une architecture fullstack propre (frontend React, backend Python asynchrone, base PostgreSQL), intégrer l'API ccxt pour les données de marché, écrire un moteur de backtest fiable et streamer les ordres simulés en temps réel via WebSocket.",learnings:"Architecture API REST avec FastAPI et Pydantic, ORM SQLAlchemy avec migrations Alembic, calcul d'indicateurs techniques avec pandas et numpy, conteneurisation multi-services Docker Compose, documentation par ADR (Architecture Decision Records).",impact:"Projet vitrine qui démontre ma capacité à concevoir une application fullstack complète, du choix de la stack à la documentation, en passant par les décisions architecturales argumentées.",tech:["React","TypeScript","Tailwind","Python","FastAPI","ccxt","PostgreSQL","Docker"]},2:{title:"Bug of Thrones",type:"Jeu Multijoueur Temps Réel",year:"2025",description:"Shoot'em up multijoueur temps réel à 2 joueurs. Deux joueurs défendent un château contre des vagues d'ennemis (pégases, héros, oiseaux, géants gobelins) de plus en plus rapides. Architecture client / serveur / shared strictement séparée avec serveur autoritaire.",challenges:"Synchronisation client/serveur à 60 FPS via Socket.IO, conception d'un serveur autoritaire empêchant la triche, gestion propre des déconnexions partenaires, stabilisation des rooms multijoueur et calcul progressif de la difficulté en fonction du temps et du score.",learnings:"Programmation réseau temps réel avec WebSocket et Socket.IO, simulation autoritaire à tick fixe, persistance SQLite pour le leaderboard, écriture de 30 tests automatisés couvrant collisions, mouvement, logique serveur et intégration socket.",impact:"Premier vrai projet multijoueur — m'a permis de comprendre les contraintes de simulation distribuée et l'importance de définir tôt un module 'shared' pour les contrats d'interface client/serveur.",tech:["TypeScript","Socket.IO","Node.js","SQLite","Canvas","Vite","Docker"]},3:{title:"Labyrinthe SAÉ 3.3",type:"Projet d'équipe Java",year:"2025",description:"Application JavaFX de génération et résolution de labyrinthes développée en équipe de 5 (Aliocha, Alex, Émile, Matthieu, Enzo) sur GitLab. Mode libre, mode progression avec étapes et défis, boutique d'articles, sauvegarde de partie, thèmes visuels (dont thème Bob l'Éponge).",challenges:"Implémenter un algorithme de génération de labyrinthe parfait sans boucle, structurer le projet en MVC propre pour faciliter l'évolution, coordonner Git en équipe de 5 avec gestion des branches, des merges et des conflits.",learnings:"Architecture MVC en Java, JavaFX pour l'interface graphique, organisation Maven (pom.xml), gestion d'équipe via GitLab avec rebase et merge final, écriture d'une Javadoc complète, conception d'un prototype Figma puis intégration en code.",impact:"Mon premier projet collaboratif d'envergure — j'ai pris en charge le prototype Figma, l'intégration JavaFX puis l'amélioration visuelle continue (dont le thème Bob l'Éponge).",tech:["Java","JavaFX","Maven","MVC","Git","Figma","JUnit"]},4:{title:"API REST EcoDrop",type:"API REST Backend",year:"2025",description:"API REST complète pour la gestion de collecte de déchets spécifiques (batteries, textiles, électronique). 4 ressources REST (waste-types, points, deposits, users) avec pattern DAO/DTO, vues SQL pour le leaderboard utilisateurs et le taux de remplissage des points, négociation de contenu JSON/XML, programme d'import CSV en masse.",challenges:"Concevoir un schéma PostgreSQL avec contraintes métier strictes (poids positif, capacité non dépassée, types acceptés par point), implémenter la négociation de contenu via le header Accept, valider les foreign keys avec les bons codes HTTP (400/403/404/409).",learnings:"Servlets Java avec annotations @WebServlet, pattern DAO/DTO, requêtes préparées contre l'injection SQL, sérialisation Jackson en JSON et XML, vues SQL pour les calculs métier, écriture de 20+ tests d'API avec Bruno.",impact:"Renforcement des compétences backend — passage des applications client/desktop à de vraies APIs REST stateless prêtes à être consommées par un frontend ou un mobile.",tech:["Java","Servlets","PostgreSQL","Jackson","JSON","XML","Bruno"]},5:{title:"Cabinet de Réflexologie de l'Audomarois",type:"Site Vitrine Client",year:"2025",description:"Site vitrine pour Caroline Saintenoy, réflexologue à Nort-Leulinghem (62) spécialisée en cancérologie et handicap. Direction artistique organique avec palette personnalisée (sauge, lin, argile, mousse), typographies Cormorant Garamond + Nunito Sans, SEO local optimisé pour la zone de l'Audomarois et données structurées Schema.org HealthAndBeautyBusiness.",challenges:"Traduire un univers de bien-être en identité visuelle web cohérente, optimiser le référencement local sur des requêtes spécifiques (réflexologie Saint-Omer, onco-réflexologie), garantir l'accessibilité et la performance sur un site 100 % statique.",learnings:"Direction artistique web avec palette CSS personnalisée, typographies serif/sans-serif appairées, SEO technique avec Schema.org et Open Graph, livrable client réel avec contraintes professionnelles.",impact:"Premier site livré pour un client réel — démonstration de ma capacité à traduire un brief en site fini, performant, bien référencé et fidèle à l'image du professionnel.",tech:["HTML5","CSS3","JavaScript","SEO","Schema.org","Open Graph"]},6:{title:"Portfolio Architecte",type:"Développement Web",year:"2025",description:"Développement d'un site web portfolio moderne pour un architecte, mettant en valeur ses créations architecturales.",challenges:"Design responsive pour mettre en valeur les images architecturales, optimisation des performances pour les images haute résolution.",learnings:"Développement front-end moderne, optimisation d'images web, design responsive avancé.",impact:"Projet qui m'a permis d'explorer le domaine de l'architecture et de développer mes compétences en design web.",tech:["React","TypeScript","Tailwind","Vite"]},7:{title:"Jeu Risk",type:"Développement Jeu",year:"2025",description:"Jeu de stratégie complet exécutable sur le terminal.",challenges:"Gestion de la logique de jeu complexe, implémentation de l'IA pour les adversaires.",learnings:"Programmation orientée objet avancée, algorithmes de stratégie, gestion de la mémoire en Java.",impact:"Amélioration significative de la compréhension des structures de données.",tech:["Java","Terminal","OOP"]},8:{title:"Séjours Linguistiques",type:"App Bureau",year:"2025",description:"Application d'organisation de séjours avec interface graphique complète.",challenges:"Conception d'une interface utilisateur intuitive avec Swing, gestion de base de données locale.",learnings:"Développement d'interfaces graphiques (GUI), gestion d'événements, persistance des données.",impact:"Création d'un outil fonctionnel facilitant la gestion administrative des séjours.",tech:["Java","IHM","Swing"]},9:{title:"Site OpenAI",type:"Intégration Web",year:"2023",description:"Re-création fidèle du site officiel d'OpenAI.",challenges:"Reproduction fidèle du design pixel-perfect, gestion des animations CSS complexes.",learnings:"Maîtrise avancée de CSS3, Flexbox et Grid, bonnes pratiques d'intégration web.",impact:"Démonstration de la capacité à reproduire des designs professionnels complexes.",tech:["HTML","CSS","Responsive"]},10:{title:"Mauscape",type:"Développement Jeu",year:"2023",description:"Jeu d'aventure textuel jouable dans le terminal.",challenges:"Création d'un moteur de jeu textuel, gestion des scénarios à embranchements.",learnings:"Logique de programmation fondamentale, gestion des entrées/sorties, structuration de code.",impact:"Premier projet complet de jeu, renforçant la passion pour le développement logiciel.",tech:["Java","Terminal"]}};
         function openProjectModal(id){var p=projects[id];if(!p)return;document.getElementById('modal-type').textContent=p.type;document.getElementById('modal-title').textContent=p.title;document.getElementById('modal-year').textContent=p.year;document.getElementById('modal-desc').textContent=p.description;document.getElementById('modal-challenges').textContent=p.challenges;document.getElementById('modal-learnings').textContent=p.learnings;document.getElementById('modal-impact').textContent=p.impact;document.getElementById('modal-tech').innerHTML=p.tech.map(function(t){return'<span class="modal-tag">'+t+'</span>'}).join('');document.getElementById('projectModal').classList.add('active');document.body.classList.add('modal-open')}
         function closeProjectModal(){document.getElementById('projectModal').classList.remove('active');document.body.classList.remove('modal-open')}
         document.getElementById('projectModal').onclick=function(e){if(e.target.id==='projectModal')closeProjectModal()};
