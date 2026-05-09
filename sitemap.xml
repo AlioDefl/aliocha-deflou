@@ -2,20 +2,68 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://aliodefl.github.io/aliocha-deflou/</loc>
-        <lastmod>2026-02-04</lastmod>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://aliodefl.github.io/aliocha-deflou/formations.html</loc>
-        <lastmod>2026-02-04</lastmod>
+        <loc>https://aliodefl.github.io/aliocha-deflou/projets/trading-bot.html</loc>
+        <lastmod>2026-05-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://aliodefl.github.io/aliocha-deflou/projets.html</loc>
-        <lastmod>2026-05-08</lastmod>
-        <changefreq>weekly</changefreq>
+        <loc>https://aliodefl.github.io/aliocha-deflou/projets/bug-of-thrones.html</loc>
+        <lastmod>2026-05-09</lastmod>
+        <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://aliodefl.github.io/aliocha-deflou/projets/cabinet-reflexologie.html</loc>
+        <lastmod>2026-05-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://aliodefl.github.io/aliocha-deflou/projets/labyrinthe-sae-3-3.html</loc>
+        <lastmod>2026-05-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://aliodefl.github.io/aliocha-deflou/projets/api-rest-ecodrop.html</loc>
+        <lastmod>2026-05-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://aliodefl.github.io/aliocha-deflou/projets/portfolio-architecte.html</loc>
+        <lastmod>2026-05-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://aliodefl.github.io/aliocha-deflou/projets/jeu-risk.html</loc>
+        <lastmod>2026-05-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://aliodefl.github.io/aliocha-deflou/projets/sejours-linguistiques.html</loc>
+        <lastmod>2026-05-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://aliodefl.github.io/aliocha-deflou/projets/site-openai.html</loc>
+        <lastmod>2026-05-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://aliodefl.github.io/aliocha-deflou/projets/mauscape.html</loc>
+        <lastmod>2026-05-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
     </url>
 </urlset>

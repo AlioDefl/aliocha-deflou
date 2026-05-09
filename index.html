@@ -3,360 +3,487 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aliocha Deflou | Développeur Web & Étudiant BUT Informatique Lille</title>
-    <meta name="description" content="Aliocha Deflou, étudiant en BUT Informatique à l'IUT de Lille. Développeur web passionné par React, TypeScript et Java. Recherche une alternance en conception et développement d'applications.">
-    <meta name="keywords" content="Aliocha Deflou, développeur web, étudiant informatique, BUT informatique, IUT Lille, React, TypeScript, Java, alternance développement, portfolio développeur">
-    <meta name="author" content="Aliocha Deflou">
-    <meta name="robots" content="index, follow">
-    <meta name="google-site-verification" content="nJqI64lzT-qML7xLGm0zebpOaMplCRuZEVlzYwORZAE">
+    <title>Aliocha Deflou — Étudiant développeur fullstack</title>
+    <meta name="description" content="Portfolio d'Aliocha Deflou, étudiant en BUT Informatique à l'IUT de Lille, à la recherche d'une alternance fullstack pour septembre 2026.">
+    <meta name="theme-color" content="#1a1a1a">
     <link rel="canonical" href="https://aliodefl.github.io/aliocha-deflou/">
+
+    <link rel="icon" type="image/png" href="assets/icons/favicon.png">
+    <link rel="apple-touch-icon" href="assets/icons/favicon.png">
+
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://aliodefl.github.io/aliocha-deflou/">
-    <meta property="og:title" content="Aliocha Deflou | Développeur Web & Étudiant BUT Informatique">
-    <meta property="og:description" content="Étudiant en BUT Informatique à l'IUT de Lille. Recherche une alternance en conception et développement d'applications.">
-    <meta property="og:image" content="https://aliodefl.github.io/aliocha-deflou/og-image.png">
+    <meta property="og:title" content="Aliocha Deflou — Étudiant développeur fullstack">
+    <meta property="og:description" content="Portfolio d'Aliocha Deflou, étudiant en BUT Informatique à l'IUT de Lille, à la recherche d'une alternance fullstack pour septembre 2026.">
+    <meta property="og:image" content="https://aliodefl.github.io/aliocha-deflou/assets/icons/og-image.png">
     <meta property="og:locale" content="fr_FR">
     <meta property="og:site_name" content="Aliocha Deflou">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="theme-color" content="#fafafa">
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="apple-touch-icon" href="favicon.png">
+    <meta name="twitter:title" content="Aliocha Deflou — Étudiant développeur fullstack">
+    <meta name="twitter:description" content="Portfolio fullstack — alternance septembre 2026 à Lille.">
+    <meta name="twitter:image" content="https://aliodefl.github.io/aliocha-deflou/assets/icons/og-image.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Aliocha Deflou",
+        "givenName": "Aliocha",
+        "familyName": "Deflou",
+        "jobTitle": "Étudiant en BUT Informatique",
+        "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "IUT de Lille"
+        },
+        "knowsAbout": ["React", "TypeScript", "Python", "FastAPI", "Java", "PostgreSQL", "Docker"],
+        "url": "https://aliodefl.github.io/aliocha-deflou/",
+        "sameAs": [
+            "https://github.com/AlioDefl",
+            "https://www.linkedin.com/in/aliocha-deflou/"
+        ],
+        "email": "aliocha.deflou@gmail.com"
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Person","name":"Aliocha Deflou","url":"https://aliodefl.github.io/aliocha-deflou/","jobTitle":"Étudiant en BUT Informatique","email":"aliocha.deflou@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Lille","addressRegion":"Hauts-de-France","addressCountry":"FR"},"knowsAbout":["Développement Web","React","TypeScript","Java","Python","SQL","Git"],"sameAs":["https://www.linkedin.com/in/aliocha-deflou-59606a265/"]}
-    </script>
-    <style>
-        :root{--bg:#fafafa;--text:#1a1a1a;--text-light:#666;--text-muted:#767676;--border:#e5e5e5;--accent:#000}
-        *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-        body{font-family:'IBM Plex Sans',-apple-system,sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.7;font-weight:400;overflow-x:hidden}
-        body.modal-open{overflow:hidden}
-        .cursor{width:20px;height:20px;border:1px solid var(--text);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transition:transform .1s ease,width .3s,height .3s;transform:translate(-50%,-50%);mix-blend-mode:difference;background:#fff}
-        .cursor.hover{width:50px;height:50px}
-        .progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--text);z-index:1001;width:0}
-        nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,250,250,.8);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:transform .3s ease,background .3s ease}
-        nav.hidden{transform:translateY(-100%)}nav.scrolled{background:rgba(250,250,250,.95)}
-        .nav-inner{max-width:900px;margin:0 auto;padding:0 2rem;height:60px;display:flex;align-items:center;justify-content:space-between}
-        .nav-logo{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;opacity:0;animation:fadeInUp .6s ease forwards .2s}
-        .nav-links{display:flex;gap:2.5rem}
-        .nav-links a{color:var(--text-light);text-decoration:none;font-size:13px;position:relative;opacity:0;animation:fadeInUp .6s ease forwards;transition:color .3s ease}
-        .nav-links a:nth-child(1){animation-delay:.3s}.nav-links a:nth-child(2){animation-delay:.4s}.nav-links a:nth-child(3){animation-delay:.5s}.nav-links a:nth-child(4){animation-delay:.6s}.nav-links a:nth-child(5){animation-delay:.7s}.nav-links a:nth-child(6){animation-delay:.8s}
-        .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--text);transition:width .3s ease}
-        .nav-links a:hover{color:var(--text)}.nav-links a:hover::after,.nav-links a.active::after{width:100%}.nav-links a.active{color:var(--text)}
-        main{max-width:900px;margin:0 auto;padding:0 2rem}
-        section{padding:8rem 0;border-bottom:1px solid var(--border);position:relative}section:last-of-type{border-bottom:none}
-        .reveal{opacity:0;transform:translateY(40px);transition:opacity .8s cubic-bezier(.4,0,.2,1),transform .8s cubic-bezier(.4,0,.2,1)}.reveal.active{opacity:1;transform:translateY(0)}
-        .reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}.reveal-delay-4{transition-delay:.4s}
-        #accueil{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:0;padding-bottom:0;border-bottom:none}
-        .hero-title{font-size:clamp(3rem,10vw,6rem);font-weight:600;letter-spacing:-4px;margin-bottom:1rem;line-height:1;overflow:hidden}
-        .hero-title .char{display:inline-block;opacity:0;transform:translateY(100%);animation:charReveal .6s ease forwards}
-        @keyframes charReveal{to{opacity:1;transform:translateY(0)}}
-        .hero-subtitle{font-size:1.1rem;color:var(--text-light);margin-bottom:4rem;opacity:0;animation:fadeInUp .8s ease forwards 1s}
-        .hero-text{color:var(--text-light);max-width:600px;line-height:1.9;font-size:1.05rem;opacity:0;animation:fadeInUp .8s ease forwards 1.2s}
-        .hero-scroll{position:absolute;bottom:3rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.75rem;opacity:0;animation:fadeInUp .8s ease forwards 1.5s}
-        .hero-scroll span{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--text-muted)}
-        .scroll-line{width:1px;height:60px;background:linear-gradient(to bottom,var(--text),transparent);animation:scrollPulse 2s ease infinite}
-        @keyframes scrollPulse{0%,100%{transform:scaleY(1);opacity:1}50%{transform:scaleY(.5);opacity:.5}}
-        @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-        .section-title{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:2px;color:var(--text-muted);margin-bottom:4rem;display:flex;align-items:center;gap:1.5rem}
-        .section-title::after{content:'';flex:1;height:1px;background:var(--border)}
-        .item{margin-bottom:4rem;padding-left:2rem;border-left:1px solid var(--border);position:relative;transition:border-color .3s ease}
-        .item:hover{border-left-color:var(--text)}
-        .item::before{content:'';position:absolute;left:-4px;top:0;width:7px;height:7px;border-radius:50%;background:var(--bg);border:1px solid var(--border);transition:all .3s ease}
-        .item:hover::before{background:var(--text);border-color:var(--text);transform:scale(1.3)}.item:last-child{margin-bottom:0}
-        .item-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.5rem;flex-wrap:wrap;gap:.5rem}
-        .item-title{font-weight:500;font-size:1.1rem;transition:transform .3s ease}.item:hover .item-title{transform:translateX(5px)}
-        .item-date{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-muted)}
-        .item-place{color:var(--text-light);font-size:14px;margin-bottom:1rem}
-        .item-desc{color:var(--text-light);font-size:14px;line-height:1.8}
-        .item-tags{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.5rem}
-        .tag{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-muted);padding:.4rem .8rem;border-radius:50px;border:1px solid var(--border);transition:all .3s cubic-bezier(.4,0,.2,1)}
-        .tag:hover{background:var(--text);color:var(--bg);border-color:var(--text);transform:translateY(-2px)}
-        .item-tags .tag:nth-child(1),.modal-tags .modal-tag:nth-child(1){animation:tagPop .4s ease forwards .1s;opacity:0}
-        .item-tags .tag:nth-child(2),.modal-tags .modal-tag:nth-child(2){animation:tagPop .4s ease forwards .15s;opacity:0}
-        .item-tags .tag:nth-child(3),.modal-tags .modal-tag:nth-child(3){animation:tagPop .4s ease forwards .2s;opacity:0}
-        .item-tags .tag:nth-child(4),.modal-tags .modal-tag:nth-child(4){animation:tagPop .4s ease forwards .25s;opacity:0}
-        .item-tags .tag:nth-child(5),.modal-tags .modal-tag:nth-child(5){animation:tagPop .4s ease forwards .3s;opacity:0}
-        @keyframes tagPop{from{opacity:0;transform:scale(.8) translateY(10px)}to{opacity:1;transform:scale(1) translateY(0)}}
-        .projects-grid{display:grid;gap:2rem}
-        .project{padding:2rem;border:1px solid var(--border);border-radius:12px;transition:all .4s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden;cursor:pointer}
-        .project::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,rgba(0,0,0,.02) 0%,transparent 100%);opacity:0;transition:opacity .4s ease}
-        .project::after{content:'';position:absolute;top:0;left:-100%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);transition:none}
-        .project:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 25px 50px rgba(0,0,0,.12);border-color:var(--text)}.project:hover::before{opacity:1}.project:hover::after{left:150%;transition:left .6s ease}
-        .show-more-btn{display:flex;align-items:center;justify-content:center;gap:.75rem;margin:2rem auto 0;padding:1rem 2rem;background:transparent;border:1px solid var(--border);border-radius:50px;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;color:var(--text);transition:all .3s ease;width:fit-content;text-decoration:none}
-        .show-more-btn:hover{background:var(--text);color:var(--bg);border-color:var(--text);text-decoration:none}
-        .show-more-btn .arrow{transition:transform .3s ease}.show-more-btn:hover .arrow{transform:translateX(5px)}
-        .project-type{font-family:'IBM Plex Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:1rem;display:inline-block;padding:.3rem .6rem;background:#f0f0f0;border-radius:4px}
-        .project-title{font-weight:500;font-size:1.2rem;margin-bottom:.5rem}
-        .project-year{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-muted);margin-bottom:1rem}
-        .project-desc{color:var(--text-light);font-size:14px;line-height:1.8;margin-bottom:1rem}
-        .project-cta{display:inline-flex;align-items:center;gap:.5rem;margin-top:.5rem;color:var(--text);font-size:13px;font-weight:500;transition:gap .3s ease}
-        .project:hover .project-cta{gap:1rem}.project-cta::after{content:'→';transition:transform .3s ease}.project:hover .project-cta::after{transform:translateX(5px)}
-        .modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.6);backdrop-filter:blur(8px);z-index:1000;opacity:0;visibility:hidden;transition:all .4s ease;display:flex;align-items:center;justify-content:center;padding:2rem}
-        .modal-overlay.active{opacity:1;visibility:visible}
-        .modal{background:var(--bg);border-radius:16px;max-width:700px;width:100%;max-height:90vh;overflow-y:auto;transform:translateY(50px) scale(.9);transition:transform .5s cubic-bezier(.34,1.56,.64,1);position:relative}
-        .modal-overlay.active .modal{transform:translateY(0) scale(1)}
-        .modal-close{position:absolute;top:1.5rem;right:1.5rem;width:40px;height:40px;border:1px solid var(--border);border-radius:50%;background:var(--bg);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--text-muted);transition:all .3s ease;z-index:10}
-        .modal-close:hover{background:var(--text);color:var(--bg);border-color:var(--text)}
-        .modal-content{padding:3rem}
-        .modal-header{margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
-        .modal-type{font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:.75rem;display:inline-block;padding:.4rem .8rem;background:#f0f0f0;border-radius:4px}
-        .modal-title{font-size:2rem;font-weight:600;letter-spacing:-1px;margin-bottom:.5rem}
-        .modal-year{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--text-muted)}
-        .modal-section{margin-bottom:2rem}.modal-section:last-child{margin-bottom:0}
-        .modal-section-title{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-muted);margin-bottom:.75rem}
-        .modal-section-content{color:var(--text-light);font-size:15px;line-height:1.8}
-        .modal-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
-        .modal-tag{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text);background:#f0f0f0;padding:.5rem 1rem;border-radius:50px;transition:all .3s ease}
-        .modal-tag:hover{background:var(--text);color:var(--bg)}
-        .legal-modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.8);backdrop-filter:blur(5px);z-index:2000;opacity:0;visibility:hidden;transition:all .3s ease;display:flex;align-items:center;justify-content:center}
-        .legal-modal-overlay.active{opacity:1;visibility:visible}
-        .legal-modal-content{background:var(--bg);border:1px solid var(--border);border-radius:12px;max-width:600px;width:90%;max-height:80vh;overflow-y:auto;padding:2rem;transform:scale(.9);transition:transform .3s ease;position:relative}
-        .legal-modal-overlay.active .legal-modal-content{transform:scale(1)}
-        .legal-modal-close{position:absolute;top:1rem;right:1rem;background:none;border:1px solid var(--border);border-radius:50%;width:36px;height:36px;color:var(--text-muted);font-size:1.2rem;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center}
-        .legal-modal-close:hover{background:var(--text);color:var(--bg);border-color:var(--text)}
-        .legal-modal-content h2{font-size:1.3rem;margin-bottom:1.5rem;color:var(--text)}
-        .legal-modal-content h3{font-size:1rem;margin:1.5rem 0 .5rem;color:var(--text)}
-        .legal-modal-content p{color:var(--text-light);font-size:.9rem;line-height:1.6}
-        .legal-modal-content a{color:var(--text);text-decoration:underline}
-        .legal-modal-content hr{border:none;border-top:1px solid var(--border);margin:2rem 0}
-        .footer-legal{margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border)}
-        .footer-legal button{background:none;border:none;color:var(--text-muted);font-size:.8rem;cursor:pointer;transition:color .2s;font-family:'IBM Plex Sans',sans-serif}
-        .footer-legal button:hover{color:var(--text)}
-        .skills-container{display:grid;grid-template-columns:repeat(2,1fr);gap:3rem}
-        .skills-group{padding:2rem;background:linear-gradient(135deg,#fafafa 0%,#f5f5f5 100%);border-radius:12px;transition:all .4s cubic-bezier(.4,0,.2,1)}
-        .skills-group:hover{transform:translateY(-5px) scale(1.02);box-shadow:0 20px 40px rgba(0,0,0,.06)}
-        .skills-label{font-size:13px;font-weight:600;margin-bottom:1.25rem;display:flex;align-items:center;gap:.75rem}
-        .skills-label::before{content:'';width:8px;height:8px;background:var(--text);border-radius:2px}
-        .skills-list{color:var(--text-light);font-size:14px;line-height:2}
-        .lang-grid{display:flex;flex-direction:column;gap:.75rem}
-        .lang-item{display:flex;justify-content:space-between;align-items:center;padding:.75rem 1rem;background:#fff;border-radius:8px;transition:transform .3s ease}
-        .lang-item:hover{transform:translateX(10px)}
-        .lang-level{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-muted);background:#f0f0f0;padding:.25rem .5rem;border-radius:4px}
-        .contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem}
-        .contact-item{padding:2rem;border:1px solid var(--border);border-radius:12px;transition:all .4s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden}
-        .contact-item::before{content:'';position:absolute;bottom:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--text),#666);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.4,0,.2,1)}
-        .contact-item:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,.08)}.contact-item:hover::before{transform:scaleX(1)}
-        .contact-label{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-muted);margin-bottom:.75rem}
-        .contact-value{font-size:1rem;font-weight:500}
-        .contact-value a{color:var(--text);text-decoration:none;position:relative}
-        .contact-value a::after{content:'';position:absolute;bottom:-2px;left:0;width:100%;height:1px;background:var(--text);transform:scaleX(0);transform-origin:right;transition:transform .3s ease}
-        .contact-value a:hover::after{transform:scaleX(1);transform-origin:left}
-        footer{max-width:900px;margin:0 auto;padding:4rem 2rem;text-align:center;font-size:12px;color:var(--text-muted)}
-        .bg-shape{position:fixed;border-radius:50%;pointer-events:none;z-index:-1;opacity:.03;background:var(--text);animation:float 20s ease-in-out infinite}
-        .bg-shape-1{width:600px;height:600px;top:-200px;right:-200px;animation-delay:0s}
-        .bg-shape-2{width:400px;height:400px;bottom:20%;left:-150px;animation-delay:-7s}
-        .bg-shape-3{width:300px;height:300px;bottom:-100px;right:10%;animation-delay:-14s}
-        @keyframes float{0%,100%{transform:translate(0,0) rotate(0deg)}25%{transform:translate(10px,-10px) rotate(1deg)}50%{transform:translate(-5px,15px) rotate(-1deg)}75%{transform:translate(-10px,-5px) rotate(.5deg)}}
-        .skip-link{position:absolute;top:-100px;left:0;background:var(--text);color:var(--bg);padding:1rem 2rem;z-index:10000;transition:top .3s ease}
-        .skip-link:focus{top:0}
-        @media(max-width:768px){.cursor{display:none}.nav-links{gap:1rem}.nav-links a{font-size:11px}.hero-title{letter-spacing:-2px}section{padding:5rem 0}.skills-container{grid-template-columns:1fr}.skills-group[style*="grid-column"]{grid-column:span 1!important}.contact-grid{grid-template-columns:1fr}.item{padding-left:1.5rem}.item-header{flex-direction:column;gap:.25rem}.modal-content{padding:2rem}.modal-title{font-size:1.5rem}}
-        .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:5px;z-index:1001}
-        .hamburger span{display:block;width:24px;height:2px;background:var(--text);transition:all .3s ease}
-        .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
-        .hamburger.active span:nth-child(2){opacity:0}
-        .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-        @media(max-width:500px){.hamburger{display:flex}.nav-links{display:none;position:fixed;top:60px;left:0;right:0;background:rgba(250,250,250,.98);backdrop-filter:blur(20px);flex-direction:column;padding:2rem;gap:1.5rem;border-bottom:1px solid var(--border);box-shadow:0 10px 30px rgba(0,0,0,.1)}.nav-links.active{display:flex}.nav-links a{font-size:16px}}
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
-    <div class="cursor" aria-hidden="true"></div>
-    <div class="progress-bar" aria-hidden="true"></div>
-    <div class="bg-shape bg-shape-1" aria-hidden="true"></div>
-    <div class="bg-shape bg-shape-2" aria-hidden="true"></div>
-    <div class="bg-shape bg-shape-3" aria-hidden="true"></div>
-
-    <div class="modal-overlay" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <div class="modal">
-            <button class="modal-close" onclick="closeProjectModal()" aria-label="Fermer">✕</button>
-            <div class="modal-content">
-                <header class="modal-header">
-                    <span class="modal-type" id="modal-type"></span>
-                    <h2 class="modal-title" id="modal-title"></h2>
-                    <span class="modal-year" id="modal-year"></span>
-                </header>
-                <div class="modal-section"><p class="modal-section-title">Description</p><p class="modal-section-content" id="modal-desc"></p></div>
-                <div class="modal-section"><p class="modal-section-title">Défis</p><p class="modal-section-content" id="modal-challenges"></p></div>
-                <div class="modal-section"><p class="modal-section-title">Apprentissages</p><p class="modal-section-content" id="modal-learnings"></p></div>
-                <div class="modal-section"><p class="modal-section-title">Impact</p><p class="modal-section-content" id="modal-impact"></p></div>
-                <div class="modal-section"><p class="modal-section-title">Technologies</p><div class="modal-tags" id="modal-tech"></div></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="legal-modal-overlay" id="legalModal" onclick="closeLegalModal(event)" role="dialog" aria-modal="true">
-        <div class="legal-modal-content" onclick="event.stopPropagation()">
-            <button class="legal-modal-close" onclick="closeLegalModal()" aria-label="Fermer">✕</button>
-            <h2>Mentions Légales</h2>
-            <h3>Éditeur du site</h3>
-            <p><strong>Aliocha DEFLOU</strong><br>Contact : <a href="mailto:aliocha.deflou@gmail.com">aliocha.deflou@gmail.com</a></p>
-            <h3>Hébergement</h3>
-            <p>Ce site est hébergé par <strong>GitHub Pages</strong><br>GitHub, Inc. — 88 Colin P Kelly Jr St, San Francisco, CA 94107, États-Unis</p>
-            <h3>Propriété intellectuelle</h3>
-            <p>L'ensemble du contenu de ce site est la propriété d'Aliocha DEFLOU, sauf mention contraire.</p>
-            <hr>
-            <h2>Politique de Confidentialité</h2>
-            <h3>Données collectées</h3>
-            <p>Ce site ne collecte <strong>aucune donnée personnelle</strong>.</p>
-            <h3>Services tiers</h3>
-            <p>Ce site utilise <strong>Google Fonts</strong>. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Politique Google</a></p>
-            <h3>Vos droits (RGPD)</h3>
-            <p>Contact : <a href="mailto:aliocha.deflou@gmail.com">aliocha.deflou@gmail.com</a></p>
-        </div>
-    </div>
-
+    <a href="#main" class="skip-link">Aller au contenu principal</a>
     <header>
-        <nav role="navigation" aria-label="Navigation principale">
+        <nav class="nav" id="nav" role="navigation" aria-label="Navigation principale">
             <div class="nav-inner">
-                <span class="nav-logo">Aliocha Deflou</span>
-                <button class="hamburger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu()">
+                <a href="#hero" class="nav-logo">Aliocha Deflou</a>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#projets">Projets</a></li>
+                    <li><a href="#stack">Stack</a></li>
+                    <li><a href="#why">Why</a></li>
+                    <li><a href="#formations">Formations</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="CV_Aliocha_DEFLOU.pdf" class="nav-cv" download>Télécharger CV ↓</a>
+                <button class="nav-hamburger" aria-label="Menu" aria-expanded="false" id="nav-hamburger">
                     <span></span><span></span><span></span>
                 </button>
-                <div class="nav-links">
-                    <a href="#accueil" class="active">Accueil</a>
-                    <a href="formations.html">Formations</a>
-                    <a href="#experiences">Expériences</a>
-                    <a href="projets.html">Projets</a>
-                    <a href="#competences">Compétences</a>
-                    <a href="#contact">Contact</a>
-                </div>
             </div>
         </nav>
     </header>
-
-    <main id="main-content">
-        <section id="accueil" aria-label="Présentation">
-            <h1 class="hero-title"><span class="word" id="title-text"></span></h1>
-            <p class="hero-subtitle">Étudiant en BUT Informatique · IUT de Lille</p>
-            <p class="hero-text">Étudiant en deuxième année de BUT Informatique à l'IUT de Lille, je me passionne pour le développement logiciel et la création d'applications. Curieux et rigoureux, je recherche une alternance pour ma troisième année, orientée vers la conception, le développement et la validation d'applications.</p>
-            <div class="hero-scroll" aria-hidden="true"><span>Scroll</span><div class="scroll-line"></div></div>
-        </section>
-
-        <section id="formations" aria-label="Formations">
-            <h2 class="section-title reveal">Formations</h2>
-            <p class="reveal" style="color:var(--text-light);margin-bottom:3rem;line-height:1.8">Mon parcours académique m'a permis de développer des compétences solides en développement logiciel. <a href="formations.html" style="color:var(--text);text-decoration:underline">Voir le détail de mes formations →</a></p>
-            <article class="item reveal reveal-delay-1">
-                <div class="item-header"><h3 class="item-title">BUT Informatique – Parcours Réalisation d'Applications</h3><time class="item-date">2024 – Présent</time></div>
-                <p class="item-place">IUT de Lille – Université de Lille</p>
-                <p class="item-desc">Formation en développement logiciel, bases de données SQL, réseaux et gestion de projet Agile. <strong>Recherche d'alternance pour la 3ème année.</strong></p>
-            </article>
-            <article class="item reveal reveal-delay-2">
-                <div class="item-header"><h3 class="item-title">Prépa Ingénieur – Cycle Informatique et Réseaux</h3><time class="item-date">2023 – 2024</time></div>
-                <p class="item-place">ISEN Lille</p>
-                <p class="item-desc">Année préparatoire avec focus sur les fondamentaux de l'informatique, des réseaux et des mathématiques appliquées.</p>
-            </article>
-            <article class="item reveal reveal-delay-3">
-                <div class="item-header"><h3 class="item-title">Baccalauréat Général – Spécialités Maths & NSI</h3><time class="item-date">2020 – 2023</time></div>
-                <p class="item-place">Lycée E. Branly, Boulogne-sur-Mer</p>
-                <p class="item-desc">Première approche de la programmation avec la spécialité NSI.</p>
-            </article>
-            <article class="item reveal reveal-delay-4">
-                <div class="item-header"><h3 class="item-title">Brevet des Collèges – Option Internationale</h3><time class="item-date">2016 – 2020</time></div>
-                <p class="item-place">Collège Daunou, Boulogne-sur-Mer</p>
-                <p class="item-desc">Section internationale britannique (niveau B2 TOEIC).</p>
-            </article>
-        </section>
-
-        <section id="experiences" aria-label="Expériences professionnelles">
-            <h2 class="section-title reveal">Expériences</h2>
-            <article class="item reveal reveal-delay-1">
-                <div class="item-header"><h3 class="item-title">Caissier / Emballage</h3><time class="item-date">2024 – Présent</time></div>
-                <p class="item-place">Super U – CDI</p>
-                <p class="item-desc">Accueil et encaissement des clients.</p>
-                <div class="item-tags"><span class="tag">Relation client</span><span class="tag">Rapidité</span><span class="tag">Rigueur</span></div>
-            </article>
-            <article class="item reveal reveal-delay-2">
-                <div class="item-header"><h3 class="item-title">Employé Libre-Service</h3><time class="item-date">Été 2024</time></div>
-                <p class="item-place">Super U – Noirmoutier-en-l'Île</p>
-                <p class="item-desc">Approvisionnement et organisation des rayons.</p>
-                <div class="item-tags"><span class="tag">Organisation</span><span class="tag">Autonomie</span></div>
-            </article>
-            <article class="item reveal reveal-delay-3">
-                <div class="item-header"><h3 class="item-title">Saunier</h3><time class="item-date">Étés 2022 & 2023</time></div>
-                <p class="item-place">Marais salants – Noirmoutier-en-l'Île</p>
-                <p class="item-desc">Entretien du marais salant et récolte du sel.</p>
-                <div class="item-tags"><span class="tag">Endurance</span><span class="tag">Rigueur</span></div>
-            </article>
-        </section>
-
-        <section id="realisations" aria-label="Projets et réalisations">
-            <h2 class="section-title reveal">Réalisations</h2>
-            <p class="reveal" style="color:var(--text-light);margin-bottom:3rem;line-height:1.8">Découvrez les projets que j'ai réalisés durant ma formation en BUT Informatique.</p>
-            <div class="projects-grid">
-                <article class="project reveal reveal-delay-1" onclick="openProjectModal(1)" tabindex="0" role="button">
-                    <span class="project-type">Développement Web</span>
-                    <h3 class="project-title">Portfolio Architecte</h3>
-                    <p class="project-year">2025</p>
-                    <p class="project-desc">Développement d'un site web portfolio moderne pour un architecte.</p>
-                    <div class="item-tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Tailwind</span></div>
-                    <span class="project-cta">Voir les détails</span>
-                </article>
-                <article class="project reveal reveal-delay-2" onclick="openProjectModal(2)" tabindex="0" role="button">
-                    <span class="project-type">Développement Jeu</span>
-                    <h3 class="project-title">Jeu Risk</h3>
-                    <p class="project-year">2025</p>
-                    <p class="project-desc">Jeu de stratégie complet exécutable sur le terminal.</p>
-                    <div class="item-tags"><span class="tag">Java</span><span class="tag">Terminal</span><span class="tag">OOP</span></div>
-                    <span class="project-cta">Voir les détails</span>
-                </article>
-                <article class="project reveal reveal-delay-1" onclick="openProjectModal(3)" tabindex="0" role="button">
-                    <span class="project-type">App Bureau</span>
-                    <h3 class="project-title">Séjours Linguistiques</h3>
-                    <p class="project-year">2025</p>
-                    <p class="project-desc">Application d'organisation de séjours avec interface graphique.</p>
-                    <div class="item-tags"><span class="tag">Java</span><span class="tag">IHM</span><span class="tag">Swing</span></div>
-                    <span class="project-cta">Voir les détails</span>
-                </article>
+    <main id="main">
+        <section class="hero" id="hero" aria-label="Présentation">
+            <div class="hero-top">
+                <span>Aliocha Deflou</span>
+                <span>Portfolio · 2026</span>
             </div>
-            <a href="projets.html" class="show-more-btn reveal"><span>Voir tous les projets</span><span class="arrow">→</span></a>
-        </section>
-
-        <section id="competences" aria-label="Compétences">
-            <h2 class="section-title reveal">Compétences</h2>
-            <p class="reveal" style="color:var(--text-light);margin-bottom:3rem;line-height:1.8">Développeur web et logiciel passionné, je maîtrise les technologies modernes du développement front-end et back-end.</p>
-            <div class="skills-container">
-                <div class="skills-group reveal reveal-delay-1"><p class="skills-label">Langages de programmation</p><p class="skills-list">Java, Python, C, HTML/CSS, SQL, TypeScript</p></div>
-                <div class="skills-group reveal reveal-delay-2"><p class="skills-label">Frameworks & Outils</p><p class="skills-list">React, Next.js, Node.js, Tailwind CSS, Git, Vite, Figma</p></div>
-                <div class="skills-group reveal reveal-delay-3"><p class="skills-label">Savoir-être</p><p class="skills-list">Rigueur, organisation, autonomie, travail en équipe</p></div>
-                <div class="skills-group reveal reveal-delay-4"><p class="skills-label">Langues</p><div class="lang-grid"><div class="lang-item"><span>Anglais</span><span class="lang-level">B2 (TOEIC)</span></div><div class="lang-item"><span>Espagnol</span><span class="lang-level">B1</span></div></div></div>
-                <div class="skills-group reveal reveal-delay-1" style="grid-column:span 2"><p class="skills-label">Certifications</p><p class="skills-list">Certification PIX · PSC1 (secourisme)</p></div>
+            <div class="hero-content">
+                <h1 class="hero-name">Aliocha<br>Deflou<span class="dot">.</span></h1>
+                <p class="hero-tagline">
+                    Je conçois des <em>applications web</em> fullstack — du backend Python à l'interface React.
+                    <em>À la recherche</em> d'une alternance pour septembre 2026.
+                </p>
+                <span class="status-pill"><span class="pulse"></span>Disponible · BUT3 + Master · Lille</span>
+            </div>
+            <div class="hero-bottom">
+                <span>BUT Informatique · IUT de Lille</span>
+                <span class="hero-scroll">Scroll</span>
             </div>
         </section>
+        <section class="about" id="about" aria-label="À propos">
+            <div class="about-inner">
+                <div class="about-portrait" data-reveal>
+                    <img src="assets/img/portrait.jpg" alt="Portrait d'Aliocha Deflou" loading="lazy" width="320" height="320">
+                </div>
+                <div class="about-text" data-reveal data-reveal-delay="100">
+                    <span class="about-label">À propos</span>
+                    <p class="about-bio">
+                        Étudiant en <em>BUT Informatique</em> à l'IUT de Lille, j'aime construire des choses qui marchent — du backend Python rigoureux jusqu'aux interfaces React polies. <em>Curieux</em>, <em>autonome</em> et <em>livreur</em>.
+                    </p>
+                    <div class="about-stats">
+                        <div>
+                            <div class="about-stat-num">BUT2</div>
+                            <div class="about-stat-label">IUT de Lille</div>
+                        </div>
+                        <div>
+                            <div class="about-stat-num">10+</div>
+                            <div class="about-stat-label">Projets livrés</div>
+                        </div>
+                        <div>
+                            <div class="about-stat-num">1</div>
+                            <div class="about-stat-label">Client réel</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="projects" id="projets" aria-label="Projets">
+            <header class="projects-header">
+                <h2>Projets <em>sélectionnés</em></h2>
+                <span class="projects-count">10 projets · 2023 — 2026</span>
+            </header>
 
-        <section id="contact" aria-label="Contact">
-            <h2 class="section-title reveal">Contact</h2>
-            <p class="reveal" style="color:var(--text-light);margin-bottom:3rem;line-height:1.8">Vous recherchez un développeur web en alternance à Lille ? N'hésitez pas à me contacter.</p>
-            <div class="contact-grid">
-                <div class="contact-item reveal reveal-delay-1"><p class="contact-label">Email</p><p class="contact-value"><a href="mailto:aliocha.deflou@gmail.com">aliocha.deflou@gmail.com</a></p></div>
-                <div class="contact-item reveal reveal-delay-2"><p class="contact-label">Portfolio</p><p class="contact-value"><a href="https://portfolio-aliocha.vercel.app/" target="_blank" rel="noopener">portfolio-aliocha.vercel.app</a></p></div>
-                <div class="contact-item reveal reveal-delay-3"><p class="contact-label">CV</p><p class="contact-value"><a href="CV_Aliocha_DEFLOU.pdf" download>Télécharger mon CV</a></p></div>
-                <div class="contact-item reveal reveal-delay-4"><p class="contact-label">LinkedIn</p><p class="contact-value"><a href="https://www.linkedin.com/in/aliocha-deflou-59606a265/" target="_blank" rel="noopener">LinkedIn</a></p></div>
+            <div class="featured-list">
+                <!-- Featured 1: Trading Bot -->
+                <article class="featured-card" data-reveal>
+                    <a href="projets/trading-bot.html" class="featured-image" aria-label="Voir l'étude de cas Trading Bot">
+                        <div class="tb-mockup">
+                            <div class="tb-header">
+                                <span class="tb-pair">BTC/<span class="accent">USDT</span></span>
+                                <div class="tb-controls">
+                                    <span>1H</span><span class="active">4H</span><span>1D</span>
+                                </div>
+                            </div>
+                            <div class="tb-chart">
+                                <svg viewBox="0 0 400 160" preserveAspectRatio="none">
+                                    <polyline fill="none" stroke="#d4a574" stroke-width="1.5" points="0,120 30,100 60,110 90,80 120,90 150,60 180,75 210,45 240,55 270,30 300,50 330,25 360,40 400,15"/>
+                                    <polyline fill="none" stroke="rgba(212,165,116,0.2)" stroke-width="1" points="0,140 30,135 60,138 90,125 120,130 150,115 180,120 210,108 240,112 270,98 300,105 330,92 360,100 400,88"/>
+                                </svg>
+                            </div>
+                            <div class="tb-footer">
+                                <div class="stat"><div class="num up">+12.4%</div><div class="lab">Backtest 30d</div></div>
+                                <div class="stat"><div class="num">SMA 20/50</div><div class="lab">Stratégie</div></div>
+                                <div class="stat"><div class="num up">63%</div><div class="lab">Win rate</div></div>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="featured-text">
+                        <div class="featured-meta">
+                            <span class="num">01</span>
+                            <span class="dot"></span>
+                            <span>2026 — En cours</span>
+                        </div>
+                        <h3 class="featured-title">Trading Bot Crypto</h3>
+                        <p class="featured-tagline">Webapp de paper trading algorithmique : choix d'une paire, paramétrage de stratégies (SMA, RSI, Bollinger), backtest sur historique et simulation live via WebSocket. Projet de fin de BUT2 documenté en ADR.</p>
+                        <div class="featured-stack">
+                            <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span>
+                        </div>
+                        <a href="projets/trading-bot.html" class="featured-cta">Lire l'étude de cas</a>
+                    </div>
+                </article>
+
+                <!-- Featured 2: Bug of Thrones -->
+                <article class="featured-card reverse" data-reveal>
+                    <a href="projets/bug-of-thrones.html" class="featured-image" aria-label="Voir l'étude de cas Bug of Thrones">
+                        <img src="assets/img/bug-of-thrones-gameplay.png" alt="Capture du jeu Bug of Thrones" loading="lazy">
+                    </a>
+                    <div class="featured-text">
+                        <div class="featured-meta">
+                            <span class="num">02</span>
+                            <span class="dot"></span>
+                            <span>2025 · Projet d'équipe</span>
+                        </div>
+                        <h3 class="featured-title">Bug of Thrones</h3>
+                        <p class="featured-tagline">Shoot'em up multijoueur temps réel à 2 joueurs. Architecture client/serveur avec serveur autoritaire à 60 FPS via Socket.IO, leaderboard SQLite et 30 tests automatisés.</p>
+                        <div class="featured-stack">
+                            <span class="tag">TypeScript</span><span class="tag">Socket.IO</span><span class="tag">Node.js</span><span class="tag">SQLite</span><span class="tag">Canvas</span><span class="tag">Docker</span>
+                        </div>
+                        <a href="projets/bug-of-thrones.html" class="featured-cta">Lire l'étude de cas</a>
+                    </div>
+                </article>
+
+                <!-- Featured 3: Cabinet de Réflexologie -->
+                <article class="featured-card" data-reveal>
+                    <a href="projets/cabinet-reflexologie.html" class="featured-image" aria-label="Voir l'étude de cas Cabinet de Réflexologie">
+                        <img src="assets/img/reflexologie-hero.png" alt="Site du Cabinet de Réflexologie de l'Audomarois" loading="lazy">
+                    </a>
+                    <div class="featured-text">
+                        <div class="featured-meta">
+                            <span class="num">03</span>
+                            <span class="dot"></span>
+                            <span>2025 · Client réel</span>
+                        </div>
+                        <h3 class="featured-title">Cabinet de Réflexologie</h3>
+                        <p class="featured-tagline">Site vitrine pour Caroline Saintenoy, réflexologue à Nort-Leulinghem. Direction artistique organique (palette sauge / lin / argile), SEO local et données structurées Schema.org.</p>
+                        <div class="featured-stack">
+                            <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">SEO</span><span class="tag">Schema.org</span>
+                        </div>
+                        <a href="projets/cabinet-reflexologie.html" class="featured-cta">Lire l'étude de cas</a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="projects-grid-wrap">
+                <span class="projects-grid-label">Autres projets</span>
+                <div class="projects-grid">
+
+                    <article class="project-mini" data-reveal>
+                        <a href="projets/labyrinthe-sae-3-3.html" class="project-mini-link-area">
+                            <div class="project-mini-meta"><span>2025</span><span>Projet d'équipe</span></div>
+                            <h3 class="project-mini-title">Labyrinthe SAÉ 3.3</h3>
+                            <p class="project-mini-tagline">Application JavaFX de génération et résolution de labyrinthes en équipe de 5 sur GitLab. Mode libre, mode progression, boutique d'articles, thèmes visuels.</p>
+                            <div class="project-mini-tags"><span class="tag">Java</span><span class="tag">JavaFX</span><span class="tag">Maven</span><span class="tag">MVC</span></div>
+                        </a>
+                        <div class="project-mini-actions">
+                            <a href="projets/labyrinthe-sae-3-3.html" class="project-mini-cta">Étude de cas</a>
+                            <a href="https://github.com/AlioDefl/labyrinthe-sae-3-3" target="_blank" rel="noopener" class="project-mini-ghlink" onclick="event.stopPropagation()">GitHub ↗</a>
+                        </div>
+                    </article>
+
+                    <article class="project-mini" data-reveal>
+                        <a href="projets/api-rest-ecodrop.html" class="project-mini-link-area">
+                            <div class="project-mini-meta"><span>2025</span><span>Backend / API</span></div>
+                            <h3 class="project-mini-title">API REST EcoDrop</h3>
+                            <p class="project-mini-tagline">API REST complète pour la collecte de déchets (batteries, textiles, électronique). 4 ressources, pattern DAO/DTO, vues SQL pour leaderboard, négociation JSON/XML.</p>
+                            <div class="project-mini-tags"><span class="tag">Java</span><span class="tag">Servlets</span><span class="tag">PostgreSQL</span><span class="tag">Jackson</span></div>
+                        </a>
+                        <div class="project-mini-actions">
+                            <a href="projets/api-rest-ecodrop.html" class="project-mini-cta">Étude de cas</a>
+                            <span class="project-mini-ghlink muted">Code sur demande</span>
+                        </div>
+                    </article>
+
+                    <article class="project-mini" data-reveal>
+                        <a href="projets/portfolio-architecte.html" class="project-mini-link-area">
+                            <div class="project-mini-meta"><span>2025</span><span>Web</span></div>
+                            <h3 class="project-mini-title">Portfolio Architecte</h3>
+                            <p class="project-mini-tagline">Site web portfolio moderne et responsive pour un architecte. Animations fluides, galerie de projets interactive, optimisation des images haute résolution.</p>
+                            <div class="project-mini-tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Tailwind</span><span class="tag">Vite</span></div>
+                        </a>
+                        <div class="project-mini-actions">
+                            <a href="projets/portfolio-architecte.html" class="project-mini-cta">Étude de cas</a>
+                            <span class="project-mini-ghlink muted">Code privé</span>
+                        </div>
+                    </article>
+
+                    <article class="project-mini" data-reveal>
+                        <a href="projets/jeu-risk.html" class="project-mini-link-area">
+                            <div class="project-mini-meta"><span>2025</span><span>Jeu</span></div>
+                            <h3 class="project-mini-title">Jeu Risk</h3>
+                            <p class="project-mini-tagline">Implémentation Java du jeu de stratégie Risk en terminal. Mode solo contre IA et multijoueur local, architecture orientée objet avec design patterns.</p>
+                            <div class="project-mini-tags"><span class="tag">Java</span><span class="tag">POO</span><span class="tag">Algorithmique</span></div>
+                        </a>
+                        <div class="project-mini-actions">
+                            <a href="projets/jeu-risk.html" class="project-mini-cta">Étude de cas</a>
+                            <span class="project-mini-ghlink muted">Code privé</span>
+                        </div>
+                    </article>
+
+                    <article class="project-mini" data-reveal>
+                        <a href="projets/sejours-linguistiques.html" class="project-mini-link-area">
+                            <div class="project-mini-meta"><span>2025</span><span>Application desktop</span></div>
+                            <h3 class="project-mini-title">Séjours Linguistiques</h3>
+                            <p class="project-mini-tagline">Application Java Swing de gestion de séjours linguistiques avec base de données locale. Gestion des participants, destinations et génération de documents.</p>
+                            <div class="project-mini-tags"><span class="tag">Java</span><span class="tag">Swing</span><span class="tag">JDBC</span></div>
+                        </a>
+                        <div class="project-mini-actions">
+                            <a href="projets/sejours-linguistiques.html" class="project-mini-cta">Étude de cas</a>
+                            <span class="project-mini-ghlink muted">Code privé</span>
+                        </div>
+                    </article>
+
+                    <article class="project-mini" data-reveal>
+                        <a href="projets/site-openai.html" class="project-mini-link-area">
+                            <div class="project-mini-meta"><span>2023</span><span>Intégration web</span></div>
+                            <h3 class="project-mini-title">Site OpenAI</h3>
+                            <p class="project-mini-tagline">Reproduction fidèle pixel-perfect du site officiel d'OpenAI en HTML/CSS pur. Exercice d'intégration avec responsive design et animations CSS complexes.</p>
+                            <div class="project-mini-tags"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">Flexbox</span></div>
+                        </a>
+                        <div class="project-mini-actions">
+                            <a href="projets/site-openai.html" class="project-mini-cta">Étude de cas</a>
+                            <span class="project-mini-ghlink muted">Code privé</span>
+                        </div>
+                    </article>
+
+                    <article class="project-mini" data-reveal>
+                        <a href="projets/mauscape.html" class="project-mini-link-area">
+                            <div class="project-mini-meta"><span>2023</span><span>Jeu</span></div>
+                            <h3 class="project-mini-title">Mauscape</h3>
+                            <p class="project-mini-tagline">Jeu d'aventure textuel jouable dans le terminal. Création d'un moteur de jeu avec gestion de scénarios à embranchements et plusieurs fins possibles.</p>
+                            <div class="project-mini-tags"><span class="tag">Java</span><span class="tag">Terminal</span><span class="tag">Game Design</span></div>
+                        </a>
+                        <div class="project-mini-actions">
+                            <a href="projets/mauscape.html" class="project-mini-cta">Étude de cas</a>
+                            <span class="project-mini-ghlink muted">Code privé</span>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+        <aside class="marquee" aria-label="Statistiques en bandeau">
+            <div class="marquee-track">
+                <span class="marquee-item">10+ projets</span>
+                <span class="marquee-item">12+ technologies</span>
+                <span class="marquee-item">3 ans de code</span>
+                <span class="marquee-item">1 client réel</span>
+                <span class="marquee-item">5 projets d'équipe</span>
+                <span class="marquee-item">BUT IUT Lille</span>
+                <span class="marquee-item" aria-hidden="true">10+ projets</span>
+                <span class="marquee-item" aria-hidden="true">12+ technologies</span>
+                <span class="marquee-item" aria-hidden="true">3 ans de code</span>
+                <span class="marquee-item" aria-hidden="true">1 client réel</span>
+                <span class="marquee-item" aria-hidden="true">5 projets d'équipe</span>
+                <span class="marquee-item" aria-hidden="true">BUT IUT Lille</span>
+            </div>
+        </aside>
+        <section class="stack" id="stack" aria-label="Compétences techniques">
+            <div class="stack-inner">
+                <h2 class="section-title">Ce que je <em class="serif-italic">fais</em>.</h2>
+                <div class="stack-grid">
+                    <div class="stack-col" data-reveal data-reveal-delay="0">
+                        <span class="stack-num">01.</span>
+                        <h3 class="stack-cat">Frontend</h3>
+                        <ul class="stack-list">
+                            <li>React</li><li>TypeScript</li><li>HTML5 / CSS3</li><li>Tailwind</li><li>Vite</li>
+                        </ul>
+                    </div>
+                    <div class="stack-col" data-reveal data-reveal-delay="100">
+                        <span class="stack-num">02.</span>
+                        <h3 class="stack-cat">Backend</h3>
+                        <ul class="stack-list">
+                            <li>Python</li><li>FastAPI</li><li>Java</li><li>Servlets</li><li>Node.js</li><li>Socket.IO</li>
+                        </ul>
+                    </div>
+                    <div class="stack-col" data-reveal data-reveal-delay="200">
+                        <span class="stack-num">03.</span>
+                        <h3 class="stack-cat">Data</h3>
+                        <ul class="stack-list">
+                            <li>PostgreSQL</li><li>SQLite</li><li>SQL</li><li>Jackson</li><li>Schema.org</li>
+                        </ul>
+                    </div>
+                    <div class="stack-col" data-reveal data-reveal-delay="300">
+                        <span class="stack-num">04.</span>
+                        <h3 class="stack-cat">Tooling</h3>
+                        <ul class="stack-list">
+                            <li>Git / GitHub</li><li>Docker</li><li>Maven</li><li>Vite</li><li>Bruno</li><li>IntelliJ / VS Code</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="why" id="why" aria-label="Pourquoi me recruter">
+            <div class="why-inner">
+                <h2 class="section-title">Pourquoi me <em class="serif-italic">recruter</em>.</h2>
+                <div class="why-grid">
+                    <div class="why-item" data-reveal data-reveal-delay="0">
+                        <span class="why-num">01</span>
+                        <h3 class="why-title">Polyvalence prouvée</h3>
+                        <p class="why-text">Web, jeux, backend, client réel — 10 projets livrés en 3 langages principaux (TypeScript, Python, Java). Je sais m'adapter à la stack qui sert le problème, pas l'inverse.</p>
+                    </div>
+                    <div class="why-item" data-reveal data-reveal-delay="100">
+                        <span class="why-num">02</span>
+                        <h3 class="why-title">Rodé au travail d'équipe</h3>
+                        <p class="why-text">5 développeurs sur Labyrinthe SAÉ 3.3, 3 sur Bug of Thrones. Gestion Git/GitLab avec rebase, résolution de merge conflicts, code reviews entre pairs.</p>
+                    </div>
+                    <div class="why-item" data-reveal data-reveal-delay="200">
+                        <span class="why-num">03</span>
+                        <h3 class="why-title">Documentation et rigueur</h3>
+                        <p class="why-text">ADRs sur Trading Bot, Javadoc complète sur Labyrinthe, READMEs détaillés, architecture serveur autoritaire sur Bug of Thrones avec 30 tests automatisés.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="education" id="formations" aria-label="Formations">
+            <div class="education-inner">
+                <h2 class="section-title">Formations.</h2>
+                <div class="timeline">
+
+                    <article class="timeline-item" data-reveal>
+                        <div class="timeline-date">2024 — 2027</div>
+                        <div class="timeline-content">
+                            <h3>BUT Informatique — Parcours Réalisation d'Applications</h3>
+                            <p class="school">IUT de Lille · Université de Lille</p>
+                            <p>Actuellement en deuxième année, parcours A axé sur la conception, le développement et la validation d'applications. Programmation orientée objet (Java), web (React/TypeScript), bases de données SQL, méthodologies Agile et SAÉs en équipe.</p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item" data-reveal>
+                        <div class="timeline-date">2023 — 2024</div>
+                        <div class="timeline-content">
+                            <h3>Prépa Ingénieur — Cycle Informatique &amp; Réseaux</h3>
+                            <p class="school">ISEN Lille</p>
+                            <p>Année préparatoire école d'ingénieurs : consolidation des bases en mathématiques, physique et informatique, découverte des fondamentaux des réseaux et des systèmes d'information.</p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item" data-reveal>
+                        <div class="timeline-date">2020 — 2023</div>
+                        <div class="timeline-content">
+                            <h3>Baccalauréat Général — Spécialités Maths &amp; NSI</h3>
+                            <p class="school">Lycée E. Branly · Boulogne-sur-Mer</p>
+                            <p>Découverte de la programmation via la spécialité NSI (Numérique et Sciences Informatiques) : Python, algorithmique, structures de données et fondamentaux de l'informatique.</p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item" data-reveal>
+                        <div class="timeline-date">Certifications</div>
+                        <div class="timeline-content">
+                            <h3>Certifications complémentaires</h3>
+                            <p class="school">PIX · PSC1 · TOEIC</p>
+                            <p>Certification PIX (compétences numériques), PSC1 (Prévention et Secours Civiques), TOEIC niveau B2 en anglais. Espagnol B1 en seconde langue.</p>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+        <section class="experience" id="experiences" aria-label="Expériences">
+            <div class="experience-inner">
+                <h2 class="section-title">Expériences.</h2>
+                <div class="experience-list">
+
+                    <article class="experience-item">
+                        <div class="experience-period">2024 — Présent</div>
+                        <div class="experience-content">
+                            <h3>Caissier / Emballage</h3>
+                            <p class="company">Super U · CDI</p>
+                            <p>Accueil et encaissement des clients. Poste tenu en parallèle des études : rythme rapide, fiabilité dans les transactions, gestion des situations clients tendues.</p>
+                            <div class="experience-tags">
+                                <span class="tag">Relation client</span><span class="tag">Rapidité</span><span class="tag">Rigueur</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="experience-item">
+                        <div class="experience-period">Été 2024</div>
+                        <div class="experience-content">
+                            <h3>Employé Libre-Service</h3>
+                            <p class="company">Super U · Noirmoutier-en-l'Île</p>
+                            <p>Approvisionnement et organisation des rayons en saison estivale. Travail en autonomie sur ouverture/fermeture, gestion des stocks et facing.</p>
+                            <div class="experience-tags">
+                                <span class="tag">Organisation</span><span class="tag">Autonomie</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="experience-item">
+                        <div class="experience-period">Étés 2022 &amp; 2023</div>
+                        <div class="experience-content">
+                            <h3>Saunier</h3>
+                            <p class="company">Marais salants · Noirmoutier-en-l'Île</p>
+                            <p>Entretien du marais salant et récolte du sel à l'ancienne. Travail physique en extérieur exigeant rigueur, endurance et respect des gestes traditionnels.</p>
+                            <div class="experience-tags">
+                                <span class="tag">Endurance</span><span class="tag">Rigueur</span>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+        <section class="contact" id="contact" aria-label="Contact">
+            <div class="contact-inner">
+                <h2 class="contact-title" data-reveal>On en <em>discute</em> ?</h2>
+                <p class="contact-text">Je suis disponible pour une alternance dès septembre 2026 à Lille (BUT3 + Master si proposé). Réponse garantie sous 24h sur l'un des canaux ci-dessous.</p>
+                <div class="contact-buttons" data-reveal data-reveal-delay="200">
+                    <a href="mailto:aliocha.deflou@gmail.com" class="contact-btn primary">Email →</a>
+                    <a href="https://www.linkedin.com/in/aliocha-deflou/" target="_blank" rel="noopener" class="contact-btn">LinkedIn ↗</a>
+                    <a href="https://github.com/AlioDefl" target="_blank" rel="noopener" class="contact-btn">GitHub ↗</a>
+                    <a href="CV_Aliocha_DEFLOU.pdf" download class="contact-btn">Télécharger CV ↓</a>
+                </div>
             </div>
         </section>
     </main>
-
-    <footer>
-        <p class="reveal">© 2026 Aliocha Deflou · Étudiant en BUT Informatique à l'IUT de Lille · <a href="formations.html" style="color:var(--text-light)">Formations</a> · <a href="projets.html" style="color:var(--text-light)">Projets</a></p>
-        <div class="footer-legal"><button onclick="openLegalModal()">Mentions légales & Confidentialité</button></div>
+    <footer class="footer" role="contentinfo">
+        <div class="footer-inner">
+            <span>© 2026 Aliocha Deflou · BUT Informatique IUT Lille</span>
+            <div class="footer-links">
+                <a href="https://github.com/AlioDefl/aliocha-deflou" target="_blank" rel="noopener">Code source ↗</a>
+                <a href="sitemap.xml">Sitemap</a>
+            </div>
+        </div>
     </footer>
-
-    <script>
-        var projects={1:{title:"Portfolio Architecte",type:"Développement Web",year:"2025",description:"Développement d'un site web portfolio moderne pour un architecte, mettant en valeur ses créations architecturales.",challenges:"Design responsive pour mettre en valeur les images architecturales, optimisation des performances pour les images haute résolution.",learnings:"Développement front-end moderne, optimisation d'images web, design responsive avancé.",impact:"Projet qui m'a permis d'explorer le domaine de l'architecture et de développer mes compétences en design web.",tech:["React","TypeScript","Tailwind","Vite"]},2:{title:"Jeu Risk",type:"Développement Jeu",year:"2025",description:"Jeu de stratégie complet exécutable sur le terminal.",challenges:"Gestion de la logique de jeu complexe, implémentation de l'IA pour les adversaires.",learnings:"Programmation orientée objet avancée, algorithmes de stratégie, gestion de la mémoire en Java.",impact:"Amélioration significative de la compréhension des structures de données.",tech:["Java","Terminal","OOP"]},3:{title:"Séjours Linguistiques",type:"Application Desktop",year:"2025",description:"Application d'organisation de séjours avec interface graphique complète.",challenges:"Conception d'une interface utilisateur intuitive avec Swing, gestion de base de données locale.",learnings:"Développement d'interfaces graphiques (GUI), gestion d'événements, persistance des données.",impact:"Création d'un outil fonctionnel facilitant la gestion administrative des séjours.",tech:["Java","Swing","IHM","JDBC"]}};
-        function openProjectModal(id){var p=projects[id];if(!p)return;document.getElementById('modal-type').textContent=p.type;document.getElementById('modal-title').textContent=p.title;document.getElementById('modal-year').textContent=p.year;document.getElementById('modal-desc').textContent=p.description;document.getElementById('modal-challenges').textContent=p.challenges;document.getElementById('modal-learnings').textContent=p.learnings;document.getElementById('modal-impact').textContent=p.impact;document.getElementById('modal-tech').innerHTML=p.tech.map(function(t){return'<span class="modal-tag">'+t+'</span>'}).join('');document.getElementById('projectModal').classList.add('active');document.body.classList.add('modal-open')}
-        function closeProjectModal(){document.getElementById('projectModal').classList.remove('active');document.body.classList.remove('modal-open')}
-        document.getElementById('projectModal').onclick=function(e){if(e.target.id==='projectModal')closeProjectModal()};
-        function openLegalModal(){document.getElementById('legalModal').classList.add('active');document.body.classList.add('modal-open')}
-        function closeLegalModal(e){if(!e||e.target===e.currentTarget){document.getElementById('legalModal').classList.remove('active');document.body.classList.remove('modal-open')}}
-        function toggleMenu(){var h=document.querySelector('.hamburger');var n=document.querySelector('.nav-links');h.classList.toggle('active');n.classList.toggle('active');h.setAttribute('aria-expanded',h.classList.contains('active'))}
-        document.onkeydown=function(e){if(e.key==='Escape'){closeProjectModal();closeLegalModal()}if(e.key==='Enter'&&e.target.classList.contains('project'))e.target.click()};
-        var title="Aliocha Deflou";var container=document.getElementById('title-text');title.split('').forEach(function(c,i){var s=document.createElement('span');s.className='char';s.textContent=c===' '?'\u00A0':c;s.style.animationDelay=(0.3+i*0.05)+'s';container.appendChild(s)});
-        var cursor=document.querySelector('.cursor');var mx=0,my=0,cx=0,cy=0;document.onmousemove=function(e){mx=e.clientX;my=e.clientY};(function anim(){cx+=(mx-cx)*0.15;cy+=(my-cy)*0.15;cursor.style.left=cx+'px';cursor.style.top=cy+'px';requestAnimationFrame(anim)})();
-        document.querySelectorAll('a,button,.project,.contact-item,.tag,.modal-close,.legal-modal-close,.show-more-btn').forEach(function(el){el.onmouseenter=function(){cursor.classList.add('hover')};el.onmouseleave=function(){cursor.classList.remove('hover')}});
-        var progressBar=document.querySelector('.progress-bar');var lastScroll=0;var nav=document.querySelector('nav');
-        window.onscroll=function(){var st=window.scrollY;var dh=document.documentElement.scrollHeight-window.innerHeight;progressBar.style.width=(st/dh*100)+'%';if(st>100)nav.classList.add('scrolled');else nav.classList.remove('scrolled');if(st>lastScroll&&st>300)nav.classList.add('hidden');else nav.classList.remove('hidden');lastScroll=st;var curr='';document.querySelectorAll('section').forEach(function(s){if(scrollY>=s.offsetTop-200)curr=s.id});document.querySelectorAll('.nav-links a').forEach(function(l){l.classList.remove('active');if(l.getAttribute('href')==='#'+curr)l.classList.add('active')});document.querySelectorAll('.reveal').forEach(function(el){if(el.getBoundingClientRect().top<window.innerHeight-150)el.classList.add('active')});document.querySelectorAll('.bg-shape').forEach(function(s,i){s.style.transform='translateY('+(scrollY*(i+1)*0.05)+'px)'})};
-        window.dispatchEvent(new Event('scroll'));
-    </script>
+    <script src="scripts/main.js"></script>
 </body>
 </html>
