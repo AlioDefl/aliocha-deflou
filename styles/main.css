@@ -378,6 +378,10 @@ a { color: inherit; text-decoration: none; }
 .featured-cta::after { content: '→'; transition: transform 0.3s var(--ease-out); }
 .featured-cta:hover { gap: 1rem; }
 .featured-cta:hover::after { transform: translateX(4px); }
+.featured-ctas { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; margin-top: 0.5rem; }
+.featured-ctas .featured-cta { margin-top: 0; }
+.featured-cta.secondary { color: var(--text-muted); }
+.featured-cta.secondary:hover { color: var(--accent); }
 
 @media (max-width: 900px) {
     .featured-card, .featured-card.reverse { grid-template-columns: 1fr; gap: 2rem; direction: ltr; }
